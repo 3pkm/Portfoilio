@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .bg { fill: #fcf9f0; }
+      .border { stroke: #1e2022; stroke-width: 2.5; fill: none; }
+      .ink { fill: #1e2022; }
+      .accent { fill: #d97736; }
+      .highlight { fill: #406185; }
+
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #1c1c17; }
+        .border { stroke: #fcf9f0; }
+        .ink { fill: #fcf9f0; }
+        .accent { fill: #ffb68c; }
+        .highlight { fill: #a9c9f2; }
+      }
+    </style>
+  </defs>
+  <!-- Sketchbook Page Shape -->
+  <rect x="6" y="6" width="52" height="52" rx="6" class="bg" />
+  <rect x="6" y="6" width="52" height="52" rx="6" class="border" />
+  
+  <!-- Spiral Wire Marks -->
+  <line x1="6" y1="14" x2="14" y2="14" class="border" stroke-width="2" />
+  <line x1="6" y1="24" x2="14" y2="24" class="border" stroke-width="2" />
+  <line x1="6" y1="34" x2="14" y2="34" class="border" stroke-width="2" />
+  <line x1="6" y1="44" x2="14" y2="44" class="border" stroke-width="2" />
+
+  <!-- Fountain Pen Nib / Stylus Doodle -->
+  <path d="M42 16 L48 22 L28 42 L22 42 L22 36 Z" class="ink" />
+  <polygon points="22,42 25,40 24,37 20,40" class="accent" />
+  <circle cx="34" cy="30" r="1.5" class="bg" />
+  <!-- Ink drop -->
+  <circle cx="18" cy="46" r="2.5" class="highlight" />
+</svg>

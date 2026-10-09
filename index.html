@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Prakhar Jaiswal | Full Stack &amp; AI-ML Engineer</title>
+  <meta name="description"
+    content="Personal portfolio of Prakhar Jaiswal — Full Stack and AI-ML Engineer specializing in Computer Vision, LLMs, Multimodal RAG pipelines, and intelligent web systems." />
+  <meta name="author" content="Prakhar Jaiswal" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="theme-color" content="#fcf9f0" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Prakhar Jaiswal | Full Stack &amp; AI-ML Engineer" />
+  <meta property="og:description"
+    content="Building intelligent web systems and scalable AI/ML pipelines. Passionate about distributed systems, interactive visualizers, and delightful full-stack craft." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/3pkm" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prakhar Jaiswal | Full Stack &amp; AI-ML Engineer" />
+  <meta name="twitter:description"
+    content="Building intelligent web systems and scalable AI/ML pipelines. Ex AI-ML Intern at Quantyc AI." />
+
+  <!-- Critical Fonts Preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Karla:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+
+    /* Numerical layout stability */
+    .metric-value, .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Keyboard only focus rings */
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid #406185;
+      outline-offset: 2px;
+    }
+    button:focus:not(:focus-visible), a:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    /* Micro press physics */
+    button, a.interactive-btn, .interactive-card {
+      transition: transform 75ms ease, box-shadow 75ms ease;
+    }
+    button:active, a.interactive-btn:active {
+      transform: scale(0.98);
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .wobbly-border {
+      border-bottom: 2px solid #1e2022;
+      border-image: repeating-linear-gradient(90deg, #1e2022 0px, #1e2022 18px, transparent 19px, #1e2022 20px) 2;
+    }
+
+    .diary-tape {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+      transform: rotate(-1.5deg);
+    }
+
+    /* Road car animation */
+    @keyframes driveCar {
+      0% { transform: translateX(-120px); }
+      100% { transform: translateX(1100px); }
+    }
+    .animate-car {
+      animation: driveCar 16s linear infinite;
+    }
+
+    /* Top progress bar */
+    #nprogress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: #d97736;
+      width: 0%;
+      z-index: 9999;
+      transition: width 200ms ease, opacity 200ms ease;
+    }
+  </style>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary": "#406185",
+            "on-primary-fixed-variant": "#454749",
+            "outline-variant": "#c5c6ca",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#06080a",
+            "on-tertiary": "#ffffff",
+            "surface": "#fcf9f0",
+            "on-background": "#1c1c17",
+            "surface-bright": "#fcf9f0",
+            "on-tertiary-fixed": "#321200",
+            "secondary-fixed": "#d1e4ff",
+            "surface-container-high": "#ebe8df",
+            "error": "#ba1a1a",
+            "surface-variant": "#e5e2da",
+            "tertiary": "#140400",
+            "on-error-container": "#93000a",
+            "tertiary-container": "#391600",
+            "secondary-fixed-dim": "#a9c9f2",
+            "on-primary-fixed": "#1a1c1e",
+            "on-secondary-container": "#3c5c80",
+            "tertiary-fixed": "#ffdbc9",
+            "on-tertiary-fixed-variant": "#753400",
+            "on-secondary-fixed": "#001d36",
+            "primary-container": "#1e2022",
+            "on-tertiary-container": "#cd6e2e",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#44474a",
+            "surface-container": "#f1eee5",
+            "inverse-surface": "#31312b",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#27496c",
+            "inverse-on-surface": "#f4f1e8",
+            "tertiary-fixed-dim": "#ffb68c",
+            "primary-fixed-dim": "#c6c6c9",
+            "surface-tint": "#5d5e61",
+            "outline": "#75777a",
+            "on-surface": "#1c1c17",
+            "on-primary-container": "#86878a",
+            "surface-container-highest": "#e5e2da",
+            "surface-container-low": "#f6f3ea",
+            "primary-fixed": "#e2e2e5",
+            "on-error": "#ffffff",
+            "surface-dim": "#dddad1",
+            "background": "#fcf9f0",
+            "secondary-container": "#b4d4fe",
+            "inverse-primary": "#c6c6c9"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "space-md": "1.25rem",
+            "margin": "3rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.375rem",
+            "space-sm": "0.75rem",
+            "space-lg": "2rem",
+            "space-xl": "3.5rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "body-lg": ["Karla", "sans-serif"],
+            "label-lg": ["Courier Prime", "monospace"],
+            "body-sm": ["Karla", "sans-serif"],
+            "annotation": ["Bricolage Grotesque", "sans-serif"],
+            "body-md": ["Karla", "sans-serif"],
+            "headline-md": ["Bricolage Grotesque", "sans-serif"],
+            "headline-lg": ["Bricolage Grotesque", "sans-serif"],
+            "display": ["Bricolage Grotesque", "sans-serif"],
+            "label-md": ["Courier Prime", "monospace"],
+            "headline-sm": ["Bricolage Grotesque", "sans-serif"]
+          },
+          fontSize: {
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "annotation": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+  <!-- Unblocking Top Progress Indicator -->
+  <div id="nprogress-bar"></div>
+
+  <!-- Offline Status Toast Notification -->
+  <div id="offline-banner" class="hidden fixed top-0 inset-x-0 z-[100] bg-error text-on-error py-1.5 px-4 text-center font-label-md text-label-md shadow-md">
+    <span>⚠️ You are currently offline. Changes will sync once your connection is restored.</span>
+  </div>
+
+  <!-- Command Palette Modal (Cmd + K / Ctrl + K) -->
+  <div id="cmd-palette-backdrop" class="hidden fixed inset-0 z-[99] bg-primary/40 backdrop-blur-sm flex items-start justify-center pt-24 px-4" onclick="toggleCommandPalette(false)">
+    <div class="w-full max-w-lg bg-surface-container-lowest rounded-xl border-2 border-primary-container shadow-[8px_8px_0px_0px_#1e2022] overflow-hidden" onclick="event.stopPropagation()">
+      <div class="flex items-center px-4 py-3 border-b border-surface-container">
+        <span class="material-symbols-outlined text-primary mr-2">search</span>
+        <input id="cmd-input" type="text" placeholder="Jump to section, projects, resume... (Type to filter)"
+          class="w-full bg-transparent border-none text-primary font-body-md focus:ring-0 focus:outline-none"
+          oninput="filterCommandPalette(this.value)" />
+        <span class="px-1.5 py-0.5 bg-surface-container rounded text-[11px] font-label-md text-on-surface-variant">ESC</span>
+      </div>
+      <div id="cmd-options-list" class="max-h-64 overflow-y-auto p-2 flex flex-col gap-1 font-label-md text-label-md">
+        <a href="#sketch-desk" onclick="toggleCommandPalette(false)" class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">folder_open</span> Projects &amp; Visualizers</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="projects.html" onclick="toggleCommandPalette(false)" class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">grid_view</span> Browse All Projects Catalog (6+)</span>
+          <span class="text-on-surface-variant text-[11px]">Page</span>
+        </a>
+        <a href="#internship-log" onclick="toggleCommandPalette(false)" class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">work</span> Experience Ledger &amp; Quantyc AI</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="#stack-billboard" onclick="toggleCommandPalette(false)" class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">code</span> Highway 101: Tech Stack</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="#field-notes" onclick="toggleCommandPalette(false)" class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">edit_note</span> Field Notes &amp; Engineering Scribbles</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="#contact-inkwell" onclick="toggleCommandPalette(false)" class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> Contact &amp; Inkwell</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf" onclick="toggleCommandPalette(false)" class="cmd-item flex items-center justify-between p-2 rounded bg-secondary-fixed/50 hover:bg-secondary-fixed text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">download</span> Download Resume (PDF)</span>
+          <span class="text-on-secondary-fixed text-[11px]">Document</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Swipeable Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-[95] flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md wobbly-border shadow-[0_2px_0px_0px_#1e2022]">
+    <div class="h-20 w-full px-margin-mobile lg:px-margin flex items-center justify-between">
+      <div class="flex items-center">
+        <a class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold flex items-center gap-space-xs" href="#">
+          <span class="material-symbols-outlined text-tertiary-container">draw</span>
+          <span>Prakhar.dev</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <nav class="hidden md:flex items-center gap-2">
+          <a class="flex items-center justify-center px-4 py-2 bg-primary-container text-on-primary font-bold shadow-[2px_2px_0px_0px_#1e2022] rounded text-label-lg font-label-lg transition-all duration-150 active:scale-[0.98]"
+            href="#sketch-desk">[★] Projects</a>
+          <a class="flex items-center justify-center px-4 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
+            href="projects.html">[↗] All Projects</a>
+          <a class="flex items-center justify-center px-4 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
+            href="#internship-log">[✦] Experience</a>
+          <a class="flex items-center justify-center px-4 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
+            href="#stack-billboard">[🚗] Tech Stack</a>
+          <a class="flex items-center justify-center px-4 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
+            href="#field-notes">[✎] Field Notes</a>
+          <a class="flex items-center justify-center px-4 py-2 font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
+            href="#contact-inkwell">[✉] Contact</a>
+        </nav>
+        <!-- Command palette shortcut button -->
+        <button onclick="toggleCommandPalette(true)" aria-label="Open Command Palette (Cmd + K)"
+          class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 bg-surface-container border border-primary-container font-label-md text-label-md text-on-surface-variant rounded shadow-[1px_1px_0px_0px_#1e2022] hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[16px]">terminal</span>
+          <span>Cmd K</span>
+        </button>
+        <div class="flex items-center">
+          <a class="px-4 py-2 bg-surface-container border border-primary-container font-label-lg text-label-lg rounded shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1.5 text-primary font-bold active:scale-[0.98]"
+            href="#contact-inkwell">
+            <span class="material-symbols-outlined text-[18px] text-tertiary-container">mail</span>
+            <span>Hire Me</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface min-h-[calc(100vh-20rem)]">
+    <div class="flex flex-col w-full">
+
+      <!-- HERO SECTION: The Active Drawing Desk -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl overflow-hidden">
+        <!-- Ambient floating pencil sketch marks (SVG Background elements) -->
+        <div class="absolute -top-12 -left-8 w-64 h-64 pointer-events-none opacity-20">
+          <svg class="w-full h-full text-primary" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 200 200">
+            <path d="M10,80 Q50,10 90,80 T170,80 T250,80" stroke-dasharray="4,6"></path>
+            <circle cx="90" cy="80" r="45" stroke-dasharray="6,4"></circle>
+            <path d="M30,140 C70,110 130,170 170,130"></path>
+          </svg>
+        </div>
+        <div class="absolute top-1/3 -right-12 w-80 h-80 pointer-events-none opacity-25">
+          <svg class="w-full h-full text-secondary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 240 240">
+            <path d="M20,40 C60,10 140,70 200,30"></path>
+            <ellipse cx="120" cy="120" rx="70" ry="40" stroke-dasharray="5,4" transform="rotate(-15 120 120)"></ellipse>
+            <path d="M40,180 Q100,220 180,170"></path>
+          </svg>
+        </div>
+
+        <div class="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
+          <!-- Animated Student / Engineer Badge -->
+          <div class="relative group cursor-pointer mb-2">
+            <div class="inline-flex items-center gap-space-xs px-space-md py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full font-label-md text-label-md font-bold shadow-[2px_2px_0px_0px_#1e2022] rotate-[-1deg] border border-primary-container">
+              <span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+              <span>B.Tech CSE (AI &amp; Data Science) • MIT-WPU Pune (CGPA 8.87) • AI-ML Intern Alum</span>
+            </div>
+            <span class="absolute -top-3 -right-6 px-space-xs py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded shadow-sm rotate-6">
+              fresh ink • 2025
+            </span>
+          </div>
+
+          <!-- Expressive Organic Headline with highlighter effects -->
+          <div class="relative max-w-4xl mt-space-sm mb-space-md">
+            <h1 class="font-display text-display text-primary tracking-tight leading-tight">
+              Building intelligent web systems and scalable
+              <span class="relative inline-block mx-1">
+                <span class="relative z-10 px-2">AI/ML pipelines.</span>
+                <!-- Mint highlighter stroke overlay -->
+                <span class="absolute inset-x-0 bottom-1.5 h-6 bg-secondary-fixed-dim/45 -rotate-1 rounded-sm -z-0"></span>
+              </span>
+              <span class="relative inline-block text-tertiary-container">
+                Delightful craft.
+                <!-- Hand-drawn wavy underline SVG -->
+                <svg class="absolute -bottom-3 left-0 w-full h-4 text-tertiary-container overflow-visible" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-width="3" viewBox="0 0 160 14">
+                  <path d="M3,8 Q20,1 40,8 T80,8 T120,8 T157,7"></path>
+                </svg>
+              </span>
+            </h1>
+          </div>
+
+          <!-- Hero Subtitle & Field Marginalia -->
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-space-xs mb-space-lg">
+            Hi, I'm <strong class="text-primary font-bold">Prakhar Jaiswal</strong>. Passionate about distributed systems, computer vision, multimodal RAG pipelines, and interactive visualizers. Formerly at <strong class="text-secondary font-bold">Quantyc AI</strong>.
+          </p>
+
+          <!-- Interactive Call to Action cluster with prominent CV download -->
+          <div class="flex flex-wrap items-center justify-center gap-space-md relative">
+            <!-- Sketched Arrow Callout to Main Action -->
+            <div class="hidden md:flex absolute -left-36 top-1/2 -translate-y-1/2 items-center gap-2 pointer-events-none animate-[bounce_2.4s_ease-in-out_infinite]">
+              <span class="font-annotation text-annotation text-on-tertiary-container rotate-[-8deg] font-bold">grab credentials!</span>
+              <svg class="w-12 h-8 text-on-tertiary-container" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 60 40">
+                <path d="M4,15 C20,10 38,18 52,24"></path>
+                <path d="M44,14 L53,24 L42,30"></path>
+              </svg>
+            </div>
+
+            <!-- Primary Action 1: Resume / CV Download -->
+            <a class="interactive-btn relative group inline-flex items-center gap-2 px-space-lg py-space-sm bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg shadow-[4px_4px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_#1e2022] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150"
+              download="Prakhar_Jaiswal_Resume.pdf" href="Prakhar_Jaiswal_Resume.pdf" onclick="showToast('Resume download started! 📄')">
+              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed">download</span>
+              <span>Download Resume • PDF</span>
+            </a>
+
+            <!-- Primary Action 2: Explore Projects -->
+            <a class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-sm bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+              href="#sketch-desk">
+              <span class="material-symbols-outlined text-[18px] text-secondary-fixed">folder_open</span>
+              <span>Flagship Projects (4)</span>
+            </a>
+
+            <!-- Secondary Action: GitHub Profile -->
+            <a class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-primary font-label-lg text-label-lg rounded-lg shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high transition-colors"
+              href="https://github.com/3pkm" rel="noopener noreferrer" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">code</span>
+              <span>GitHub (3pkm) ↗</span>
+            </a>
+
+            <!-- Secondary Action: LinkedIn -->
+            <a class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-primary font-label-lg text-label-lg rounded-lg shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high transition-colors"
+              href="https://www.linkedin.com/in/prakhar-jaiswal/" rel="noopener noreferrer" target="_blank">
+              <span class="material-symbols-outlined text-[18px]">badge</span>
+              <span>LinkedIn ↗</span>
+            </a>
+          </div>
+
+          <!-- Floating Polaroid / Sticky Note Desk Preview (Profile Data) -->
+          <div class="mt-space-xl w-full grid grid-cols-1 md:grid-cols-3 gap-space-lg items-end text-left pt-space-md">
+            <!-- Post-It Memo 1: Academic Profile -->
+            <div class="relative p-space-md bg-surface-container-lowest rounded shadow-[4px_4px_0px_0px_#1e2022] -rotate-2 hover:rotate-0 hover:-translate-y-2 transition-all duration-200">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-tertiary-fixed/80 diary-tape"></div>
+              <div class="flex items-center justify-between mb-space-xs">
+                <span class="font-label-md text-label-md text-on-tertiary-container font-bold">[NOTE 01 • ACADEMICS]</span>
+                <span class="font-label-md text-label-md text-outline tabular-nums">CGPA: 8.87 / 10</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface">"B.Tech CSE (AI &amp; Data Science) @ MIT-WPU, Pune • Expected 2028 • Diploma in CSE (AI &amp; DS) 2022–2025."</p>
+              <div class="mt-space-sm flex items-center gap-1 text-on-surface-variant font-annotation text-annotation">
+                <span class="material-symbols-outlined text-[16px]">school</span>
+                <span>Computer Vision, NLP, Multimodal RAG, Distributed Systems</span>
+              </div>
+            </div>
+
+            <!-- Center Stamp Memo 2: Internship Shipped -->
+            <div class="relative p-space-md bg-secondary-fixed text-on-secondary-fixed rounded shadow-[4px_4px_0px_0px_#1e2022] rotate-1 hover:rotate-0 hover:-translate-y-2 transition-all duration-200">
+              <div class="absolute -top-3 right-6 w-16 h-5 bg-surface-variant/80 diary-tape"></div>
+              <div class="flex items-center gap-2 mb-space-xs">
+                <span class="material-symbols-outlined text-[20px]">verified</span>
+                <span class="font-headline-sm text-headline-sm">Quantyc AI Intern</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-secondary-fixed-variant">Shipped enterprise document extraction &amp; Claude 3.7 Sonnet pipelines on AWS/Azure, cutting LLM token costs by <strong class="tabular-nums">50%</strong> via Anthropic Batch API.</p>
+            </div>
+
+            <!-- Post-It Memo 3: Core Stats -->
+            <div class="relative p-space-md bg-surface-container-low rounded shadow-[4px_4px_0px_0px_#1e2022] rotate-2 hover:rotate-0 hover:-translate-y-2 transition-all duration-200">
+              <div class="absolute -top-3 left-6 w-16 h-5 bg-tertiary-fixed-dim/70 diary-tape"></div>
+              <div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-space-xs font-bold">
+                [NOTE 03 • METRICS]
+              </div>
+              <div class="grid grid-cols-3 gap-space-xs font-label-lg text-label-lg text-primary">
+                <div>
+                  <span class="font-headline-md text-headline-md block tabular-nums">1</span>
+                  <span class="font-label-md text-label-md text-on-surface-variant">AI-ML Intern</span>
+                </div>
+                <div>
+                  <span class="font-headline-md text-headline-md block tabular-nums">8+</span>
+                  <span class="font-label-md text-label-md text-on-surface-variant">AI &amp; Web Builds</span>
+                </div>
+                <div>
+                  <span class="font-headline-md text-headline-md block tabular-nums">50%</span>
+                  <span class="font-label-md text-label-md text-on-surface-variant">Cost Cut</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wavy Hand-Drawn Section Separator -->
+      <div class="w-full my-space-md px-margin-mobile lg:px-margin overflow-hidden pointer-events-none opacity-80">
+        <svg class="w-full h-6 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 1200 24">
+          <path d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12"></path>
+        </svg>
+      </div>
+
+      <!-- SECTION 2: ANIMATED CAR & TECH STACK BILLBOARD (HIGHWAY 101) -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="stack-billboard">
+        <div class="max-w-6xl mx-auto">
+          <!-- Section Header with margin commentary -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md">
+            <div>
+              <div class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded shadow-[2px_2px_0px_0px_#1e2022] mb-space-xs">
+                <span class="material-symbols-outlined text-[14px]">directions_car</span>
+                <span>THE PRODUCTION COMMUTE • ROUTE 101</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Highway 101: From Neural Research to Production Code</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-xs">
+                Driving every day from PyTorch tensor models and Computer Vision segmentation to cloud microservices, asynchronous FastAPI backends, and full-stack interfaces.
+              </p>
+            </div>
+            <!-- Sketched doodle arrow pointing to buggy -->
+            <div class="flex items-center gap-2 bg-surface-container-high px-space-sm py-1 rounded border border-primary-container shadow-[2px_2px_0px_0px_#1e2022]">
+              <span class="font-annotation text-annotation text-on-tertiary-container font-bold">Watch Prakhar's little AI buggy cruise along!</span>
+              <span class="material-symbols-outlined text-secondary text-[20px]">east</span>
+            </div>
+          </div>
+
+          <!-- Animated Highway Tech Stack SVG Embed -->
+          <div class="relative w-full h-52 rounded-2xl overflow-hidden bg-[#f6f3ea] border-2 border-primary-container shadow-[4px_4px_0px_0px_#1e2022]">
+            <svg class="w-full h-full" viewBox="0 0 1000 200" preserveAspectRatio="none">
+              <!-- Distant hills & clouds -->
+              <path d="M0,130 Q120,90 260,130 T600,120 T1000,135 L1000,200 L0,200 Z" fill="#ebe8df" />
+              <path d="M0,145 Q200,120 450,145 T900,140 T1000,150 L1000,200 L0,200 Z" fill="#dddad1" />
+              
+              <!-- Road -->
+              <rect x="0" y="155" width="1000" height="45" fill="#1e2022" />
+              <!-- Dashed yellow center line -->
+              <line x1="0" y1="177" x2="1000" y2="177" stroke="#fde047" stroke-width="3" stroke-dasharray="25, 20" />
+
+              <!-- Billboards along the highway -->
+              <!-- Billboard 1: PyTorch & Python -->
+              <g transform="translate(110, 50)">
+                <line x1="20" y1="65" x2="20" y2="110" stroke="#1e2022" stroke-width="3" />
+                <line x1="90" y1="65" x2="90" y2="110" stroke="#1e2022" stroke-width="3" />
+                <rect x="0" y="10" width="110" height="55" rx="3" fill="#ffffff" stroke="#1e2022" stroke-width="2.5" />
+                <text x="55" y="32" font-family="Bricolage Grotesque" font-weight="bold" font-size="12" fill="#ba1a1a" text-anchor="middle">🔥 PyTorch</text>
+                <text x="55" y="50" font-family="Courier Prime" font-size="10" fill="#1e2022" text-anchor="middle">Python 3.11</text>
+              </g>
+
+              <!-- Billboard 2: Claude 3.7 & Azure AI -->
+              <g transform="translate(340, 40)">
+                <line x1="25" y1="70" x2="25" y2="120" stroke="#1e2022" stroke-width="3" />
+                <line x1="105" y1="70" x2="105" y2="120" stroke="#1e2022" stroke-width="3" />
+                <rect x="0" y="10" width="130" height="60" rx="3" fill="#ffffff" stroke="#1e2022" stroke-width="2.5" />
+                <text x="65" y="32" font-family="Bricolage Grotesque" font-weight="bold" font-size="12" fill="#d97736" text-anchor="middle">🧠 Claude 3.7</text>
+                <text x="65" y="48" font-family="Courier Prime" font-size="10" fill="#406185" text-anchor="middle">Azure AI Foundry</text>
+                <text x="65" y="62" font-family="Courier Prime" font-size="9" fill="#1e2022" text-anchor="middle">50% Token Cut</text>
+              </g>
+
+              <!-- Billboard 3: Computer Vision & YOLO -->
+              <g transform="translate(600, 48)">
+                <line x1="20" y1="65" x2="20" y2="115" stroke="#1e2022" stroke-width="3" />
+                <line x1="95" y1="65" x2="95" y2="115" stroke="#1e2022" stroke-width="3" />
+                <rect x="0" y="10" width="115" height="55" rx="3" fill="#ffffff" stroke="#1e2022" stroke-width="2.5" />
+                <text x="57" y="32" font-family="Bricolage Grotesque" font-weight="bold" font-size="12" fill="#406185" text-anchor="middle">👁️ YOLOv8-Seg</text>
+                <text x="57" y="50" font-family="Courier Prime" font-size="10" fill="#1e2022" text-anchor="middle">OpenCV • ResNet</text>
+              </g>
+
+              <!-- Billboard 4: Full-Stack & FastAPI -->
+              <g transform="translate(830, 42)">
+                <line x1="20" y1="65" x2="20" y2="120" stroke="#1e2022" stroke-width="3" />
+                <line x1="90" y1="65" x2="90" y2="120" stroke="#1e2022" stroke-width="3" />
+                <rect x="0" y="10" width="110" height="55" rx="3" fill="#ffffff" stroke="#1e2022" stroke-width="2.5" />
+                <text x="55" y="32" font-family="Bricolage Grotesque" font-weight="bold" font-size="12" fill="#140400" text-anchor="middle">⚡ FastAPI</text>
+                <text x="55" y="50" font-family="Courier Prime" font-size="10" fill="#406185" text-anchor="middle">React • Docker</text>
+              </g>
+
+              <!-- Animated Vintage Buggy -->
+              <g class="animate-car">
+                <!-- Car Body -->
+                <path d="M0,172 L18,172 L26,160 L54,160 L64,172 L82,172 L82,178 L0,178 Z" fill="#d97736" stroke="#1e2022" stroke-width="2" />
+                <!-- Car Cabin / Roof -->
+                <path d="M26,160 L32,150 L50,150 L56,160 Z" fill="#ffdbc9" stroke="#1e2022" stroke-width="1.8" />
+                <!-- Windows -->
+                <polygon points="33,159 36,152 48,152 50,159" fill="#d1e4ff" stroke="#1e2022" stroke-width="1" />
+                <!-- Headlight beam -->
+                <polygon points="82,174 125,166 125,182" fill="#fde047" opacity="0.35" />
+                <!-- Wheels -->
+                <circle cx="20" cy="178" r="6" fill="#1e2022" />
+                <circle cx="20" cy="178" r="2.5" fill="#fcf9f0" />
+                <circle cx="66" cy="178" r="6" fill="#1e2022" />
+                <circle cx="66" cy="178" r="2.5" fill="#fcf9f0" />
+                <!-- Antenna & pennant -->
+                <line x1="16" y1="160" x2="16" y2="144" stroke="#1e2022" stroke-width="1.5" />
+                <polygon points="16,144 24,147 16,150" fill="#ba1a1a" />
+              </g>
+            </svg>
+          </div>
+
+          <!-- Interactive Breakdown / Category Filter Cards below billboard -->
+          <div class="mt-space-lg grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-sm">
+            <div class="p-space-sm bg-surface-container-lowest rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] hover:-translate-y-1 transition-transform">
+              <div class="font-label-md text-label-md text-on-secondary-container font-bold mb-1">01 / LANGUAGES</div>
+              <div class="font-headline-sm text-[16px] text-primary font-bold">Python, JavaScript, HTML5, CSS3, SQL</div>
+              <span class="text-on-surface-variant text-[12px] block mt-1">Core Logic &amp; Queries</span>
+            </div>
+
+            <div class="p-space-sm bg-surface-container-lowest rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] hover:-translate-y-1 transition-transform">
+              <div class="font-label-md text-label-md text-on-tertiary-container font-bold mb-1">02 / AI, ML &amp; RAG</div>
+              <div class="font-headline-sm text-[16px] text-primary font-bold">PyTorch, Scikit-learn, LangChain, Vector DBs</div>
+              <span class="text-on-surface-variant text-[12px] block mt-1">Hybrid Search &amp; Embeddings</span>
+            </div>
+
+            <div class="p-space-sm bg-surface-container-lowest rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] hover:-translate-y-1 transition-transform">
+              <div class="font-label-md text-label-md text-secondary font-bold mb-1">03 / CLOUD &amp; LLMS</div>
+              <div class="font-headline-sm text-[16px] text-primary font-bold">Azure AI Foundry, Amazon Bedrock, Claude 3.7</div>
+              <span class="text-on-surface-variant text-[12px] block mt-1">GPT-4o, Anthropic Batch API</span>
+            </div>
+
+            <div class="p-space-sm bg-surface-container-lowest rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] hover:-translate-y-1 transition-transform">
+              <div class="font-label-md text-label-md text-on-tertiary-fixed-variant font-bold mb-1">04 / CV &amp; NLP</div>
+              <div class="font-headline-sm text-[16px] text-primary font-bold">OpenCV, YOLOv8/11-Seg, Presidio, spaCy</div>
+              <span class="text-on-surface-variant text-[12px] block mt-1">Azure Doc Intelligence &amp; Redaction</span>
+            </div>
+
+            <div class="p-space-sm bg-surface-container-lowest rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] hover:-translate-y-1 transition-transform">
+              <div class="font-label-md text-label-md text-primary font-bold mb-1">05 / WEB &amp; PLATFORMS</div>
+              <div class="font-headline-sm text-[16px] text-primary font-bold">React, FastAPI, Tailwind, Docker, Git</div>
+              <span class="text-on-surface-variant text-[12px] block mt-1">VS Code, Hugging Face, Colab</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wavy Hand-Drawn Section Separator -->
+      <div class="w-full my-space-md px-margin-mobile lg:px-margin overflow-hidden pointer-events-none opacity-80">
+        <svg class="w-full h-6 text-primary" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewBox="0 0 1200 24">
+          <path d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12"></path>
+        </svg>
+      </div>
+
+      <!-- SECTION 3: COMPREHENSIVE AI-ML & FULL STACK PROJECTS (THE CREATIVE WORKBENCH) -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="sketch-desk">
+        <div class="max-w-6xl mx-auto">
+          <!-- Section Header with hand-lettered stamp vibe -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+            <div>
+              <div class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded shadow-[2px_2px_0px_0px_#1e2022] mb-space-xs">
+                <span class="material-symbols-outlined text-[14px]">palette</span>
+                <span>ENGINEERING WORKBENCH • 2024 - 2025</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">The Flagship AI &amp; Software Builds</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-xs">
+                State-of-the-art non-invasive medical diagnostic vision, enterprise multimodal RAG search, automated visual defect detection, and intelligent document extraction.
+              </p>
+            </div>
+            <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary"></span>
+              <span>Explore live demos, repos &amp; architectural writeups</span>
+            </div>
+          </div>
+
+          <!-- 4-Card 2x2 Grid of Tactile Physical CS Project Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-space-xl items-start">
+
+            <!-- Project 1: Anemia Detection using Eye Conjunctiva, Palms and Nail Beds -->
+            <div class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] -rotate-1 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-secondary-fixed/90 diary-tape"></div>
+              <div class="relative w-full h-56 rounded bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-space-sm border border-outline-variant">
+                <!-- Medical vision conceptual graphic -->
+                <div class="w-full h-full bg-[#f8f5ed] rounded flex flex-col items-center justify-center p-4 text-center">
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded font-label-md text-label-md font-bold">Conjunctiva</span>
+                    <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded font-label-md text-label-md font-bold">Palms</span>
+                    <span class="px-2.5 py-1 bg-surface-container-highest text-primary rounded font-label-md text-label-md font-bold">Nail Beds</span>
+                  </div>
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">Quad Independent Pipeline</span>
+                  <span class="font-label-md text-label-md text-on-tertiary-container mt-1 font-bold">ResNet50 + EfficientNet-B0 Ensembles</span>
+                </div>
+                <div class="absolute top-2 right-2 px-space-xs py-0.5 bg-primary text-on-primary font-label-md text-label-md rounded shadow-sm">
+                  ACTIVE RESEARCH
+                </div>
+                <div class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded shadow-sm">
+                  FastAPI • PyTorch • ResNet50 • EfficientNet-B0
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+                <span>PROJECT 01 / COMPUTER VISION &amp; HEALTHCARE</span>
+                <span class="text-tertiary-container font-bold">NON-INVASIVE DIAGNOSTICS</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                Anemia Detection via Conjunctiva, Palms &amp; Nail Beds
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+                Iron deficiency is a critical global health concern requiring invasive, costly blood draws. Developed a state-of-the-art quad independent processing pipeline architecture that detects anemia non-invasively from photos and delivers dietary &amp; nutritional recommendations.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">PyTorch</span>
+                <span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">FastAPI</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">EfficientNet-B0</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">ResNet50</span>
+              </div>
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+                <span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Demo &amp; Code: Coming Soon</span>
+                  <span class="material-symbols-outlined text-[16px]">schedule</span>
+                </span>
+                <div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">biotech</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: Enterprise Multimodal RAG Pipeline -->
+            <div class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] rotate-1 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+              <div class="absolute -top-3 right-8 w-24 h-6 bg-tertiary-fixed/90 diary-tape"></div>
+              <div class="relative w-full h-56 rounded bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-space-sm border border-outline-variant">
+                <div class="w-full h-full bg-[#f4f1e8] rounded flex flex-col items-center justify-center p-4 text-center">
+                  <div class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-2 shadow-[2px_2px_0px_0px_#1e2022]">
+                    <span class="material-symbols-outlined text-[24px]">hub</span>
+                  </div>
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">Multimodal Ingestion Engine</span>
+                  <span class="font-label-md text-label-md text-secondary mt-1 font-bold">Hybrid Search • Semantic Chunking</span>
+                </div>
+                <div class="absolute top-2 left-2 px-space-xs py-0.5 bg-tertiary-container text-on-tertiary-container font-label-md text-label-md rounded font-bold">
+                  IN ACTIVE DEVELOPMENT
+                </div>
+                <div class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded shadow-sm">
+                  LangChain • Vector DBs • Hybrid Search
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+                <span>PROJECT 02 / LLMS &amp; RETRIEVAL</span>
+                <span>OPEN ARCHITECTURE</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                Enterprise Multimodal RAG Pipeline
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+                Architected a real-time ingestion engine featuring structural parsing, semantic chunking, and multimodal embedding indexing. Implemented hybrid search combining dense vector similarity with sparse metadata filtering, assembly-mapping multi-turn context to open-source LLMs.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">LangChain</span>
+                <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded">Vector DBs</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">FastAPI</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Python</span>
+              </div>
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+                <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer"
+                  class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>View GitHub Repository</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+                </a>
+                <div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">terminal</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: Visual Quality-Inspection Agent for Defect Detection -->
+            <div class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] -rotate-0.8 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+              <div class="absolute -top-3 left-8 w-24 h-6 bg-secondary-fixed-dim/90 diary-tape"></div>
+              <div class="relative w-full h-56 rounded bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-space-sm border border-outline-variant">
+                <div class="w-full h-full bg-[#f1eee5] rounded flex flex-col items-center justify-center p-4 text-center">
+                  <div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center mb-2 shadow-[2px_2px_0px_0px_#1e2022]">
+                    <span class="material-symbols-outlined text-[24px] text-tertiary-fixed">center_focus_strong</span>
+                  </div>
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">YOLOv8-Seg Instance Inspection</span>
+                  <span class="font-label-md text-label-md text-on-surface-variant mt-1">Defect Detection • Real-Time FPS</span>
+                </div>
+                <div class="absolute top-2 right-2 px-space-xs py-0.5 bg-primary text-on-primary font-label-md text-label-md rounded shadow-sm">
+                  COMPUTER VISION
+                </div>
+                <div class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded shadow-sm">
+                  YOLOv8-Seg • OpenCV • Synthetic Data
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+                <span>PROJECT 03 / INDUSTRIAL AUTOMATION</span>
+                <span>SEGMENTATION</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                Visual Quality-Inspection Agent for Defect Detection
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+                Developed an end-to-end computer vision pipeline using YOLOv8-Seg to inspect assembly line video frames for surface paint defects, dents, and missing fasteners. Engineered synthetic data pipelines to augment training images with simulated lighting variations and occlusions.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">YOLOv8-Seg</span>
+                <span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">OpenCV</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Synthetic Data</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Python</span>
+              </div>
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+                <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer"
+                  class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Explore Vision Pipeline</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+                </a>
+                <div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">visibility</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4: Financial Document Extraction & PII Redactor -->
+            <div class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] rotate-1.5 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+              <div class="absolute -top-3 right-10 w-26 h-6 bg-tertiary-fixed-dim/90 diary-tape"></div>
+              <div class="relative w-full h-56 rounded bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-space-sm border border-outline-variant">
+                <div class="w-full h-full bg-[#f8f6ed] rounded flex flex-col items-center justify-center p-4 border border-outline-variant text-center">
+                  <div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center mb-2 shadow-[2px_2px_0px_0px_#1e2022]">
+                    <span class="material-symbols-outlined text-[24px] text-tertiary-fixed">document_scanner</span>
+                  </div>
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">Document AI &amp; Redaction</span>
+                  <span class="font-label-md text-label-md text-on-tertiary-container mt-1 font-bold">Presidio • spaCy • Claude 3.7</span>
+                </div>
+                <div class="absolute top-2 left-2 px-space-xs py-0.5 bg-secondary text-on-secondary font-label-md text-label-md rounded font-bold">
+                  QUANTYC AI SHIPMENT
+                </div>
+                <div class="absolute bottom-2 right-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded shadow-sm">
+                  Azure AI • Claude 3.7 • Presidio
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+                <span>PROJECT 04 / DOCUMENT AI &amp; PRIVACY</span>
+                <span class="text-secondary font-bold">PRODUCTION SHIPMENT</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                Financial Document Intelligence &amp; PII Redactor
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+                Engineered high-accuracy extraction pipelines for complex financial records using Azure Document Intelligence and Claude 3.7 Sonnet on Amazon Bedrock. Integrated automated PII redaction with Microsoft Presidio and spaCy NLP to blur/encrypt sensitive fields across documents.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Claude 3.7</span>
+                <span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">Azure AI</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Presidio</span>
+                <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">spaCy</span>
+              </div>
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+                <a href="#internship-log" class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Read Quantyc Experience Log</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+                </a>
+                <div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">article</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- View More Projects CTA Button (Links to separate project page) -->
+          <div class="mt-space-xl flex flex-col items-center justify-center text-center">
+            <div class="p-1 rounded-xl border-2 border-primary-container bg-surface-container shadow-[4px_4px_0px_0px_#1e2022] hover:shadow-[2px_2px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+              <a href="projects.html"
+                class="interactive-btn inline-flex items-center gap-3 px-8 py-4 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-tertiary-fixed text-[24px]">grid_view</span>
+                <span>View More Projects Catalog (All Builds)</span>
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+              </a>
+            </div>
+            <span class="mt-2 text-on-surface-variant font-annotation text-annotation">
+              Explore computer vision, deep learning models, RAG setups, and full-stack experiments on the dedicated project board →
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 4: DEDICATED SDE & AI-ML INTERNSHIP LOG / EXPERIENCE SECTION (INTERACTIVE SLIDER) -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="internship-log">
+        <div class="max-w-5xl mx-auto">
+          <div class="relative bg-surface-container-low rounded-xl p-space-lg shadow-[6px_6px_0px_0px_#1e2022] border-2 border-primary-container">
+            <!-- Notebook ring punches -->
+            <div class="flex items-center justify-around -mt-10 mb-6 px-space-md">
+              <div class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+              <div class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+              <div class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+              <div class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+              <div class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+            </div>
+
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+              <div>
+                <span class="font-label-md text-label-md text-on-tertiary-container uppercase tracking-wider font-bold" id="milestone-ledger-tag">
+                  [EXPERIENCE LEDGER • MILESTONE 01 / 03]
+                </span>
+                <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Experience &amp; Leadership Milestones</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="p-space-xs bg-surface-container rounded shadow-[2px_2px_0px_0px_#1e2022] font-label-md text-label-md text-on-surface-variant" id="milestone-status-badge">
+                  Timeline: Jan 2025 – June 2025 • Remote, Indonesia
+                </div>
+                <!-- Navigation Controls -->
+                <div class="flex items-center gap-1.5 ml-2">
+                  <button aria-label="Previous Milestone"
+                    class="w-8 h-8 rounded bg-surface-container-lowest border border-primary-container flex items-center justify-center text-primary shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+                    onclick="prevMilestone()">
+                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                  </button>
+                  <button aria-label="Next Milestone"
+                    class="w-8 h-8 rounded bg-surface-container-lowest border border-primary-container flex items-center justify-center text-primary shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high active:translate-x-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+                    onclick="nextMilestone()">
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="relative overflow-hidden">
+              <div class="transition-transform duration-500 ease-in-out flex w-[300%]" id="milestones-track">
+
+                <!-- SLIDE 1: Quantyc AI -->
+                <div class="w-1/3 shrink-0 pr-0">
+                  <div class="bg-surface-container-lowest p-space-lg rounded-lg border border-primary-container shadow-[3px_3px_0px_0px_#1e2022] relative min-h-[380px] flex flex-col justify-between">
+                    <div>
+                      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-surface-container pb-space-sm mb-space-md">
+                        <div>
+                          <div class="font-label-md text-[11px] font-bold text-on-tertiary-container uppercase tracking-widest mb-0.5">
+                            MILESTONE 01 • QUANTYC AI
+                          </div>
+                          <h3 class="font-headline-md text-headline-md text-primary">AI / Machine Learning Engineering Intern</h3>
+                          <div class="font-label-lg text-label-lg text-secondary font-bold">Document AI, LLM Evaluations &amp; PII Redaction</div>
+                        </div>
+                        <div class="font-label-md text-label-md text-on-surface-variant">
+                          Enterprise AI • Remote, Indonesia
+                        </div>
+                      </div>
+
+                      <ul class="flex flex-col gap-space-sm text-body-md text-on-surface">
+                        <li class="flex items-start gap-2">
+                          <span class="text-secondary font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>Intelligent Document Processing:</strong> Built production extraction pipelines for financial documents using Azure Document Intelligence; leveraged prebuilt layouts, custom Neural &amp; Template models, and polygon-based bounding boxes to optimize OCR accuracy.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-on-tertiary-container font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>LLM Engineering &amp; Benchmarking:</strong> Evaluated and integrated multi-format OCR pipelines leveraging GPT-4o via Azure AI Foundry and Claude 3.5/3.7 Sonnet via Amazon Bedrock, establishing Claude 3.7 as the benchmark for unstructured data extraction.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-secondary font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>50% Cost Reduction:</strong> Architected an asynchronous workflow utilizing Anthropic Batch API, cutting operational LLM token costs by <strong class="tabular-nums">50%</strong> while maintaining extraction fidelity.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-on-tertiary-container font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>Automated PII Redaction:</strong> Engineered an automated redaction engine using Microsoft Presidio and spaCy NLP; developed custom scripts to detect, encrypt, or visually blur PII across structured/unstructured files and images.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="mt-space-md pt-space-sm border-t border-surface-container flex flex-wrap items-center gap-2">
+                      <span class="font-label-md text-label-md text-on-surface-variant font-bold">Tech Stack Used:</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">Python</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">Claude 3.7</span>
+                      <span class="px-2 py-0.5 bg-secondary-fixed rounded font-label-md text-label-md text-on-secondary-fixed">Azure AI Foundry</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">Amazon Bedrock</span>
+                      <span class="px-2 py-0.5 bg-tertiary-fixed rounded font-label-md text-label-md text-on-tertiary-fixed">Microsoft Presidio</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">spaCy</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SLIDE 2: Student Placement Representative -->
+                <div class="w-1/3 shrink-0 pr-0">
+                  <div class="bg-surface-container-lowest p-space-lg rounded-lg border border-primary-container shadow-[3px_3px_0px_0px_#1e2022] relative min-h-[380px] flex flex-col justify-between">
+                    <div>
+                      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-surface-container pb-space-sm mb-space-md">
+                        <div>
+                          <div class="font-label-md text-[11px] font-bold text-on-tertiary-container uppercase tracking-widest mb-0.5">
+                            MILESTONE 02 • MIT-WPU
+                          </div>
+                          <h3 class="font-headline-md text-headline-md text-primary">Student Placement Representative</h3>
+                          <div class="font-label-lg text-label-lg text-secondary font-bold">Corporate Outreach, Drive Logistics &amp; Candidate Mentorship</div>
+                        </div>
+                        <div class="font-label-md text-label-md text-on-surface-variant">
+                          Department Leadership • Pune
+                        </div>
+                      </div>
+
+                      <ul class="flex flex-col gap-space-sm text-body-md text-on-surface">
+                        <li class="flex items-start gap-2">
+                          <span class="text-secondary font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>Corporate Recruitment Coordination:</strong> Serving as official liaison between top-tier tech recruiters and the student body for placement and internship seasons.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-on-tertiary-container font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>Drive Operations &amp; Scheduling:</strong> Managing campus placement drive logistics, test environments, technical round scheduling, and candidate verification.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-secondary font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>Peer Preparation &amp; Mock Sessions:</strong> Mentoring junior batches in coding rounds, Data Structures, AI/ML fundamentals, and resume structuring.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="mt-space-md pt-space-sm border-t border-surface-container flex flex-wrap items-center gap-2">
+                      <span class="font-label-md text-label-md text-on-surface-variant font-bold">Key Skills:</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">Leadership</span>
+                      <span class="px-2 py-0.5 bg-secondary-fixed rounded font-label-md text-label-md text-on-secondary-fixed">Campus Recruitment</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">Technical Mentorship</span>
+                      <span class="px-2 py-0.5 bg-tertiary-fixed rounded font-label-md text-label-md text-on-tertiary-fixed">Event Operations</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SLIDE 3: Healthcare Vision & Systems Research -->
+                <div class="w-1/3 shrink-0 pr-0">
+                  <div class="bg-surface-container-lowest p-space-lg rounded-lg border border-primary-container shadow-[3px_3px_0px_0px_#1e2022] relative min-h-[380px] flex flex-col justify-between">
+                    <div>
+                      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-surface-container pb-space-sm mb-space-md">
+                        <div>
+                          <div class="font-label-md text-[11px] font-bold text-on-tertiary-container uppercase tracking-widest mb-0.5">
+                            MILESTONE 03 • RESEARCH &amp; DIAGNOSTICS
+                          </div>
+                          <h3 class="font-headline-md text-headline-md text-primary">Non-Invasive Diagnostics &amp; Vision Systems</h3>
+                          <div class="font-label-lg text-label-lg text-secondary font-bold">Multi-Regional Processing &amp; Quality Inspection</div>
+                        </div>
+                        <div class="font-label-md text-label-md text-on-surface-variant">
+                          Applied Research • Deep Learning
+                        </div>
+                      </div>
+
+                      <ul class="flex flex-col gap-space-sm text-body-md text-on-surface">
+                        <li class="flex items-start gap-2">
+                          <span class="text-secondary font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>Quad Processing Pipeline:</strong> Designed multi-input anatomical diagnostic architecture aggregating palmar pallor, nail bed capillary refill, and conjunctival vascularity.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-on-tertiary-container font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>Deep Learning Feature Extraction:</strong> Fine-tuned ResNet50 and EfficientNet-B0 backbones for multi-class classification and confidence calibration.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <span class="text-secondary font-bold text-[18px] leading-tight">✦</span>
+                          <span><strong>Industrial Defect Detection:</strong> Built YOLOv8-Seg models capable of high-throughput defect localization with synthetic augmentation pipelines.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="mt-space-md pt-space-sm border-t border-surface-container flex flex-wrap items-center gap-2">
+                      <span class="font-label-md text-label-md text-on-surface-variant font-bold">Tech Stack Used:</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">PyTorch</span>
+                      <span class="px-2 py-0.5 bg-secondary-fixed rounded font-label-md text-label-md text-on-secondary-fixed">OpenCV</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">YOLOv8-Seg</span>
+                      <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-label-md text-primary">FastAPI</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Indicator Dots & Bottom Footer -->
+            <div class="mt-space-md pt-space-sm flex flex-col sm:flex-row items-center justify-between gap-3 text-on-surface-variant font-annotation text-annotation">
+              <div class="flex items-center gap-2">
+                <span>Slide:</span>
+                <button aria-label="Go to milestone 1"
+                  class="w-3 h-3 rounded-full border border-primary-container bg-primary transition-all cursor-pointer"
+                  id="dot-0" onclick="goToMilestone(0)"></button>
+                <button aria-label="Go to milestone 2"
+                  class="w-3 h-3 rounded-full border border-primary-container bg-surface-variant transition-all cursor-pointer"
+                  id="dot-1" onclick="goToMilestone(1)"></button>
+                <button aria-label="Go to milestone 3"
+                  class="w-3 h-3 rounded-full border border-primary-container bg-surface-variant transition-all cursor-pointer"
+                  id="dot-2" onclick="goToMilestone(2)"></button>
+                <span class="font-label-md text-label-md text-on-surface-variant ml-2">(Auto-cycles every 6s)</span>
+              </div>
+              <span class="hidden sm:inline">Page 02 / Experience Chronicle</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: FIELD NOTES / TECHNICAL ESSAYS -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="field-notes">
+        <div class="max-w-5xl mx-auto">
+          <div class="mb-space-lg flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-bold">DISPATCHES FROM THE AI LAB</span>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Field Notes &amp; Engineering Scribbles</h2>
+            </div>
+            <a class="font-label-lg text-label-lg text-primary hover:text-secondary flex items-center gap-1 transition-colors" href="#">
+              <span>Browse Complete Archive</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <!-- Loose Leaf Lined Journal Container -->
+          <div class="relative bg-surface-container-lowest rounded-lg shadow-[5px_5px_0px_0px_#1e2022] overflow-hidden p-space-lg border border-primary-container">
+            <div class="absolute top-0 bottom-0 left-12 w-0.5 bg-error/20 pointer-events-none hidden sm:block"></div>
+            <div class="sm:pl-10 flex flex-col gap-space-lg">
+
+              <!-- Article Entry 01 -->
+              <article class="group relative flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-md border-b border-surface-container">
+                <div class="max-w-2xl">
+                  <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant mb-1">
+                    <span>ENTRY #001</span>
+                    <span>•</span>
+                    <span>FEBRUARY 2025</span>
+                    <span>•</span>
+                    <span class="text-on-tertiary-container font-bold">6 MIN READ</span>
+                  </div>
+                  <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                    Cutting Production LLM Costs by 50% Using Anthropic Batch API &amp; Async Workers
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                    How decoupling non-realtime financial document OCR from synchronous HTTP requests reduced token overhead by half while maintaining high extraction fidelity.
+                  </p>
+                </div>
+                <div class="self-start md:self-center">
+                  <button onclick="showToast('Article writeup opening soon in Field Notes archive! 📖')"
+                    class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md rounded shadow-[2px_2px_0px_0px_#1e2022] transition-all">
+                    <span>Read Scribble</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </button>
+                </div>
+              </article>
+
+              <!-- Article Entry 02 -->
+              <article class="group relative flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-md border-b border-surface-container">
+                <div class="max-w-2xl">
+                  <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant mb-1">
+                    <span>ENTRY #002</span>
+                    <span>•</span>
+                    <span>JANUARY 2025</span>
+                    <span>•</span>
+                    <span class="text-on-secondary-container font-bold">8 MIN READ</span>
+                  </div>
+                  <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                    Architecting a Quad-Independent Processing Pipeline for Non-Invasive Anemia Diagnostics
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                    A deep dive into multi-region feature extraction combining conjunctival pallor, palm creases, and nail bed pigmentation with ResNet50 and EfficientNet.
+                  </p>
+                </div>
+                <div class="self-start md:self-center">
+                  <button onclick="showToast('Article writeup opening soon in Field Notes archive! 📖')"
+                    class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md rounded shadow-[2px_2px_0px_0px_#1e2022] transition-all">
+                    <span>Read Scribble</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </button>
+                </div>
+              </article>
+
+              <!-- Article Entry 03 -->
+              <article class="group relative flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+                <div class="max-w-2xl">
+                  <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant mb-1">
+                    <span>ENTRY #003</span>
+                    <span>•</span>
+                    <span>DECEMBER 2024</span>
+                    <span>•</span>
+                    <span class="text-on-tertiary-container font-bold">5 MIN READ</span>
+                  </div>
+                  <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                    Building Privacy-First Document AI: Automated PII Masking with Presidio &amp; spaCy
+                  </h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                    Zero-leakage regulatory compliance: implementing bounding-box image redaction and regex/entity encryption prior to sending files to external LLM providers.
+                  </p>
+                </div>
+                <div class="self-start md:self-center">
+                  <button onclick="showToast('Article writeup opening soon in Field Notes archive! 📖')"
+                    class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md rounded shadow-[2px_2px_0px_0px_#1e2022] transition-all">
+                    <span>Read Scribble</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </button>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: CONTACT INKWELL -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl mb-space-lg" id="contact-inkwell">
+        <div class="max-w-4xl mx-auto">
+          <div class="relative bg-surface-container-high rounded-xl p-space-lg sm:p-space-xl shadow-[6px_6px_0px_0px_#1e2022] overflow-hidden border-2 border-primary-container">
+            <!-- Postmark Stamped Seal (Top Right) -->
+            <div class="absolute top-6 right-6 flex items-center gap-2 pointer-events-none opacity-85 rotate-6">
+              <div class="w-16 h-16 rounded-full border-2 border-primary-container flex flex-col items-center justify-center text-center p-1 bg-surface-container-lowest">
+                <span class="font-label-md text-[9px] uppercase tracking-tighter text-on-surface">PUNE POST</span>
+                <span class="font-headline-sm text-headline-sm text-primary font-bold">2025</span>
+                <span class="font-label-md text-[8px] uppercase tracking-tighter text-outline">AI MAIL</span>
+              </div>
+              <div class="flex flex-col gap-1 w-10">
+                <div class="h-0.5 bg-primary-container w-full"></div>
+                <div class="h-0.5 bg-primary-container w-full"></div>
+                <div class="h-0.5 bg-primary-container w-full"></div>
+              </div>
+            </div>
+
+            <!-- Header -->
+            <div class="mb-space-lg max-w-md">
+              <span class="font-label-md text-label-md text-on-tertiary-container font-bold uppercase tracking-wider">[SEND DISPATCH • LET'S CONNECT]</span>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Drop a Note in the Inkwell</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+                Open to <strong>AI/ML &amp; Full-Stack Engineering roles</strong>, research collaborations, and open-source systems projects.
+              </p>
+            </div>
+
+            <!-- Direct quick contact pills -->
+            <div class="flex flex-wrap gap-space-xs mb-space-lg font-label-md text-label-md">
+              <a class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-lowest border border-primary-container rounded shadow-[2px_2px_0px_0px_#1e2022] hover:-translate-y-0.5 transition-transform"
+                href="https://github.com/3pkm" rel="noopener noreferrer" target="_blank">
+                <span class="material-symbols-outlined text-[16px]">code</span>
+                <span>github.com/3pkm</span>
+              </a>
+              <a class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-lowest border border-primary-container rounded shadow-[2px_2px_0px_0px_#1e2022] hover:-translate-y-0.5 transition-transform"
+                href="https://www.linkedin.com/in/prakhar-jaiswal/" rel="noopener noreferrer" target="_blank">
+                <span class="material-symbols-outlined text-[16px]">badge</span>
+                <span>linkedin.com/in/prakhar-jaiswal</span>
+              </a>
+              <button onclick="copyEmail()" class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-lowest border border-primary-container rounded shadow-[2px_2px_0px_0px_#1e2022] hover:-translate-y-0.5 transition-transform cursor-pointer">
+                <span class="material-symbols-outlined text-[16px] text-tertiary-container">content_copy</span>
+                <span>jas.prakhar@gmail.com</span>
+              </button>
+              <span class="inline-flex items-center gap-1 px-3 py-1.5 bg-secondary-fixed text-on-secondary-fixed border border-primary-container rounded shadow-[2px_2px_0px_0px_#1e2022]">
+                <span class="material-symbols-outlined text-[16px]">location_on</span>
+                <span>Pune, Maharashtra, India</span>
+              </span>
+            </div>
+
+            <!-- Interactive Form with Layout-Preserving Button Spinner -->
+            <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-space-lg relative z-10" onsubmit="handleContactSubmit(event)">
+              <div class="flex flex-col justify-between gap-space-md">
+                <div>
+                  <label class="block font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1" for="contact-name">
+                    Your Name / Organization:
+                  </label>
+                  <input id="contact-name"
+                    class="w-full bg-surface-container-lowest px-space-sm py-2.5 rounded text-primary font-body-md text-body-md shadow-[2px_2px_0px_0px_#1e2022] focus:outline-none focus:bg-surface-bright border border-primary-container"
+                    placeholder="e.g. Maya Sharma • Founder / Recruiter" required type="text" />
+                </div>
+                <div>
+                  <label class="block font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1" for="contact-email">
+                    Return Paper Airplane (Email):
+                  </label>
+                  <input id="contact-email"
+                    class="w-full bg-surface-container-lowest px-space-sm py-2.5 rounded text-primary font-body-md text-body-md shadow-[2px_2px_0px_0px_#1e2022] focus:outline-none focus:bg-surface-bright border border-primary-container"
+                    placeholder="maya@company.com" required type="email" />
+                </div>
+                <div class="hidden md:flex items-center gap-2 font-annotation text-annotation text-on-surface-variant">
+                  <span class="material-symbols-outlined text-secondary text-[20px]">mark_email_read</span>
+                  <span>Direct message forward to jas.prakhar@gmail.com</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col justify-between gap-space-md">
+                <div>
+                  <label class="block font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1" for="contact-message">
+                    The Inked Message:
+                  </label>
+                  <textarea id="contact-message"
+                    class="w-full bg-surface-container-lowest p-space-sm rounded text-primary font-body-md text-body-md shadow-[2px_2px_0px_0px_#1e2022] focus:outline-none focus:bg-surface-bright resize-none border border-primary-container"
+                    placeholder="Tell me about the engineering challenges, AI systems, or roles you are working on..."
+                    required rows="5"></textarea>
+                </div>
+
+                <div class="flex items-center justify-between pt-space-xs">
+                  <span class="font-annotation text-annotation text-on-surface-variant flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">verified</span>
+                    <span>Quick response in &lt; 24h</span>
+                  </span>
+
+                  <!-- Layout-Preserving Submit Button -->
+                  <button id="stamp-submit-btn" type="submit"
+                    class="interactive-btn relative inline-flex items-center justify-center min-w-[210px] h-[48px] px-space-lg py-space-sm bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg shadow-[4px_4px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_#1e2022] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 cursor-pointer">
+                    <span id="submit-btn-content" class="flex items-center gap-space-xs transition-opacity duration-150">
+                      <span class="material-symbols-outlined text-tertiary-fixed text-[20px]">send</span>
+                      <span>Send Paper Airplane</span>
+                    </span>
+                    <!-- Centered Absolute Spinner for stable layout -->
+                    <span id="submit-spinner" class="hidden absolute inset-0 items-center justify-center gap-2">
+                      <svg class="animate-spin h-5 w-5 text-on-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                      </svg>
+                      <span class="font-label-md text-label-md font-bold">Inking...</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative w-full bg-surface-container-low border-t-2 border-primary-container py-space-xl overflow-hidden">
+    <div class="absolute -top-3 left-12 w-24 h-6 bg-tertiary-fixed opacity-75 diary-tape border border-primary/20"></div>
+    <div class="absolute -top-3 right-24 w-28 h-6 bg-secondary-fixed opacity-75 diary-tape border border-primary/20"></div>
+    <div class="absolute -bottom-8 -right-8 w-44 h-44 rounded-full border-4 border-tertiary-fixed-dim/40 pointer-events-none rotate-12"></div>
+    <div class="absolute -bottom-10 -right-6 w-36 h-36 rounded-full border-2 border-tertiary-fixed-dim/30 pointer-events-none -rotate-6"></div>
+
+    <div class="w-full px-margin-mobile lg:px-margin">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg mb-space-lg">
+        <div class="md:col-span-5 flex flex-col gap-space-xs">
+          <div class="font-headline-md text-headline-md text-primary">Prakhar Jaiswal • Full Stack &amp; AI-ML Portfolio</div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+            Crafted with mechanical keystrokes, PyTorch tensors, and late-night campus compile runs. All flagship projects documented with clean architecture writeups.
+          </p>
+        </div>
+        <div class="md:col-span-4 flex flex-col gap-space-xs">
+          <span class="font-label-md text-label-md uppercase text-on-surface-variant font-bold tracking-widest">Quick Navigation</span>
+          <div class="flex flex-col gap-space-xs font-label-lg text-label-lg">
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block" href="#sketch-desk">→ Flagship Projects</a>
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block font-bold text-secondary" href="projects.html">→ All Projects Catalog (6+)</a>
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block" href="#internship-log">→ Quantyc AI &amp; Experience</a>
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block" href="#stack-billboard">→ Tech Stack Billboard &amp; Commute</a>
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block" href="#contact-inkwell">→ Drop a Note in the Inkwell</a>
+          </div>
+        </div>
+        <div class="md:col-span-3 flex flex-col gap-space-xs">
+          <span class="font-label-md text-label-md uppercase text-on-surface-variant font-bold tracking-widest">Campus Station</span>
+          <p class="font-label-md text-label-md text-on-surface-variant">
+            MIT World Peace University (MIT-WPU)<br />
+            Department of CSE (AI &amp; Data Science)<br />
+            Pune, Maharashtra • Class of 2028
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-space-md border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+        <span class="font-label-md text-label-md text-on-surface-variant">
+          Handmade with care • Prakhar Jaiswal © 2025
+        </span>
+        <span class="font-label-md text-label-md text-on-surface-variant bg-surface-container px-space-xs py-0.5 border border-primary-container rounded shadow-[1px_1px_0px_0px_#1e2022]">
+          Page 01 of ∞
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Interactive Script -->
+  <script>
+    // Top Progress Bar simulation on link clicks
+    function triggerProgressBar() {
+      const bar = document.getElementById('nprogress-bar');
+      if (!bar) return;
+      bar.style.width = '35%';
+      bar.style.opacity = '1';
+      setTimeout(() => { bar.style.width = '75%'; }, 150);
+      setTimeout(() => {
+        bar.style.width = '100%';
+        setTimeout(() => {
+          bar.style.opacity = '0';
+          setTimeout(() => { bar.style.width = '0%'; }, 200);
+        }, 200);
+      }, 350);
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', () => triggerProgressBar());
+    });
+
+    // Milestone Carousel
+    let currentMilestone = 0;
+    const totalMilestones = 3;
+    const milestoneStatuses = [
+      "Timeline: Jan 2025 – June 2025 • Remote, Indonesia",
+      "Timeline: Sep 2024 – Present • MIT-WPU Pune",
+      "Timeline: 2024 – 2025 • Applied AI & Diagnostics"
+    ];
+
+    function updateMilestoneSlide() {
+      const track = document.getElementById('milestones-track');
+      if (track) {
+        track.style.transform = `translateX(-${(currentMilestone * 100) / 3}%)`;
+      }
+      const tag = document.getElementById('milestone-ledger-tag');
+      if (tag) {
+        tag.innerText = `[EXPERIENCE LEDGER • MILESTONE 0${currentMilestone + 1} / 03]`;
+      }
+      const badge = document.getElementById('milestone-status-badge');
+      if (badge) {
+        badge.innerText = milestoneStatuses[currentMilestone];
+      }
+      for (let i = 0; i < totalMilestones; i++) {
+        const dot = document.getElementById(`dot-${i}`);
+        if (dot) {
+          if (i === currentMilestone) {
+            dot.className = 'w-3 h-3 rounded-full border border-primary-container bg-primary transition-all cursor-pointer';
+          } else {
+            dot.className = 'w-3 h-3 rounded-full border border-primary-container bg-surface-variant transition-all cursor-pointer';
+          }
+        }
+      }
+    }
+
+    function goToMilestone(index) {
+      currentMilestone = index;
+      updateMilestoneSlide();
+      resetAutoCycle();
+    }
+
+    function nextMilestone() {
+      currentMilestone = (currentMilestone + 1) % totalMilestones;
+      updateMilestoneSlide();
+      resetAutoCycle();
+    }
+
+    function prevMilestone() {
+      currentMilestone = (currentMilestone - 1 + totalMilestones) % totalMilestones;
+      updateMilestoneSlide();
+      resetAutoCycle();
+    }
+
+    let milestoneTimer = setInterval(nextMilestone, 6000);
+    function resetAutoCycle() {
+      clearInterval(milestoneTimer);
+      milestoneTimer = setInterval(nextMilestone, 6000);
+    }
+
+    // Modern Toast Manager
+    function showToast(message, actionText, actionCallback) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+      const toast = document.createElement('div');
+      toast.className = 'pointer-events-auto bg-primary text-on-primary px-4 py-3 rounded-lg shadow-[4px_4px_0px_0px_#1e2022] border border-primary-container font-label-md text-label-md flex items-center justify-between gap-3 min-w-[280px] max-w-sm transition-all duration-300 transform translate-y-4 opacity-0';
+      
+      let actionBtn = '';
+      if (actionText && actionCallback) {
+        actionBtn = `<button class="text-tertiary-fixed underline font-bold hover:text-on-primary transition-colors cursor-pointer" id="toast-action-btn">${actionText}</button>`;
+      }
+      
+      toast.innerHTML = `<span>${message}</span>${actionBtn}`;
+      container.appendChild(toast);
+      
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-4', 'opacity-0');
+      });
+
+      if (actionText && actionCallback) {
+        toast.querySelector('#toast-action-btn').addEventListener('click', () => {
+          actionCallback();
+          dismissToast(toast);
+        });
+      }
+
+      setTimeout(() => dismissToast(toast), 4500);
+    }
+
+    function dismissToast(toast) {
+      toast.classList.add('opacity-0', 'translate-y-2');
+      setTimeout(() => toast.remove(), 300);
+    }
+
+    // Copy email helper
+    function copyEmail() {
+      navigator.clipboard.writeText('jas.prakhar@gmail.com').then(() => {
+        showToast('Email copied to clipboard! (jas.prakhar@gmail.com)');
+      });
+    }
+
+    // Contact Form with layout-preserving button spinner
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('stamp-submit-btn');
+      const content = document.getElementById('submit-btn-content');
+      const spinner = document.getElementById('submit-spinner');
+      
+      // Preserve button dimensions
+      btn.setAttribute('disabled', 'true');
+      btn.setAttribute('aria-busy', 'true');
+      content.classList.add('opacity-0');
+      spinner.classList.remove('hidden');
+      spinner.classList.add('flex');
+
+      setTimeout(() => {
+        btn.removeAttribute('disabled');
+        btn.setAttribute('aria-busy', 'false');
+        spinner.classList.add('hidden');
+        spinner.classList.remove('flex');
+        content.classList.remove('opacity-0');
+        content.innerHTML = `<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Airplane Dispatched! ✉</span>`;
+        btn.classList.add('bg-secondary', 'text-on-secondary');
+
+        showToast('Paper airplane dispatched to Prakhar! ✉', 'Send Another', () => {
+          document.getElementById('contact-form').reset();
+          content.innerHTML = `<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">send</span><span>Send Paper Airplane</span>`;
+          btn.classList.remove('bg-secondary', 'text-on-secondary');
+        });
+      }, 900);
+    }
+
+    // Command Palette (Cmd + K / Ctrl + K)
+    function toggleCommandPalette(show) {
+      const modal = document.getElementById('cmd-palette-backdrop');
+      const input = document.getElementById('cmd-input');
+      if (show) {
+        modal.classList.remove('hidden');
+        input.value = '';
+        filterCommandPalette('');
+        setTimeout(() => input.focus(), 50);
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function filterCommandPalette(query) {
+      const items = document.querySelectorAll('.cmd-item');
+      const q = query.toLowerCase().trim();
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (!q || text.includes(q)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        const modal = document.getElementById('cmd-palette-backdrop');
+        toggleCommandPalette(modal.classList.contains('hidden'));
+      }
+      if (e.key === 'Escape') {
+        toggleCommandPalette(false);
+      }
+    });
+
+    // Offline / Reconnect Detection
+    function updateOnlineStatus() {
+      const banner = document.getElementById('offline-banner');
+      if (navigator.onLine) {
+        banner.classList.add('hidden');
+      } else {
+        banner.classList.remove('hidden');
+      }
+    }
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+  </script>
+</body>
+
+</html>
