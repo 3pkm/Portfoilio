@@ -10,6 +10,40 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="theme-color" content="#fcf9f0" />
 
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects Catalog | Prakhar Jaiswal" />
+  <meta property="og:description"
+    content="Complete catalog of AI/ML, Computer Vision, Multimodal RAG, and Full-Stack Engineering projects by Prakhar Jaiswal." />
+  <meta property="og:image" content="og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Prakhar Jaiswal — Projects Catalog" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projects Catalog | Prakhar Jaiswal" />
+  <meta name="twitter:description"
+    content="Complete catalog of AI/ML, Computer Vision, Multimodal RAG, and Full-Stack Engineering projects by Prakhar Jaiswal." />
+  <meta name="twitter:image" content="og-preview.png" />
+
+  <!-- Dark Mode FOUC Prevention Script -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('portfolio-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', '#121518');
+        } else {
+          document.documentElement.classList.remove('dark');
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', '#fcf9f0');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -19,112 +53,21 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     rel="stylesheet" />
 
-  <style>
-    @layer base {
-      html, body {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        overscroll-behavior: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-      }
-    }
+  <!-- Granular Modular Stylesheets -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
 
-    .tabular-nums {
-      font-variant-numeric: tabular-nums;
-    }
-
-    button:focus-visible, a:focus-visible {
-      outline: 2px solid #406185;
-      outline-offset: 2px;
-    }
-    button:focus:not(:focus-visible), a:focus:not(:focus-visible) {
-      outline: none;
-    }
-
-    button, a.interactive-btn {
-      transition: transform 75ms ease, box-shadow 75ms ease;
-    }
-    button:active, a.interactive-btn:active {
-      transform: scale(0.98);
-    }
-
-    .wobbly-border {
-      border-bottom: 2px solid #1e2022;
-      border-image: repeating-linear-gradient(90deg, #1e2022 0px, #1e2022 18px, transparent 19px, #1e2022 20px) 2;
-    }
-
-    .diary-tape {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-      transform: rotate(-1.5deg);
-    }
-
-    #nprogress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: #d97736;
-      width: 0%;
-      z-index: 9999;
-      transition: width 200ms ease, opacity 200ms ease;
-    }
-  </style>
-
+  <!-- Tailwind CSS Engine & External Configuration -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "secondary": "#406185",
-            "outline-variant": "#c5c6ca",
-            "surface-container-lowest": "#ffffff",
-            "primary": "#06080a",
-            "on-tertiary": "#ffffff",
-            "surface": "#fcf9f0",
-            "on-background": "#1c1c17",
-            "surface-bright": "#fcf9f0",
-            "secondary-fixed": "#d1e4ff",
-            "surface-container-high": "#ebe8df",
-            "surface-variant": "#e5e2da",
-            "tertiary": "#140400",
-            "tertiary-container": "#391600",
-            "secondary-fixed-dim": "#a9c9f2",
-            "on-secondary-container": "#3c5c80",
-            "tertiary-fixed": "#ffdbc9",
-            "primary-container": "#1e2022",
-            "on-tertiary-container": "#cd6e2e",
-            "on-primary": "#ffffff",
-            "on-surface-variant": "#44474a",
-            "surface-container": "#f1eee5",
-            "surface-container-highest": "#e5e2da",
-            "surface-container-low": "#f6f3ea",
-            "primary-fixed": "#e2e2e5",
-            "background": "#fcf9f0",
-            "secondary-container": "#b4d4fe",
-            "tertiary-fixed-dim": "#ffb68c"
-          },
-          fontFamily: {
-            "body-lg": ["Karla", "sans-serif"],
-            "label-lg": ["Courier Prime", "monospace"],
-            "body-sm": ["Karla", "sans-serif"],
-            "annotation": ["Bricolage Grotesque", "sans-serif"],
-            "body-md": ["Karla", "sans-serif"],
-            "headline-md": ["Bricolage Grotesque", "sans-serif"],
-            "headline-lg": ["Bricolage Grotesque", "sans-serif"],
-            "display": ["Bricolage Grotesque", "sans-serif"],
-            "label-md": ["Courier Prime", "monospace"],
-            "headline-sm": ["Bricolage Grotesque", "sans-serif"]
-          }
-        }
-      }
-    };
-  </script>
+  <script src="js/tailwind-config.js"></script>
+
+  <!-- Granular Interactive Scripts (Deferred for instant FCP) -->
+  <script src="js/utils.js" defer></script>
+  <script src="js/cursor.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/projects.js" defer></script>
 </head>
 
 <body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
@@ -147,7 +90,7 @@
           <span class="material-symbols-outlined text-[18px]">arrow_back</span>
           <span>Back to Desk</span>
         </a>
-        <a href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf"
+        <a href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf" target="_blank" rel="noopener noreferrer"
           class="interactive-btn hidden sm:flex px-4 py-2 bg-primary text-on-primary font-label-lg text-label-lg rounded shadow-[2px_2px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 transition-all items-center gap-1.5 font-bold">
           <span class="material-symbols-outlined text-[18px] text-tertiary-fixed">download</span>
           <span>Resume (PDF)</span>
@@ -423,62 +366,20 @@
     </div>
   </main>
 
+  <!-- Wavy Hand-Drawn Section Separator -->
+  <div class="wavy-separator-wrapper my-0">
+    <svg class="wavy-separator" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12"></path>
+      <path class="sketch-accent" d="M2,13 Q32,5 62,13 T122,13 T182,13 T242,13 T302,13 T362,13 T422,13 T482,13 T542,13 T602,13 T662,13 T722,13 T782,13 T842,13 T902,13 T962,13 T1022,13 T1082,13 T1142,13 T1198,13"></path>
+    </svg>
+  </div>
+
   <!-- FOOTER -->
   <footer class="w-full bg-surface-container-low border-t-2 border-primary-container py-8 px-6 lg:px-12 text-center font-label-md text-label-md text-on-surface-variant">
     <p>Handmade with care • Prakhar Jaiswal © 2025 • MIT World Peace University (MIT-WPU), Pune</p>
   </footer>
 
-  <script>
-    function triggerProgressBar() {
-      const bar = document.getElementById('nprogress-bar');
-      if (!bar) return;
-      bar.style.width = '35%';
-      bar.style.opacity = '1';
-      setTimeout(() => { bar.style.width = '75%'; }, 150);
-      setTimeout(() => {
-        bar.style.width = '100%';
-        setTimeout(() => {
-          bar.style.opacity = '0';
-          setTimeout(() => { bar.style.width = '0%'; }, 200);
-        }, 200);
-      }, 350);
-    }
-    triggerProgressBar();
 
-    function filterCategory(category) {
-      triggerProgressBar();
-      const cards = document.querySelectorAll('.project-card');
-      const emptyState = document.getElementById('empty-state');
-      let visibleCount = 0;
-
-      cards.forEach(card => {
-        const catList = card.getAttribute('data-category').split(' ');
-        if (category === 'all' || catList.includes(category)) {
-          card.classList.remove('hidden');
-          visibleCount++;
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-
-      if (visibleCount === 0) {
-        emptyState.classList.remove('hidden');
-      } else {
-        emptyState.classList.add('hidden');
-      }
-
-      // Update button active styles
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('bg-primary', 'text-on-primary');
-        btn.classList.add('bg-surface-container', 'text-primary');
-      });
-      const activeBtn = document.getElementById(`filter-${category}`);
-      if (activeBtn) {
-        activeBtn.classList.remove('bg-surface-container', 'text-primary');
-        activeBtn.classList.add('bg-primary', 'text-on-primary');
-      }
-    }
-  </script>
 </body>
 
 </html>

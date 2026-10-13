@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Animations & Dynamic Motion
+   Prakhar Jaiswal Portfolio
+   ========================================================================== */
+
+/* Road car commuting animation across highway section */
+@keyframes driveCar {
+  0% {
+    transform: translateX(-120px);
+  }
+  100% {
+    transform: translateX(1100px);
+  }
+}
+
+.animate-car {
+  animation: driveCar 16s linear infinite;
+}
+
+/* Accessibility: prefers-reduced-motion guardrails (WCAG 2.1 SC 2.2.2 / 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable continuous decorative motion & disruptive transform shifts */
+  *,
+  *::before,
+  *::after {
+    animation-iteration-count: 1 !important;
+    transform: none !important;
+  }
+
+  .animate-car,
+  .animate-bounce,
+  .animate-spin,
+  .animate-pulse {
+    animation: none !important;
+  }
+
+  /* Preserve gentle opacity fades for state feedback and task awareness */
+  .toast,
+  #cmd-palette-backdrop,
+  .interactive-btn,
+  button,
+  a {
+    transition: opacity 150ms ease !important;
+  }
+}

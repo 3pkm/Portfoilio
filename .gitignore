@@ -1,2 +1,6 @@
 /.venv
+.agents
+.impeccable
 /Data
+/graphify-out
+/skills-lock.json

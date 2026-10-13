@@ -1,0 +1,396 @@
+/* ==========================================================================
+   Theme Utilities, Hand-Drawn Paper Aesthetics & Dual Color Modes
+   Prakhar Jaiswal Portfolio
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Custom Variables: Light & Dark Mode Tokens
+   Dark mode strictly avoids pure #000000; uses rich charcoal/slate blueprint paper.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Surfaces & Backgrounds (Warm cream notebook paper) */
+  --color-surface: #fcf9f0;
+  --color-surface-rgb: 252 249 240;
+  --color-surface-bright: #fcf9f0;
+  --color-surface-bright-rgb: 252 249 240;
+  --color-surface-dim: #dddad1;
+  --color-surface-dim-rgb: 221 218 209;
+  --color-surface-variant: #e5e2da;
+  --color-surface-variant-rgb: 229 226 218;
+
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-lowest-rgb: 255 255 255;
+  --color-surface-container-low: #f6f3ea;
+  --color-surface-container-low-rgb: 246 243 234;
+  --color-surface-container: #f1eee5;
+  --color-surface-container-rgb: 241 238 229;
+  --color-surface-container-high: #ebe8df;
+  --color-surface-container-high-rgb: 235 232 223;
+  --color-surface-container-highest: #e5e2da;
+  --color-surface-container-highest-rgb: 229 226 218;
+
+  /* Typography & Ink (Crisp fountain pen & graphite) */
+  --color-primary: #06080a;
+  --color-primary-rgb: 6 8 10;
+  --color-on-primary: #ffffff;
+  --color-on-primary-rgb: 255 255 255;
+  --color-primary-container: #1e2022;
+  --color-primary-container-rgb: 30 32 34;
+  --color-on-primary-container: #86878a;
+  --color-on-primary-container-rgb: 134 135 138;
+  --color-on-primary-fixed: #1a1c1e;
+  --color-on-primary-fixed-variant: #454749;
+
+  --color-on-surface: #1c1c17;
+  --color-on-surface-rgb: 28 28 23;
+  --color-on-surface-variant: #44474a;
+  --color-on-surface-variant-rgb: 68 71 74;
+  --color-background: #fcf9f0;
+  --color-background-rgb: 252 249 240;
+  --color-on-background: #1c1c17;
+  --color-on-background-rgb: 28 28 23;
+
+  /* Secondary Blueprint Slate Blue tokens */
+  --color-secondary: #406185;
+  --color-secondary-rgb: 64 97 133;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #b4d4fe;
+  --color-secondary-container-rgb: 180 212 254;
+  --color-on-secondary-container: #3c5c80;
+  --color-secondary-fixed: #d1e4ff;
+  --color-secondary-fixed-rgb: 209 228 255;
+  --color-secondary-fixed-dim: #a9c9f2;
+  --color-secondary-fixed-dim-rgb: 169 201 242;
+  --color-on-secondary-fixed: #001d36;
+  --color-on-secondary-fixed-rgb: 0 29 54;
+  --color-on-secondary-fixed-variant: #27496c;
+  --color-on-secondary-fixed-variant-rgb: 39 73 108;
+
+  /* Tertiary Warm Terracotta tokens */
+  --color-tertiary: #140400;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #391600;
+  --color-tertiary-container-rgb: 57 22 0;
+  --color-on-tertiary-container: #cd6e2e;
+  --color-tertiary-fixed: #ffdbc9;
+  --color-tertiary-fixed-rgb: 255 219 201;
+  --color-tertiary-fixed-dim: #ffb68c;
+  --color-tertiary-fixed-dim-rgb: 255 182 140;
+  --color-on-tertiary-fixed: #321200;
+  --color-on-tertiary-fixed-rgb: 50 18 0;
+  --color-on-tertiary-fixed-variant: #753400;
+  --color-on-tertiary-fixed-variant-rgb: 117 52 0;
+
+  /* Borders & Outlines */
+  --color-outline: #75777a;
+  --color-outline-rgb: 117 119 122;
+  --color-outline-variant: #c5c6ca;
+  --color-outline-variant-rgb: 197 198 202;
+  --color-border: #1e2022;
+
+  /* Tactile Shadows & Hand-Drawn Separators */
+  --shadow-color: #1e2022;
+  --separator-color: #1e2022;
+  --shadow-hard-sm: 2px 2px 0px 0px var(--shadow-color);
+  --shadow-hard-md: 4px 4px 0px 0px var(--shadow-color);
+  --shadow-hard-lg: 6px 6px 0px 0px var(--shadow-color);
+  --shadow-hard-xl: 8px 8px 0px 0px var(--shadow-color);
+}
+
+html.dark {
+  /* Surfaces & Backgrounds - Warm, deep charcoal/slate blueprint paper (NO pure #000) */
+  --color-surface: #121518;
+  --color-surface-rgb: 18 21 24;
+  --color-surface-bright: #15191e;
+  --color-surface-bright-rgb: 21 25 30;
+  --color-surface-dim: #0d0f12;
+  --color-surface-dim-rgb: 13 15 18;
+  --color-surface-variant: #222831;
+  --color-surface-variant-rgb: 34 40 49;
+
+  --color-surface-container-lowest: #15181e;
+  --color-surface-container-lowest-rgb: 21 24 30;
+  --color-surface-container-low: #181c22;
+  --color-surface-container-low-rgb: 24 28 34;
+  --color-surface-container: #1a1e24;
+  --color-surface-container-rgb: 26 30 36;
+  --color-surface-container-high: #21262e;
+  --color-surface-container-high-rgb: 33 38 46;
+  --color-surface-container-highest: #29303b;
+  --color-surface-container-highest-rgb: 41 48 59;
+
+  /* Typography & Ink - Warm paper cream on dark */
+  --color-primary: #f5f3ee;
+  --color-primary-rgb: 245 243 238;
+  --color-on-primary: #121518;
+  --color-on-primary-rgb: 18 21 24;
+  --color-primary-container: #343c48;
+  --color-primary-container-rgb: 52 60 72;
+  --color-on-primary-container: #b0b8c6;
+  --color-on-primary-container-rgb: 176 184 198;
+  --color-on-primary-fixed: #e2ded4;
+  --color-on-primary-fixed-variant: #cbd0db;
+
+  --color-on-surface: #e2ded4;
+  --color-on-surface-rgb: 226 222 212;
+  --color-on-surface-variant: #a2a8b4;
+  --color-on-surface-variant-rgb: 162 168 180;
+  --color-background: #121518;
+  --color-background-rgb: 18 21 24;
+  --color-on-background: #e2ded4;
+  --color-on-background-rgb: 226 222 212;
+
+  /* Luminous Blueprint Slate Blue tokens */
+  --color-secondary: #7ba2cf;
+  --color-secondary-rgb: 123 162 207;
+  --color-on-secondary: #0c1824;
+  --color-secondary-container: #1e334a;
+  --color-secondary-container-rgb: 30 51 74;
+  --color-on-secondary-container: #cce2ff;
+  --color-secondary-fixed: #1e334a;
+  --color-secondary-fixed-rgb: 30 51 74;
+  --color-secondary-fixed-dim: #27425f;
+  --color-secondary-fixed-dim-rgb: 39 66 95;
+  --color-on-secondary-fixed: #d1e4ff;
+  --color-on-secondary-fixed-rgb: 209 228 255;
+  --color-on-secondary-fixed-variant: #a9c9f2;
+  --color-on-secondary-fixed-variant-rgb: 169 201 242;
+
+  /* Warm Terracotta Accents on Charcoal */
+  --color-tertiary: #ffdbc9;
+  --color-on-tertiary: #491c00;
+  --color-tertiary-container: #e58244;
+  --color-tertiary-container-rgb: 229 130 68;
+  --color-on-tertiary-container: #ffdcc6;
+  --color-tertiary-fixed: #502305;
+  --color-tertiary-fixed-rgb: 80 35 5;
+  --color-tertiary-fixed-dim: #693108;
+  --color-tertiary-fixed-dim-rgb: 105 49 8;
+  --color-on-tertiary-fixed: #ffdbc9;
+  --color-on-tertiary-fixed-rgb: 255 219 201;
+  --color-on-tertiary-fixed-variant: #ffd2b9;
+  --color-on-tertiary-fixed-variant-rgb: 255 210 185;
+
+  /* Borders & Outlines */
+  --color-outline: #556070;
+  --color-outline-rgb: 85 96 112;
+  --color-outline-variant: #2e3642;
+  --color-outline-variant-rgb: 46 54 66;
+  --color-border: #343c48;
+
+  /* Tactile Shadows & Hand-Drawn Separators */
+  --shadow-color: #0b0d0f;
+  --separator-color: #7ba2cf;
+  --shadow-hard-sm: 2px 2px 0px 0px var(--shadow-color);
+  --shadow-hard-md: 4px 4px 0px 0px var(--shadow-color);
+  --shadow-hard-lg: 6px 6px 0px 0px var(--shadow-color);
+  --shadow-hard-xl: 8px 8px 0px 0px var(--shadow-color);
+}
+
+.shadow-hard-sm { box-shadow: var(--shadow-hard-sm); }
+.shadow-hard-md { box-shadow: var(--shadow-hard-md); }
+.shadow-hard-lg { box-shadow: var(--shadow-hard-lg); }
+.shadow-hard-xl { box-shadow: var(--shadow-hard-xl); }
+
+/* --------------------------------------------------------------------------
+   Numerical Stability & Typography
+   -------------------------------------------------------------------------- */
+.metric-value,
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   Notebook & Blueprint Aesthetics
+   -------------------------------------------------------------------------- */
+.wobbly-border {
+  border-bottom: 2px solid var(--color-border);
+}
+
+.diary-tape {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transform: rotate(-1.5deg);
+}
+
+html.dark .diary-tape {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   [Req 6] Wavy Hand-Drawn Section Separator (Sinusoidal Notebook Sketch)
+   -------------------------------------------------------------------------- */
+.wavy-separator-wrapper {
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 1024px) {
+  .wavy-separator-wrapper {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.wavy-separator {
+  display: block;
+  width: 100%;
+  height: 24px;
+  color: var(--separator-color, #1e2022);
+  opacity: 0.85;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.wavy-separator path {
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.wavy-separator .sketch-accent {
+  stroke-width: 1.2;
+  opacity: 0.45;
+  stroke-dasharray: 400 4;
+}
+
+html.dark .wavy-separator {
+  color: var(--separator-color, #7ba2cf);
+  opacity: 0.8;
+}
+
+/* Reusable CSS-only pattern fallback for dividers */
+.wavy-line {
+  width: 100%;
+  height: 16px;
+  background-repeat: repeat-x;
+  background-size: 48px 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 16' fill='none' stroke='%231e2022' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M0 8 Q12 1 24 8 T48 8'/%3E%3C/svg%3E");
+  opacity: 0.85;
+}
+
+html.dark .wavy-line {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 16' fill='none' stroke='%237ba2cf' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M0 8 Q12 1 24 8 T48 8'/%3E%3C/svg%3E");
+  opacity: 0.75;
+}
+
+/* --------------------------------------------------------------------------
+   [Req 8] Dark Mode & Light Mode Bubble Toggle & Morph Transitions
+   -------------------------------------------------------------------------- */
+#theme-toggle-btn {
+  transition: transform 75ms ease, box-shadow 150ms ease, background-color 200ms ease, border-color 200ms ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#theme-toggle-btn:active {
+  transform: scale(0.92) translate(1px, 1px);
+}
+
+.theme-icon {
+  transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 250ms ease;
+}
+
+/* Morph transitions: Light mode shows Sun, hides Moon */
+html:not(.dark) #theme-icon-sun {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+html:not(.dark) #theme-icon-moon {
+  transform: scale(0) rotate(-90deg);
+  opacity: 0;
+}
+
+/* Morph transitions: Dark mode shows Moon, hides Sun */
+html.dark #theme-icon-sun {
+  transform: scale(0) rotate(90deg);
+  opacity: 0;
+}
+
+html.dark #theme-icon-moon {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Comprehensive Dark Mode Uniform Rules (Covering EVERY Element)
+   -------------------------------------------------------------------------- */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+/* Tactile shadows override across all bespoke border-box shadow utilities */
+html.dark [class*="shadow-[0_2px_0px_0px_#1e2022]"] {
+  box-shadow: 0 2px 0px 0px var(--shadow-color) !important;
+}
+html.dark [class*="shadow-[1px_1px_0px_0px_#1e2022]"] {
+  box-shadow: 1px 1px 0px 0px var(--shadow-color) !important;
+}
+html.dark [class*="shadow-[2px_2px_0px_0px_#1e2022]"] {
+  box-shadow: 2px 2px 0px 0px var(--shadow-color) !important;
+}
+html.dark [class*="shadow-[3px_3px_0px_0px_#1e2022]"] {
+  box-shadow: 3px 3px 0px 0px var(--shadow-color) !important;
+}
+html.dark [class*="shadow-[4px_4px_0px_0px_#1e2022]"] {
+  box-shadow: 4px 4px 0px 0px var(--shadow-color) !important;
+}
+html.dark [class*="shadow-[5px_5px_0px_0px_#1e2022]"] {
+  box-shadow: 5px 5px 0px 0px var(--shadow-color) !important;
+}
+html.dark [class*="shadow-[6px_6px_0px_0px_#1e2022]"] {
+  box-shadow: 6px 6px 0px 0px var(--shadow-color) !important;
+}
+html.dark [class*="shadow-[8px_8px_0px_0px_#1e2022]"] {
+  box-shadow: 8px 8px 0px 0px var(--shadow-color) !important;
+}
+
+/* Input, Textarea & Form Elements */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  color: var(--color-on-surface);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: var(--color-on-surface-variant);
+  opacity: 0.7;
+}
+
+/* Glassmorphism headers & backdrops */
+html.dark header.bg-surface\/90 {
+  background-color: rgba(18, 21, 24, 0.92);
+}
+
+/* Modal and dialog backdrop */
+html.dark #cmd-palette-backdrop {
+  background-color: rgba(6, 8, 10, 0.65);
+}
+
+/* Smooth color transitions when toggling theme */
+body,
+header,
+footer,
+section,
+article,
+button,
+a,
+input,
+textarea {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}

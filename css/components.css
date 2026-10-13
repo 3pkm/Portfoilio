@@ -1,0 +1,77 @@
+/* ==========================================================================
+   UI Components Styles
+   Prakhar Jaiswal Portfolio
+   ========================================================================== */
+
+/* Top unblocking navigation progress bar */
+#nprogress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #d97736;
+  width: 0%;
+  z-index: 9999;
+  transition: width 200ms ease, opacity 200ms ease;
+}
+
+html.dark #nprogress-bar {
+  background: var(--color-tertiary-container, #e58244);
+}
+
+/* ==========================================================================
+   Interactive Model & Architecture Playground Controls
+   ========================================================================== */
+
+/* Artisanal Tactile Range Sliders */
+input[type="range"] {
+  accent-color: var(--color-primary, #06080a);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary, #06080a);
+  border: 2px solid var(--color-surface, #fcf9f0);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color, #1e2022);
+  cursor: pointer;
+  transition: transform 75ms ease, background-color 150ms ease;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-primary, #06080a);
+  border: 2px solid var(--color-surface, #fcf9f0);
+  box-shadow: 2px 2px 0px 0px var(--shadow-color, #1e2022);
+  cursor: pointer;
+  transition: transform 75ms ease, background-color 150ms ease;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+  background: var(--color-secondary, #406185);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+  transform: scale(1.15);
+  background: var(--color-secondary, #406185);
+}
+
+/* YOLO Canvas & Polygon Mask Micro-Interactions */
+.yolo-defect-group polygon {
+  transition: fill-opacity 150ms ease, stroke-width 150ms ease;
+}
+
+.yolo-defect-group:hover polygon {
+  fill-opacity: 0.52 !important;
+  stroke-width: 2.8 !important;
+}
+
+.yolo-defect-group:hover rect {
+  stroke-width: 2.5 !important;
+}

@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Base Styles & Layout Stability
+   Prakhar Jaiswal Portfolio
+   ========================================================================== */
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 3.5vw, 2.35rem);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+
+  h3 {
+    font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  h4 {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   Text Selection (Req 4: Soft Powder Blue)
+   ========================================================================== */
+::selection {
+  background-color: #bfe1f6;
+  color: #06080a;
+}
+::-moz-selection {
+  background-color: #bfe1f6;
+  color: #06080a;
+}
+
+html.dark ::selection,
+.dark ::selection {
+  background-color: #2d4f7c;
+  color: #ffffff;
+}
+html.dark ::-moz-selection,
+.dark ::-moz-selection {
+  background-color: #2d4f7c;
+  color: #ffffff;
+}
+
+/* Keyboard-only focus rings (:focus-visible) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #406185;
+  outline-offset: 2px;
+}
+
+html.dark button:focus-visible,
+html.dark a:focus-visible,
+html.dark input:focus-visible,
+html.dark textarea:focus-visible {
+  outline: 2px solid #7ba2cf;
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Micro press physics */
+button,
+a.interactive-btn,
+.interactive-card {
+  transition: transform 75ms ease, box-shadow 75ms ease;
+}
+
+button:active,
+a.interactive-btn:active {
+  transform: scale(0.98);
+}
+
+/* Hide webkit scrollbars for clean paper aesthetic */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   Custom Cursor (Req 5: Sleek Solid Black Dot with Soft Edges)
+   ========================================================================== */
+html, body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 3 L11 20 L14 13 L21 10 Z' fill='%23000000' stroke='%23000000' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 4 3, auto;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  background-color: #06080a;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.5);
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              opacity 0.2s ease;
+  will-change: transform;
+}
+
+/* Hover expansion over clickable interactive elements */
+.custom-cursor-dot.cursor-hover {
+  width: 34px;
+  height: 34px;
+  background-color: rgba(6, 8, 10, 0.16);
+  border: 2px solid #06080a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(0.5px);
+}
+
+/* Dark mode styling: solid black core with crisp chalky/slate blueprint edge */
+html.dark .custom-cursor-dot {
+  background-color: #000000;
+  border: 1.5px solid rgba(226, 222, 212, 0.7);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+html.dark .custom-cursor-dot.cursor-hover {
+  background-color: rgba(226, 222, 212, 0.18);
+  border: 2px solid #e2ded4;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.8);
+}
+
+.custom-cursor-dot.cursor-hidden {
+  opacity: 0;
+}
+
+/* Responsive safeguard for touch devices */
+@media (pointer: coarse) {
+  .custom-cursor-dot {
+    display: none !important;
+  }
+}
