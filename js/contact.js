@@ -66,7 +66,7 @@ async function handleContactSubmit(e) {
       name: name,
       email: email,
       message: message,
-      _subject: 'Portfolio Paper Airplane from ' + name,
+      _subject: 'Portfolio Engineering Dispatch from ' + name,
       _template: 'table'
     };
 
@@ -94,7 +94,7 @@ async function handleContactSubmit(e) {
 
   // Fallback to mailto if asynchronous POST fails
   if (!dispatchSuccessful) {
-    const mailSubject = encodeURIComponent('Portfolio Paper Airplane from ' + name);
+    const mailSubject = encodeURIComponent('Portfolio Engineering Dispatch from ' + name);
     const mailBody = encodeURIComponent(`From: ${name} (${email})\n\nMessage:\n${message}`);
     const mailtoUrl = `mailto:jas.prakhar@gmail.com?subject=${mailSubject}&body=${mailBody}`;
     try {
@@ -111,19 +111,19 @@ async function handleContactSubmit(e) {
   spinner.classList.remove('flex');
   content.classList.remove('opacity-0');
   content.innerHTML =
-    '<span class="material-symbols-outlined text-[20px] shrink-0">check_circle</span><span class="whitespace-nowrap">Airplane Dispatched! ✉</span>';
+    '<span class="material-symbols-outlined text-[20px] shrink-0">check_circle</span><span class="whitespace-nowrap">Message Dispatched! ✉</span>';
   btn.classList.add('bg-secondary', 'text-on-secondary');
 
   const toastMessage = dispatchSuccessful
-    ? 'Paper airplane dispatched to Prakhar! ✉'
-    : 'Paper airplane prepared in your email client! ✉';
+    ? 'Message dispatched to Prakhar! ✉'
+    : 'Message draft prepared in your email client! ✉';
 
   if (typeof showToast === 'function') {
     showToast(toastMessage, 'Send Another', () => {
       const form = document.getElementById('contact-form');
       if (form) form.reset();
       content.innerHTML =
-        '<span class="material-symbols-outlined text-tertiary-fixed text-[20px] shrink-0">send</span><span class="whitespace-nowrap">Send Paper Airplane</span>';
+        '<span class="material-symbols-outlined text-tertiary-fixed text-[20px] shrink-0">send</span><span class="whitespace-nowrap">Dispatch Message</span>';
       btn.classList.remove('bg-secondary', 'text-on-secondary');
     });
   }

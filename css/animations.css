@@ -3,18 +3,13 @@
    Prakhar Jaiswal Portfolio
    ========================================================================== */
 
-/* Road car commuting animation across highway section */
-@keyframes driveCar {
-  0% {
-    transform: translateX(-120px);
-  }
-  100% {
-    transform: translateX(1100px);
-  }
+/* Tactile Button & Link Feedback */
+.interactive-btn {
+  transition: transform 75ms ease, box-shadow 75ms ease;
 }
 
-.animate-car {
-  animation: driveCar 16s linear infinite;
+.interactive-btn:active {
+  transform: translate(1px, 1px);
 }
 
 /* Accessibility: prefers-reduced-motion guardrails (WCAG 2.1 SC 2.2.2 / 2.3.3) */
@@ -23,22 +18,26 @@
     scroll-behavior: auto !important;
   }
 
-  /* Disable continuous decorative motion & disruptive transform shifts */
+  /* Reset durations without stripping layout-critical CSS transforms */
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transform: none !important;
+    transition-duration: 0.01ms !important;
   }
 
-  .animate-car,
   .animate-bounce,
   .animate-spin,
   .animate-pulse {
     animation: none !important;
   }
 
-  /* Preserve gentle opacity fades for state feedback and task awareness */
+  .custom-cursor-dot {
+    display: none !important;
+  }
+
+  /* Preserve gentle opacity fades for essential state feedback and dialog awareness */
   .toast,
   #cmd-palette-backdrop,
   .interactive-btn,

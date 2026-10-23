@@ -1,16 +1,22 @@
 /**
  * Prakhar Jaiswal Portfolio - Interactive Custom Cursor
- * Solid black cursor with soft rounded edges, expanding on interactive elements.
- * Optimized with requestAnimationFrame for 60/120 FPS smoothness without layout thrash.
+ * Solid black dot when normal, expanding into a larger tinted circle lens on clickable links.
+ * Hardware-accelerated with requestAnimationFrame for 60/120 FPS smoothness without layout thrash.
  */
 
 (function () {
   'use strict';
 
   // Do not run on touch / mobile devices or if user prefers reduced motion
-  if (window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (
+    window.matchMedia('(pointer: coarse)').matches ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
     return;
   }
+
+  // Signal custom cursor activation to suppress native OS cursor on fine pointers
+  document.documentElement.classList.add('has-custom-cursor');
 
   function initCursor() {
     let cursorDot = document.getElementById('custom-cursor-dot');
@@ -24,13 +30,22 @@
 
     let isVisible = false;
     let isHovered = false;
-    let mouseX = 0;
-    let mouseY = 0;
+    let isClicked = false;
+    let mouseX = -100;
+    let mouseY = -100;
     let rafScheduled = false;
 
     function renderCursor() {
-      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      const scale = isClicked ? (isHovered ? 'scale(0.88)' : 'scale(0.8)') : '';
+      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) ${scale}`.trim();
       rafScheduled = false;
+    }
+
+    function scheduleRender() {
+      if (!rafScheduled) {
+        rafScheduled = true;
+        requestAnimationFrame(renderCursor);
+      }
     }
 
     // Hardware-accelerated position updates throttled via requestAnimationFrame
@@ -41,40 +56,71 @@
         isVisible = true;
         cursorDot.classList.remove('cursor-hidden');
       }
-      if (!rafScheduled) {
-        rafScheduled = true;
-        requestAnimationFrame(renderCursor);
-      }
+      scheduleRender();
     }
 
     window.addEventListener('pointermove', onPointerMove, { passive: true });
 
-    // Handle cursor entering and leaving window
+    // Handle cursor entering and leaving viewport
     document.addEventListener('mouseleave', () => {
       isVisible = false;
       cursorDot.classList.add('cursor-hidden');
     });
 
-    document.addEventListener('mouseenter', () => {
+    document.addEventListener('mouseenter', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
       isVisible = true;
       cursorDot.classList.remove('cursor-hidden');
+      scheduleRender();
     });
 
-    // Micro-press click feedback
-    window.addEventListener('mousedown', () => {
+    // Tactile micro-press feedback
+    window.addEventListener('pointerdown', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      isClicked = true;
       cursorDot.classList.add('cursor-clicked');
+      if (!isVisible) {
+        isVisible = true;
+        cursorDot.classList.remove('cursor-hidden');
+      }
+      scheduleRender();
     }, { passive: true });
 
-    window.addEventListener('mouseup', () => {
+    window.addEventListener('pointerup', () => {
+      isClicked = false;
       cursorDot.classList.remove('cursor-clicked');
+      scheduleRender();
     }, { passive: true });
 
-    // Interactive element detection via high-performance delegation
-    const INTERACTIVE_SELECTOR = 'a, button, input, textarea, select, [role="button"], .interactive-btn, .interactive-card, label, summary, [onclick], [tabindex="0"]';
+    // Clickable interactive element detection via event delegation
+    const CLICKABLE_SELECTOR = [
+      'a',
+      'button',
+      '[role="button"]',
+      '.interactive-btn',
+      '.interactive-card',
+      '.filter-btn',
+      'summary',
+      '[onclick]',
+      '.cursor-pointer',
+      'input[type="submit"]',
+      'input[type="button"]',
+      'input[type="reset"]',
+      'input[type="checkbox"]',
+      'input[type="radio"]',
+      'input[type="range"]',
+      'input[type="file"]',
+      'select',
+      '[tabindex="0"]'
+    ].join(', ');
 
     document.addEventListener('mouseover', (e) => {
-      const target = e.target.closest(INTERACTIVE_SELECTOR);
-      if (target) {
+      const target = e.target.closest(CLICKABLE_SELECTOR);
+      const isClickable = target && !target.disabled && target.getAttribute('aria-disabled') !== 'true';
+
+      if (isClickable) {
         if (!isHovered) {
           isHovered = true;
           cursorDot.classList.add('cursor-hover');

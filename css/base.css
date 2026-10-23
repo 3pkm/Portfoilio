@@ -117,63 +117,85 @@ a.interactive-btn:active {
 }
 
 /* ==========================================================================
-   Custom Cursor (Req 5: Sleek Solid Black Dot with Soft Edges)
+   Custom Cursor: Solid Black Dot (Normal) & Enlarged Tinted Circle (Links)
    ========================================================================== */
-html, body {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 3 L11 20 L14 13 L21 10 Z' fill='%23000000' stroke='%23000000' stroke-width='2.5' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E") 4 3, auto;
+
+/* Hide OS cursor on fine-pointer devices when custom cursor is active */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor *,
+  html.has-custom-cursor *::before,
+  html.has-custom-cursor *::after {
+    cursor: none !important;
+  }
 }
 
 .custom-cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
-  width: 11px;
-  height: 11px;
+  width: 9px;
+  height: 9px;
   background-color: #06080a;
   border-radius: 50%;
+  border: 0px solid transparent;
+  box-sizing: border-box;
   pointer-events: none;
   z-index: 99999;
   transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.5);
   transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
               height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
               background-color 0.2s ease,
               border-color 0.2s ease,
-              box-shadow 0.2s ease,
-              opacity 0.2s ease;
+              border-width 0.2s ease,
+              opacity 0.18s ease;
   will-change: transform;
 }
 
-/* Hover expansion over clickable interactive elements */
+/* Hover expansion over clickable interactive links and buttons */
 .custom-cursor-dot.cursor-hover {
-  width: 34px;
-  height: 34px;
-  background-color: rgba(6, 8, 10, 0.16);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(6, 8, 10, 0.15);
   border: 2px solid #06080a;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(0.5px);
 }
 
-/* Dark mode styling: solid black core with crisp chalky/slate blueprint edge */
+/* Dark mode styling: Solid light dot when normal, tinted white circle when hovering */
 html.dark .custom-cursor-dot {
-  background-color: #000000;
-  border: 1.5px solid rgba(226, 222, 212, 0.7);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.7);
+  background-color: #ffffff;
+  border-color: transparent;
 }
 
 html.dark .custom-cursor-dot.cursor-hover {
-  background-color: rgba(226, 222, 212, 0.18);
-  border: 2px solid #e2ded4;
-  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 2px solid #ffffff;
 }
 
 .custom-cursor-dot.cursor-hidden {
   opacity: 0;
 }
 
-/* Responsive safeguard for touch devices */
-@media (pointer: coarse) {
+/* Responsive & accessibility safeguard for touch and reduced-motion */
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
   .custom-cursor-dot {
     display: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    cursor: auto !important;
+  }
+
+  a,
+  button,
+  [role="button"],
+  .interactive-btn,
+  summary,
+  input[type="submit"],
+  input[type="button"] {
+    cursor: pointer !important;
   }
 }

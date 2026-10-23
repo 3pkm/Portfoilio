@@ -75,3 +75,71 @@ input[type="range"]:active::-moz-range-thumb {
 .yolo-defect-group:hover rect {
   stroke-width: 2.5 !important;
 }
+
+/* ==========================================================================
+   Navigation Bar Sliding Underline (#d97736)
+   ========================================================================== */
+
+.nav-link-slide {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.nav-link-slide > span {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+/* Dynamic shared indicator bar inside nav */
+.nav-sliding-indicator {
+  position: absolute;
+  bottom: 2px;
+  height: 2.5px;
+  background-color: #d97736;
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0;
+  will-change: left, width, opacity;
+  transition: left 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease;
+  z-index: 10;
+}
+
+/* Fallback pure CSS directional sliding underline if JS is not active */
+@media (prefers-reduced-motion: no-preference) {
+  nav:not(.has-sliding-dock) .nav-link-slide > span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2.5px;
+    background-color: #d97736;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  nav:not(.has-sliding-dock) .nav-link-slide:hover > span::after,
+  nav:not(.has-sliding-dock) .nav-link-slide:focus-visible > span::after,
+  nav:not(.has-sliding-dock) .nav-link-slide.active > span::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+/* Accessibility: instant opacity fade under reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav-sliding-indicator {
+    transition: opacity 150ms ease !important;
+  }
+  .nav-link-slide > span::after {
+    transition: none !important;
+  }
+}

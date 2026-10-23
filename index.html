@@ -71,7 +71,6 @@
   <script src="js/theme.js" defer></script>
   <script src="js/toast.js" defer></script>
   <script src="js/command-palette.js" defer></script>
-  <script src="js/playground.js" defer></script>
   <script src="js/contact.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
@@ -112,19 +111,54 @@
             Flagship Projects &amp; Visualizers</span>
           <span class="text-on-surface-variant text-[11px]">Section</span>
         </a>
-        <a href="#architecture-playground" onclick="toggleCommandPalette(false)"
-          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
-          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
-              aria-hidden="true">terminal</span>
-            Interactive Model &amp; Architecture Playground</span>
-          <span class="text-on-surface-variant text-[11px]">Playground</span>
-        </a>
         <a href="projects.html" onclick="toggleCommandPalette(false)"
           class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
           <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
               aria-hidden="true">grid_view</span>
-            Browse All Projects Catalog (6+)</span>
+            Browse All Projects Catalog (9 Builds)</span>
           <span class="text-on-surface-variant text-[11px]">Page</span>
+        </a>
+
+        <a href="https://github.com/3pkm/Ocean_Debrie" target="_blank" rel="noopener noreferrer" onclick="toggleCommandPalette(false)"
+
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+
+              aria-hidden="true">satellite_alt</span>
+
+            Tidewatch: Ocean Debris &amp; Metocean Drift</span>
+
+          <span class="text-on-surface-variant text-[11px]">GitHub</span>
+
+        </a>
+
+        <a href="https://github.com/3pkm/Root_Cause_Mapping_System" target="_blank" rel="noopener noreferrer" onclick="toggleCommandPalette(false)"
+
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+
+              aria-hidden="true">schema</span>
+
+            GML Root-Cause Mapping &amp; Failure Propagation</span>
+
+          <span class="text-on-surface-variant text-[11px]">GitHub</span>
+
+        </a>
+
+        <a href="https://github.com/3pkm/Pixathon" target="_blank" rel="noopener noreferrer" onclick="toggleCommandPalette(false)"
+
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+
+              aria-hidden="true">sports_esports</span>
+
+            Blackwood &apos;94: The Crimson Protocol (Pixathon)</span>
+
+          <span class="text-on-surface-variant text-[11px]">GitHub</span>
+
         </a>
         <a href="#internship-log" onclick="toggleCommandPalette(false)"
           class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
@@ -175,21 +209,20 @@
         </a>
       </div>
 
-      <!-- Center: Nav links cleanly centered relative to the header bar -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2 absolute left-1/2 -translate-x-1/2"
-        aria-label="Main Navigation">
-        <a class="flex items-center justify-center px-3 lg:px-4 py-1.5 lg:py-2 bg-primary-container text-on-primary font-bold shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] rounded text-label-md lg:text-label-lg font-label-lg transition-all duration-150 active:scale-[0.98]"
-          href="#sketch-desk">[★] Projects</a>
-        <a class="flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
-          href="#architecture-playground">Playground</a>
-        <a class="flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
-          href="#internship-log">Experience</a>
-        <a class="flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
-          href="projects.html">All Builds</a>
-        <a class="flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
-          href="#field-notes">Field Notes</a>
-        <a class="flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-on-surface transition-all duration-150 rounded"
-          href="#contact-inkwell">Contact</a>
+      <!-- Center: Nav links cleanly centered relative to the header bar -->
+      <nav id="desktop-nav" class="hidden md:flex items-center gap-1 lg:gap-2 absolute left-1/2 -translate-x-1/2"
+        aria-label="Main Navigation">
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="#sketch-desk"><span>Projects</span></a>
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="#internship-log"><span>Experience</span></a>
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="projects.html"><span>All Builds</span></a>
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="#field-notes"><span>Field Notes</span></a>
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="#contact-inkwell"><span>Contact</span></a>
+        <span id="nav-sliding-indicator" aria-hidden="true" class="nav-sliding-indicator"></span>
       </nav>
 
       <!-- Right: Action items and mobile toggle -->
@@ -251,14 +284,6 @@
             </span>
             <span class="text-xs text-on-primary/70">Flagships</span>
           </a>
-          <a href="#architecture-playground" onclick="closeMobileMenu()"
-            class="flex items-center justify-between min-h-[44px] px-3.5 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg active:scale-[0.98] transition-all">
-            <span class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">science</span>
-              <span>Playground</span>
-            </span>
-            <span class="text-xs text-outline">3 Live Models</span>
-          </a>
           <a href="#internship-log" onclick="closeMobileMenu()"
             class="flex items-center justify-between min-h-[44px] px-3.5 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg active:scale-[0.98] transition-all">
             <span class="flex items-center gap-2">
@@ -274,14 +299,6 @@
               <span>All Projects</span>
             </span>
             <span class="text-xs text-on-surface-variant">Catalog 6+</span>
-          </a>
-          <a href="#stack-billboard" onclick="closeMobileMenu()"
-            class="flex items-center justify-between min-h-[44px] px-3.5 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg active:scale-[0.98] transition-all">
-            <span class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">code</span>
-              <span>Tech Stack</span>
-            </span>
-            <span class="text-xs text-outline">Taxonomy</span>
           </a>
           <a href="#field-notes" onclick="closeMobileMenu()"
             class="flex items-center justify-between min-h-[44px] px-3.5 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg active:scale-[0.98] transition-all">
@@ -349,8 +366,6 @@
               <span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
               <span>B.Tech CSE (AI &amp; Data Science) • MIT-WPU Pune (CGPA 8.87) • AI-ML Intern Alum</span>
             </div>
-            <span>
-            </span>
           </div>
 
           <!-- Expressive Organic Headline with highlighter effects -->
@@ -381,45 +396,45 @@
               class="text-secondary font-bold">Quantyc AI</strong>.
           </p>
 
-          <!-- Interactive Call to Action cluster with prominent CV download -->
-          <div class="flex flex-wrap items-center justify-center gap-space-md relative">
-            <!-- Primary Action 1: Resume / CV Download -->
-            <a class="interactive-btn relative group inline-flex items-center gap-2 px-space-lg py-space-sm bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg shadow-[4px_4px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_#1e2022] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150"
-              href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf" target="_blank"
-              rel="noopener noreferrer" onclick="showToast('Resume download started! 📄')">
-              <span class="material-symbols-outlined text-[22px] text-tertiary-fixed" aria-hidden="true">download</span>
-              <span>Download Resume • PDF</span>
-            </a>
+          <!-- Interactive Call to Action cluster: Streamlined Two-Tier Hierarchy -->
+          <div class="flex flex-col items-center justify-center gap-3 relative">
+            <div class="flex flex-wrap items-center justify-center gap-space-md">
+              <!-- Primary Action: Resume / CV Download -->
+              <a class="interactive-btn relative group inline-flex items-center gap-2 px-space-lg py-3.5 bg-primary text-on-primary font-headline-sm text-base sm:text-headline-sm rounded-lg shadow-[4px_4px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_#1e2022] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 font-bold"
+                href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf" target="_blank"
+                rel="noopener noreferrer" onclick="showToast('Resume download started! 📄')">
+                <span class="material-symbols-outlined text-[22px] text-tertiary-fixed" aria-hidden="true">download</span>
+                <span>Download Resume • PDF</span>
+              </a>
 
-            <!-- Primary Action 2: Explore Projects -->
-            <a class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-sm bg-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
-              href="#sketch-desk">
-              <span class="material-symbols-outlined text-[18px] text-secondary-fixed"
-                aria-hidden="true">folder_open</span>
-              <span>Flagship Projects (4)</span>
-            </a>
+              <!-- Secondary Action: Explore Flagship Projects -->
+              <a class="interactive-btn inline-flex items-center gap-2 px-space-md py-3.5 bg-primary-container text-on-primary font-headline-sm text-base sm:text-headline-sm rounded-lg shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 transition-all font-bold"
+                href="#sketch-desk">
+                <span class="material-symbols-outlined text-[20px] text-tertiary-fixed" aria-hidden="true">folder_open</span>
+                <span>Explore Flagship Projects (7 Builds)</span>
+              </a>
+            </div>
 
-            <!-- Primary Action 3: Architecture Playground -->
-            <a class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-primary font-label-lg text-label-lg rounded-lg shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-surface-container-high transition-all"
-              href="#architecture-playground">
-              <span class="material-symbols-outlined text-[18px] text-tertiary-container"
-                aria-hidden="true">terminal</span>
-              <span>Architecture Playground</span>
-            </a>
-
-            <!-- Secondary Action: GitHub Profile -->
-            <a class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-primary font-label-lg text-label-lg rounded-lg shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high transition-colors"
-              href="https://github.com/3pkm" rel="noopener noreferrer" target="_blank">
-              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">code</span>
-              <span>GitHub (3pkm) ↗</span>
-            </a>
-
-            <!-- Secondary Action: LinkedIn -->
-            <a class="interactive-btn inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container text-primary font-label-lg text-label-lg rounded-lg shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high transition-colors"
-              href="https://www.linkedin.com/in/prakhar-jaiswal/" rel="noopener noreferrer" target="_blank">
-              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">badge</span>
-              <span>LinkedIn ↗</span>
-            </a>
+            <!-- Understated Sub-Actions & Profile Anchors -->
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs font-label-md text-on-surface-variant font-mono mt-1">
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">code</span>
+                <span>GitHub (@3pkm) ↗</span>
+              </a>
+              <span class="text-outline/40 hidden sm:inline">•</span>
+              <a href="https://www.linkedin.com/in/prakhar-jaiswal/" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">badge</span>
+                <span>LinkedIn (prakhar-jaiswal) ↗</span>
+              </a>
+              <span class="text-outline/40 hidden sm:inline">•</span>
+              <a href="#sketch-desk"
+                class="inline-flex items-center gap-1 hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">folder_open</span>
+                <span>Flagships (4) ↓</span>
+              </a>
+            </div>
           </div>
 
           <!-- Floating Polaroid / Sticky Note Desk Preview (Profile Data) -->
@@ -509,8 +524,9 @@
               <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">The Flagship AI &amp; Software
                 Builds</h2>
               <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-xs">
-                State-of-the-art non-invasive medical diagnostic vision, enterprise multimodal RAG search, automated
-                visual defect detection, and intelligent document extraction.
+                State-of-the-art non-invasive medical diagnostic vision, satellite remote sensing, enterprise multimodal RAG,
+
+                industrial graph neural networks, and interactive systems.
               </p>
             </div>
             <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
@@ -789,6 +805,380 @@
 
           </div>
 
+
+
+            <!-- Project 5: Tidewatch — Multispectral Ocean Debris & Metocean Drift Engine -->
+
+            <div
+
+              class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] -rotate-1 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+
+              <div class="absolute -top-3 left-10 w-28 h-6 bg-secondary-fixed/90 diary-tape" aria-hidden="true">
+
+              </div>
+
+
+
+              <div
+
+                class="relative w-full h-56 rounded-md bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-4 text-center">
+
+                <div
+
+                  class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-2">
+
+                  <span class="material-symbols-outlined text-[24px]" aria-hidden="true">satellite_alt</span>
+
+                </div>
+
+                <span class="font-headline-sm text-headline-sm text-primary font-bold">Tidewatch Satellite Engine</span>
+
+                <span class="font-label-md text-label-md text-secondary mt-1 font-bold">14-Channel UNet • 500-Particle RK4 Drift</span>
+
+
+
+                <div
+
+                  class="absolute top-2 right-2 px-space-xs py-0.5 bg-primary text-on-primary font-label-md text-label-md rounded">
+
+                  MARIDA BENCHMARK
+
+                </div>
+
+                <div
+
+                  class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+
+                  PyTorch • ONNX Runtime • PostGIS • MapLibre
+
+                </div>
+
+              </div>
+
+
+
+              <div
+
+                class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+
+                <span>PROJECT 05 / REMOTE SENSING &amp; METOCEAN</span>
+
+                <span class="text-tertiary-container font-bold">ORBITAL TRACKING</span>
+
+              </div>
+
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+
+                Tidewatch: Ocean Debris &amp; Metocean Drift Engine
+
+              </h3>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+
+                Autonomous satellite remote sensing pipeline tackling marine plastic pollution under dense cloud cover (&ldquo;The Clouds Rolled In&rdquo;). Combines a 14-channel deep neural UNet on Sentinel-2 MSI multispectral imagery, a 500-particle Runge-Kutta 4 (RK4) stochastic metocean drift ensemble with KDE probability contours, and cloud-aware spatio-temporal tracking across orbital revisits.
+
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+
+                <span
+
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">PyTorch</span>
+
+                <span
+
+                  class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">ONNX Runtime</span>
+
+                <span
+
+                  class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded">PostGIS</span>
+
+                <span
+
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">RK4 Drift</span>
+
+              </div>
+
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+
+                <a href="https://github.com/3pkm/Ocean_Debrie" target="_blank" rel="noopener noreferrer"
+
+                  class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+
+                  <span>Explore Satellite Pipeline</span>
+
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+
+                </a>
+
+                <div
+
+                  class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">waves</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Project 6: GML Industrial Root-Cause Mapping System -->
+
+            <div
+
+              class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] rotate-1 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+
+              <div class="absolute -top-3 right-10 w-28 h-6 bg-tertiary-fixed/90 diary-tape" aria-hidden="true">
+
+              </div>
+
+
+
+              <div
+
+                class="relative w-full h-56 rounded-md bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-4 text-center">
+
+                <div
+
+                  class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center mb-2">
+
+                  <span class="material-symbols-outlined text-[24px] text-tertiary-fixed"
+
+                    aria-hidden="true">schema</span>
+
+                </div>
+
+                <span class="font-headline-sm text-headline-sm text-primary font-bold">HeteroConv Assembly GNN</span>
+
+                <span class="font-label-md text-label-md text-on-surface-variant mt-1 font-bold">Failure Cascades • SAGEConv</span>
+
+
+
+                <div
+
+                  class="absolute top-2 left-2 px-space-xs py-0.5 bg-secondary text-on-secondary font-label-md text-label-md rounded font-bold">
+
+                  INDUSTRIAL AI
+
+                </div>
+
+                <div
+
+                  class="absolute bottom-2 right-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+
+                  PyG • Neo4j • FastAPI • Vite
+
+                </div>
+
+              </div>
+
+
+
+              <div
+
+                class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+
+                <span>PROJECT 06 / GRAPH MACHINE LEARNING</span>
+
+                <span class="text-secondary font-bold">FAILURE PROPAGATION</span>
+
+              </div>
+
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+
+                GML Root-Cause Mapping &amp; Failure Propagation Engine
+
+              </h3>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+
+                Industrial Graph Machine Learning (GML) platform for manufacturing assembly root-cause failure diagnosis. Implements heterogeneous graph neural networks with bidirectional SAGEConv message passing across multi-tier part-to-assembly hierarchies to trace structural defects, predict failure cascades, and guide precision remediation.
+
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+
+                <span
+
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">PyTorch Geometric</span>
+
+                <span
+
+                  class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">Neo4j</span>
+
+                <span
+
+                  class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded">HeteroConv</span>
+
+                <span
+
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">FastAPI</span>
+
+              </div>
+
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+
+                <a href="https://github.com/3pkm/Root_Cause_Mapping_System" target="_blank" rel="noopener noreferrer"
+
+                  class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+
+                  <span>View Graph GNN Repo</span>
+
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+
+                </a>
+
+                <div
+
+                  class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">account_tree</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Project 7: Blackwood '94: The Crimson Protocol (ESCAPE_PROTOCOL / Pixathon) -->
+
+            <div
+
+              class="md:col-span-2 group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] hover:-translate-y-2 transition-all duration-300">
+
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-secondary-fixed-dim/90 diary-tape" aria-hidden="true">
+
+              </div>
+
+
+
+              <div class="flex flex-col lg:flex-row gap-6 items-stretch">
+
+                <div
+
+                  class="w-full lg:w-2/5 h-64 lg:h-auto min-h-[220px] rounded-md bg-surface-container overflow-hidden flex flex-col justify-center items-center p-6 text-center relative">
+
+                  <div
+
+                    class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center mb-2">
+
+                    <span class="material-symbols-outlined text-[24px] text-tertiary-fixed" aria-hidden="true">videogame_asset</span>
+
+                  </div>
+
+                  <span class="font-headline-sm text-headline-sm text-primary font-bold">Blackwood &apos;94: Escape Protocol</span>
+
+                  <span class="font-label-md text-label-md text-secondary mt-1 font-bold">16 Puzzle Rooms • Procedural Web Audio</span>
+
+
+
+                  <div
+
+                    class="absolute top-2 left-2 px-space-xs py-0.5 bg-primary text-on-primary font-label-md text-label-md rounded font-bold">
+
+                    2HR VIBE HACKATHON
+
+                  </div>
+
+                  <div
+
+                    class="absolute bottom-2 right-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+
+                    Web Audio API • Canvas 2D • SVG
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="w-full lg:w-3/5 flex flex-col justify-between">
+
+                  <div>
+
+                    <div
+
+                      class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+
+                      <span>PROJECT 07 / INTERACTIVE WEB &amp; AUDIO</span>
+
+                      <span class="text-secondary font-bold">NOIR HORROR GAME ENGINE</span>
+
+                    </div>
+
+                    <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+
+                      Blackwood &apos;94: The Crimson Protocol (Escape Room)
+
+                    </h3>
+
+                    <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+
+                      90s-styled point-and-click noir horror escape room game built in a 2-hour vibe coding hackathon with Antigravity &amp; Gemini. Features 16 interactive solvable puzzle rooms across two campaigns, procedural Web Audio API sound synthesis (sub-bass heartbeats, geiger clicks, mechanical shutters with zero external MP3s), dynamic cursor flashlight shaders, and darkroom chemical development.
+
+                    </p>
+
+                    <div class="flex flex-wrap gap-1.5 mb-space-sm">
+
+                      <span
+
+                        class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Web Audio API</span>
+
+                      <span
+
+                        class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">Canvas 2D</span>
+
+                      <span
+
+                        class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded">Procedural Sound</span>
+
+                      <span
+
+                        class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">JavaScript</span>
+
+                      <span
+
+                        class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">CSS3 Shaders</span>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="pt-space-xs flex items-center justify-between border-t border-surface-container mt-2">
+
+                    <a href="https://github.com/3pkm/Pixathon" target="_blank" rel="noopener noreferrer"
+
+                      class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+
+                      <span>Play &amp; View GitHub Source</span>
+
+                      <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+
+                    </a>
+
+                    <div
+
+                      class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+
+                      <span class="material-symbols-outlined text-[16px]" aria-hidden="true">sports_esports</span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
           <!-- View More Projects CTA Button (Links to separate project page) -->
           <div class="mt-space-xl flex flex-col items-center justify-center text-center">
             <div
@@ -797,12 +1187,13 @@
                 class="interactive-btn inline-flex items-center gap-3 px-8 py-4 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg active:scale-[0.98] transition-all">
                 <span class="material-symbols-outlined text-tertiary-fixed text-[24px]"
                   aria-hidden="true">grid_view</span>
-                <span>View More Projects Catalog (All Builds)</span>
+                <span>View Complete Projects Catalog (All 9 Builds)</span>
                 <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_forward</span>
               </a>
             </div>
             <span class="mt-2 text-on-surface-variant font-annotation text-annotation">
-              Explore computer vision, deep learning models, RAG setups, and full-stack experiments on the dedicated
+              Explore satellite remote sensing (Tidewatch), GML root-cause mapping, procedural horror engines, and deep learning setups on the dedicated
+
               project board →
             </span>
           </div>
@@ -823,960 +1214,7 @@
         </svg>
       </div>
 
-      <!-- ==========================================================================
-     SECTION: INTERACTIVE MODEL & ARCHITECTURE PLAYGROUND
-     Replaces cartoonish "Highway 101" with a rigorous, tactile engineering lab.
-     Includes 3 live functional widgets + Understated Tech Stack Taxonomy Drawer.
-     ========================================================================== -->
-
-      <!-- Anchor shim for backward compatibility with existing command palette & navigation links -->
-      <div id="stack-billboard" class="sr-only" aria-hidden="true"></div>
-
-      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="architecture-playground"
-        aria-label="Interactive Model and Architecture Playground">
-        <div class="max-w-6xl mx-auto">
-
-          <!-- Section Header with Washi Tape Artisan Styling -->
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md">
-            <div>
-              <div
-                class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] mb-space-xs diary-tape">
-                <span class="material-symbols-outlined text-[16px]">terminal</span>
-                <span>THE LIVING ARCHITECTURE LAB • VERIFIED PRODUCTION RUNTIMES</span>
-              </div>
-              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">
-                Interactive Model &amp; Architecture Playground
-              </h2>
-              <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-space-xs leading-relaxed">
-                Directly inspect the token economics, retrieval mechanics, and inference latencies engineered across
-                Prakhar's production deployments—from 50% Anthropic Batch cost reductions to sub-15ms edge defect
-                segmentation.
-              </p>
-            </div>
-
-            <!-- Live Environment Status Tag -->
-            <div
-              class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-md bg-surface-container  shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] font-label-md text-xs self-start md:self-auto">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 "></span>
-              <span class="text-primary font-bold">CLIENT RUNTIME ACTIVE</span>
-              <span class="text-on-surface-variant font-mono">60 FPS</span>
-            </div>
-          </div>
-
-          <!-- Segmented Tab Navigation Controls -->
-          <div class="mb-space-md">
-            <div
-              class="flex flex-col sm:flex-row gap-2 p-1.5 bg-surface-container-high rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_var(--shadow-color,#1e2022)]"
-              role="tablist" aria-label="Playground Modules">
-
-              <!-- Tab 1: Token Cost Optimizer -->
-              <button type="button" role="tab" id="tab-token-cost" aria-selected="true" aria-controls="panel-token-cost"
-                tabindex="0" data-playground-tab="token-cost"
-                class="flex-1 flex items-center justify-center gap-2.5 px-4 py-3 min-h-[44px] rounded-lg font-label-md text-xs font-bold transition-all text-center cursor-pointer bg-primary text-on-primary shadow-[3px_3px_0px_0px_var(--shadow-color,#1e2022)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-secondary">
-                <span class="material-symbols-outlined text-[18px]">price_change</span>
-                <span class="flex flex-col text-left">
-                  <span class="text-xs uppercase tracking-wider">01. Token Cost Optimizer</span>
-                  <span class="text-[10px] opacity-80 font-normal">Anthropic Batch API (50% Cut)</span>
-                </span>
-              </button>
-
-              <!-- Tab 2: Hybrid RAG Inspector -->
-              <button type="button" role="tab" id="tab-hybrid-rag" aria-selected="false"
-                aria-controls="panel-hybrid-rag" tabindex="-1" data-playground-tab="hybrid-rag"
-                class="flex-1 flex items-center justify-center gap-2.5 px-4 py-3 min-h-[44px] rounded-lg font-label-md text-xs font-bold transition-all text-center cursor-pointer bg-surface-container text-on-surface-variant hover:bg-surface-container-highest active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-secondary">
-                <span class="material-symbols-outlined text-[18px]">manage_search</span>
-                <span class="flex flex-col text-left">
-                  <span class="text-xs uppercase tracking-wider">02. Hybrid RAG Inspector</span>
-                  <span class="text-[10px] opacity-80 font-normal">Dense Vector + BM25 Fusion (α)</span>
-                </span>
-              </button>
-
-              <!-- Tab 3: YOLOv8-Seg Inspector -->
-              <button type="button" role="tab" id="tab-yolo-seg" aria-selected="false" aria-controls="panel-yolo-seg"
-                tabindex="-1" data-playground-tab="yolo-seg"
-                class="flex-1 flex items-center justify-center gap-2.5 px-4 py-3 min-h-[44px] rounded-lg font-label-md text-xs font-bold transition-all text-center cursor-pointer bg-surface-container text-on-surface-variant hover:bg-surface-container-highest active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-secondary">
-                <span class="material-symbols-outlined text-[18px]">center_focus_strong</span>
-                <span class="flex flex-col text-left">
-                  <span class="text-xs uppercase tracking-wider">03. YOLOv8-Seg Vision</span>
-                  <span class="text-[10px] opacity-80 font-normal">Real-Time Defect Polygon Masks</span>
-                </span>
-              </button>
-            </div>
-          </div>
-
-          <!-- ====================================================================
-         PLAYGROUND PANEL 1: TOKEN COST & LATENCY OPTIMIZER
-         ==================================================================== -->
-          <div id="panel-token-cost" role="tabpanel" aria-labelledby="tab-token-cost" data-playground-panel="token-cost"
-            class="space-y-space-md">
-
-            <!-- Main Interactive Workbench Card -->
-            <div class="p-space-md lg:p-space-lg bg-surface-container-lowest rounded-2xl">
-
-              <!-- Controls Grid -->
-              <div
-                class="grid grid-cols-1 lg:grid-cols-12 gap-space-md pb-space-md border-b-2 border-primary-container/20">
-
-                <!-- Monthly Token Volume Slider -->
-                <div class="lg:col-span-6 flex flex-col justify-between">
-                  <div>
-                    <div class="flex items-center justify-between mb-2">
-                      <label for="token-vol-slider"
-                        class="font-label-md text-xs font-bold text-primary flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
-                        <span>MONTHLY TOKEN VOLUME (M)</span>
-                      </label>
-                      <span id="token-vol-value"
-                        class="font-headline-md text-xl text-primary font-bold tabular-nums">80M</span>
-                    </div>
-                    <input type="range" id="token-vol-slider" min="10" max="500" step="5" value="80"
-                      aria-label="Monthly Token Volume Slider in Millions"
-                      class="w-full h-3 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary focus-visible:outline-2 focus-visible:outline-secondary" />
-                    <div
-                      class="flex justify-between text-[11px] font-label-md text-on-surface-variant mt-1.5 font-mono">
-                      <span>10M tokens</span>
-                      <span id="token-vol-formatted" class="tabular-nums font-bold text-primary">80,000,000 tokens /
-                        month</span>
-                      <span>500M tokens</span>
-                    </div>
-                  </div>
-
-                  <!-- Production Context Badge -->
-                  <div
-                    class="mt-4 p-2.5 bg-surface-container rounded-lg  text-xs font-body-sm text-on-surface-variant flex items-center gap-2">
-                    <span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
-                    <span><strong>Quantyc AI Benchmark:</strong> Handled 12M+ monthly document pages with ~80M
-                      input/output tokens.</span>
-                  </div>
-                </div>
-
-                <!-- Model Selector & Prompt Caching Toggle -->
-                <div class="lg:col-span-6 flex flex-col justify-between gap-4">
-
-                  <!-- Model Selection Pills -->
-                  <div>
-                    <span class="font-label-md text-xs font-bold text-primary block mb-2 flex items-center gap-1.5">
-                      <span class="material-symbols-outlined text-[16px] text-secondary">psychology</span>
-                      <span>FOUNDATION MODEL TIER</span>
-                    </span>
-                    <div class="grid grid-cols-2 gap-2" role="group" aria-label="Select Claude Model Tier">
-                      <button type="button" data-token-model="sonnet"
-                        class="token-model-btn min-h-[44px] px-3 py-2 rounded-lg font-label-md text-xs font-bold bg-primary text-on-primary  shadow-[2px_2px_0px_0px_#1e2022] transition-all cursor-pointer flex flex-col text-left">
-                        <span>Claude 3.7 Sonnet</span>
-                        <span class="text-[10px] opacity-80 font-mono font-normal">$3.00 in / $15.00 out</span>
-                      </button>
-                      <button type="button" data-token-model="haiku"
-                        class="token-model-btn min-h-[44px] px-3 py-2 rounded-lg font-label-md text-xs font-bold bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-high transition-all cursor-pointer flex flex-col text-left">
-                        <span>Claude 3.5 Haiku</span>
-                        <span class="text-[10px] opacity-80 font-mono font-normal">$0.80 in / $4.00 out</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Prompt Caching Switch -->
-                  <div
-                    class="flex items-center justify-between p-3 bg-surface-container rounded-lg border border-primary-container">
-                    <div class="flex flex-col pr-3">
-                      <span class="font-label-md text-xs font-bold text-primary flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-[16px] text-tertiary-container">memory</span>
-                        <span>Anthropic Prompt Caching</span>
-                      </span>
-                      <span class="font-body-sm text-[12px] text-on-surface-variant">Caches 65% repetitive system
-                        schemas &amp; few-shot prompts</span>
-                    </div>
-                    <label
-                      class="relative inline-flex items-center cursor-pointer min-h-[44px] min-w-[50px] justify-center"
-                      for="prompt-caching-toggle">
-                      <input type="checkbox" id="prompt-caching-toggle" class="sr-only peer" checked
-                        aria-label="Toggle Anthropic Prompt Caching" />
-                      <div
-                        class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[12px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary">
-                      </div>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Live Reactive Metrics Cards Grid -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm py-space-md">
-
-                <!-- Realtime Cost -->
-                <div class="p-space-sm bg-surface-container rounded-lg">
-                  <span
-                    class="font-label-md text-[11px] text-on-surface-variant font-bold block uppercase tracking-wider">01
-                    / Realtime On-Demand</span>
-                  <div id="metric-realtime-cost"
-                    class="font-headline-lg text-2xl lg:text-3xl text-primary font-bold tabular-nums mt-1">$319.68</div>
-                  <div class="flex items-center gap-1 text-[11px] font-label-md text-outline mt-1 font-mono">
-                    <span class="material-symbols-outlined text-[14px]">timer</span>
-                    <span>p95 Latency: <strong id="metric-realtime-latency"
-                        class="text-primary tabular-nums">1.8s</strong></span>
-                  </div>
-                </div>
-
-                <!-- Anthropic Batch API Cost -->
-                <div class="p-space-sm bg-surface-container rounded-lg">
-                  <div class="flex items-center justify-between">
-                    <span class="font-label-md text-[11px] text-secondary font-bold block uppercase tracking-wider">02 /
-                      Anthropic Batch API</span>
-                    <span
-                      class="px-1.5 py-0.5 rounded text-[10px] font-label-md bg-secondary text-on-secondary font-bold">-50%
-                      CUT</span>
-                  </div>
-                  <div id="metric-batch-cost"
-                    class="font-headline-lg text-2xl lg:text-3xl text-secondary font-bold tabular-nums mt-1">$159.84
-                  </div>
-                  <div class="flex items-center gap-1 text-[11px] font-label-md text-secondary mt-1 font-mono">
-                    <span class="material-symbols-outlined text-[14px]">schedule</span>
-                    <span id="metric-batch-sla">SLA: &lt;= 24h (Avg: 16m)</span>
-                  </div>
-                </div>
-
-                <!-- Net Dollar Savings -->
-                <div class="p-space-sm bg-tertiary-fixed rounded-lg">
-                  <span
-                    class="font-label-md text-[11px] text-on-tertiary-fixed font-bold block uppercase tracking-wider">03
-                    / Net Monthly Savings</span>
-                  <div id="metric-net-savings"
-                    class="font-headline-lg text-2xl lg:text-3xl text-tertiary-container font-extrabold tabular-nums mt-1">
-                    $159.84</div>
-                  <div class="text-[11px] font-label-md text-on-tertiary-fixed font-bold mt-1">
-                    <span>★ Exact 50% Reduction via Batch SLA</span>
-                  </div>
-                </div>
-
-                <!-- Architecture SLA Window -->
-                <div class="p-space-sm bg-surface-container rounded-lg">
-                  <span
-                    class="font-label-md text-[11px] text-on-surface-variant font-bold block uppercase tracking-wider">04
-                    / Pipeline Efficiency</span>
-                  <div class="font-headline-lg text-2xl lg:text-3xl text-primary font-bold tabular-nums mt-1">Zero 429s
-                  </div>
-                  <div class="text-[11px] font-label-md text-on-surface-variant mt-1">
-                    <span>Decoupled overnight queue eliminates rate-limits</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Comparative Visual Bar with Animated Fill -->
-              <div class="mt-space-sm pt-space-sm border-t border-primary-container/20">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 font-label-md text-xs">
-                  <span class="font-bold text-primary flex items-center gap-1.5">
-                    <span class="material-symbols-outlined text-[16px] text-secondary">bar_chart</span>
-                    <span>BILLING COMPARISON (ON-DEMAND VS BATCH API)</span>
-                  </span>
-                  <span id="caching-status-badge"
-                    class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-label-md bg-emerald-100 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200 border border-emerald-400 font-bold">
-                    PROMPT CACHING: ON (65% CACHED PREFIX)
-                  </span>
-                </div>
-
-                <!-- Stacked Progress Bars -->
-                <div class="space-y-2">
-                  <!-- Realtime Baseline Bar -->
-                  <div>
-                    <div class="flex justify-between text-[11px] font-label-md text-on-surface-variant mb-1 font-mono">
-                      <span>Standard Realtime API (100% On-Demand Rate)</span>
-                      <span>Baseline Bill</span>
-                    </div>
-                    <div
-                      class="w-full h-5 bg-surface-container-highest rounded-lg overflow-hidden border border-primary-container">
-                      <div class="h-full bg-primary-container/80 transition-all duration-300"></div>
-                    </div>
-                  </div>
-
-                  <!-- Batch API Differential Bar -->
-                  <div>
-                    <div class="flex justify-between text-[11px] font-label-md text-secondary mb-1 font-mono">
-                      <span>Anthropic Message Batches API (50% Off Base Rates)</span>
-                      <span class="font-bold text-tertiary-container">-50% SAVINGS DIFFERENTIAL</span>
-                    </div>
-                    <div class="w-full h-6 bg-surface-container-highest rounded-lg overflow-hidden flex">
-                      <div id="bar-batch-fill"
-                        class="h-full bg-secondary flex items-center justify-center text-[10px] font-label-md font-bold text-on-secondary transition-all duration-300"
-                        style="width: 50%;">
-                        50% BILLED
-                      </div>
-                      <div id="bar-savings-fill"
-                        class="h-full bg-tertiary-container/30 border-l border-primary-container flex items-center justify-center text-[10px] font-label-md font-bold text-primary transition-all duration-300"
-                        style="width: 50%;">
-                        50% NET SAVINGS
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Production Field Note in Kraft Paper Swatch -->
-              <div
-                class="mt-space-md p-space-sm bg-surface-container rounded-lg border-l-4 border-secondary text-xs text-on-surface-variant leading-relaxed">
-                <div
-                  class="font-label-md text-[11px] text-secondary font-bold uppercase tracking-wider mb-1 flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[14px]">edit_note</span>
-                  <span>Quantyc AI Engineering Ledger Note</span>
-                </div>
-                <p class="font-body-sm text-[13px] text-on-surface">
-                  "By routing asynchronous financial OCR parsing and PII redaction jobs through the Anthropic Message
-                  Batches API endpoint (<code
-                    class="font-mono text-primary font-bold bg-surface-container-high px-1 py-0.5 rounded">/v1/messages/batches</code>),
-                  we decoupled overnight document extraction from user-facing real-time threads. This eliminated HTTP
-                  429 rate limit exceptions while cutting token expenditure by exactly 50% on every invoice."
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- ====================================================================
-         PLAYGROUND PANEL 2: HYBRID RAG SEMANTIC RETRIEVAL INSPECTOR
-         ==================================================================== -->
-          <div id="panel-hybrid-rag" role="tabpanel" aria-labelledby="tab-hybrid-rag" data-playground-panel="hybrid-rag"
-            class="hidden space-y-space-md">
-
-            <!-- Main Interactive Workbench Card -->
-            <div class="p-space-md lg:p-space-lg bg-surface-container-lowest rounded-2xl">
-
-              <!-- Controls Bar -->
-              <div
-                class="grid grid-cols-1 lg:grid-cols-12 gap-space-md pb-space-md border-b-2 border-primary-container/20">
-
-                <!-- Sample Query Selector -->
-                <div class="lg:col-span-6 flex flex-col justify-between">
-                  <span class="font-label-md text-xs font-bold text-primary block mb-2 flex items-center gap-1.5">
-                    <span class="material-symbols-outlined text-[16px] text-secondary">search</span>
-                    <span>SELECT EVALUATION QUERY</span>
-                  </span>
-                  <div class="flex flex-col gap-1.5" role="group" aria-label="Select Evaluation Query">
-                    <button type="button" data-rag-query="pii"
-                      class="rag-query-btn min-h-[44px] px-3 py-2 rounded-lg font-label-md text-xs font-bold bg-primary text-on-primary border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] transition-all cursor-pointer text-left flex items-center justify-between">
-                      <span>"Financial audit PII redaction policy"</span>
-                      <span class="text-[10px] opacity-80 font-mono">FIN-NLP</span>
-                    </button>
-                    <button type="button" data-rag-query="fastapi"
-                      class="rag-query-btn min-h-[44px] px-3 py-2 rounded-lg font-label-md text-xs font-bold bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-high transition-all cursor-pointer text-left flex items-center justify-between">
-                      <span>"FastAPI streaming worker timeout"</span>
-                      <span class="text-[10px] opacity-80 font-mono">BACKEND</span>
-                    </button>
-                    <button type="button" data-rag-query="efficientnet"
-                      class="rag-query-btn min-h-[44px] px-3 py-2 rounded-lg font-label-md text-xs font-bold bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-high transition-all cursor-pointer text-left flex items-center justify-between">
-                      <span>"EfficientNet colorimetry features"</span>
-                      <span class="text-[10px] opacity-80 font-mono">VISION</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Dense vs Sparse Weight Slider (Alpha) -->
-                <div class="lg:col-span-6 flex flex-col justify-between">
-                  <div>
-                    <div class="flex items-center justify-between mb-2">
-                      <label for="rag-alpha-slider"
-                        class="font-label-md text-xs font-bold text-primary flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
-                        <span>FUSION WEIGHT (α: DENSE VS SPARSE)</span>
-                      </label>
-                      <span id="rag-alpha-value" class="font-headline-md text-xl text-primary font-bold tabular-nums">α
-                        = 0.50</span>
-                    </div>
-                    <input type="range" id="rag-alpha-slider" min="0.0" max="1.0" step="0.05" value="0.50"
-                      aria-label="Dense versus Sparse Retrieval Weight Alpha Slider"
-                      class="w-full h-3 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary focus-visible:outline-2 focus-visible:outline-secondary" />
-                    <div
-                      class="flex justify-between text-[11px] font-label-md text-on-surface-variant mt-1.5 font-mono">
-                      <span class="text-secondary font-bold">α = 0.0 (100% Dense Vector)</span>
-                      <span id="rag-alpha-split" class="font-bold text-primary tabular-nums">50% Dense Vector • 50% BM25
-                        Sparse</span>
-                      <span class="text-on-tertiary-container font-bold">α = 1.0 (100% BM25 Sparse)</span>
-                    </div>
-                  </div>
-
-                  <!-- Retrieval Math Explainer -->
-                  <div
-                    class="mt-4 p-2.5 bg-surface-container rounded-lg border border-outline-variant/60 text-xs font-body-sm text-on-surface-variant flex items-center gap-2 font-mono">
-                    <span class="material-symbols-outlined text-secondary text-[18px]">functions</span>
-                    <span><strong class="text-primary">Fused Score</strong> = (1 - α) × Dense_Cosine + α ×
-                      BM25_Lexical</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Active Query Banner -->
-              <div
-                class="my-space-sm p-space-xs bg-surface-container-high rounded-lg border border-primary-container flex items-center justify-between text-xs font-label-md">
-                <span class="text-on-surface-variant">Active Query: <strong id="rag-active-query-text"
-                    class="text-primary font-bold font-mono">"Financial audit PII redaction policy"</strong></span>
-                <span class="text-outline-variant hidden sm:inline">RRF Reciprocal Rank Fusion Evaluator</span>
-              </div>
-
-              <!-- Dynamic Candidate Chunks Container -->
-              <div id="rag-chunks-container" class="space-y-space-sm mt-space-sm">
-                <!-- Default Initial Chunk 1 -->
-                <div
-                  class="p-4 rounded-lg border-2 bg-surface-container-lowest border-primary shadow-[4px_4px_0px_0px_var(--shadow-color,#1e2022)] transition-all duration-200"
-                  data-chunk-id="chunk-pii-b">
-                  <div
-                    class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-outline-variant/40">
-                    <div class="flex items-center gap-2">
-                      <span
-                        class="inline-flex items-center justify-center w-7 h-7 rounded text-xs font-label-lg font-bold bg-primary text-on-primary shadow-[1px_1px_0px_0px_#1e2022]">#1</span>
-                      <div class="flex flex-col">
-                        <span class="font-headline-sm text-sm text-primary font-bold tracking-tight">Quantyc AI PII
-                          Redaction Worker Config</span>
-                        <span
-                          class="font-label-md text-[11px] text-on-surface-variant font-mono">pipeline-worker-redact.py
-                          §L42</span>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2 self-start sm:self-auto">
-                      <span
-                        class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-[11px] font-bold rounded shadow-[1px_1px_0px_0px_#1e2022]">TOP
-                        RETRIEVED</span>
-                      <div class="text-right">
-                        <span class="font-label-md text-[11px] text-on-surface-variant block">Combined Score</span>
-                        <span class="font-headline-sm text-base text-primary font-bold tabular-nums">0.880</span>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="font-body-md text-sm text-on-surface mb-3 leading-relaxed">
-                    Execute <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">Microsoft
-                      Presidio</mark> entity analyzer for <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">financial</mark>
-                    <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">audit</mark>
-                    <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">PII</mark>
-                    <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">redaction</mark>
-                    <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">policy</mark>
-                    enforcement across multi-tenant PostgreSQL document extraction batches.
-                  </p>
-                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-outline-variant/30 text-xs">
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-secondary font-bold">Dense Vector</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.785</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-secondary rounded-full" style="width: 79%;"></div>
-                      </div>
-                    </div>
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-on-tertiary-container font-bold">BM25 Sparse</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.975</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-tertiary-container rounded-full" style="width: 98%;"></div>
-                      </div>
-                    </div>
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-primary font-bold">Fused RRF</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.880</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-primary rounded-full" style="width: 88%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Default Initial Chunk 2 -->
-                <div
-                  class="p-4 rounded-lg border-2 bg-surface-container border-primary-container/60 shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] transition-all duration-200"
-                  data-chunk-id="chunk-pii-a">
-                  <div
-                    class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-outline-variant/40">
-                    <div class="flex items-center gap-2">
-                      <span
-                        class="inline-flex items-center justify-center w-7 h-7 rounded text-xs font-label-lg font-bold bg-surface-container-high text-on-surface border border-outline-variant">#2</span>
-                      <div class="flex flex-col">
-                        <span class="font-headline-sm text-sm text-primary font-bold tracking-tight">SEC Compliance
-                          &amp; Client Confidentiality SOP</span>
-                        <span class="font-label-md text-[11px] text-on-surface-variant font-mono">DOC-FIN-2024-Q4
-                          §8.1.2</span>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2 self-start sm:self-auto">
-                      <div class="text-right">
-                        <span class="font-label-md text-[11px] text-on-surface-variant block">Combined Score</span>
-                        <span class="font-headline-sm text-base text-primary font-bold tabular-nums">0.683</span>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="font-body-md text-sm text-on-surface mb-3 leading-relaxed">
-                    All confidential client <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">identifiers</mark>,
-                    taxpayer <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">SSNs</mark>,
-                    and banking account numbers must undergo automated entity scrubbing prior to external <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">auditor</mark>
-                    transmission.
-                  </p>
-                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-outline-variant/30 text-xs">
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-secondary font-bold">Dense Vector</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.945</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-secondary rounded-full" style="width: 95%;"></div>
-                      </div>
-                    </div>
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-on-tertiary-container font-bold">BM25 Sparse</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.420</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-tertiary-container rounded-full" style="width: 42%;"></div>
-                      </div>
-                    </div>
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-primary font-bold">Fused RRF</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.683</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-primary rounded-full" style="width: 68%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Default Initial Chunk 3 -->
-                <div
-                  class="p-4 rounded-lg border-2 bg-surface-container border-primary-container/60 shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] transition-all duration-200"
-                  data-chunk-id="chunk-pii-c">
-                  <div
-                    class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-outline-variant/40">
-                    <div class="flex items-center gap-2">
-                      <span
-                        class="inline-flex items-center justify-center w-7 h-7 rounded text-xs font-label-lg font-bold bg-surface-container-high text-on-surface border border-outline-variant">#3</span>
-                      <div class="flex flex-col">
-                        <span class="font-headline-sm text-sm text-primary font-bold tracking-tight">AWS S3 Audit Trail
-                          &amp; Retention Rules</span>
-                        <span
-                          class="font-label-md text-[11px] text-on-surface-variant font-mono">cloud-storage-policy.md
-                          §14</span>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2 self-start sm:self-auto">
-                      <div class="text-right">
-                        <span class="font-label-md text-[11px] text-on-surface-variant block">Combined Score</span>
-                        <span class="font-headline-sm text-base text-primary font-bold tabular-nums">0.600</span>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="font-body-md text-sm text-on-surface mb-3 leading-relaxed">
-                    Server-side encryption with customer KMS keys protects historical <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">financial</mark>
-                    <mark
-                      class="bg-[#fde047]/60 dark:bg-[#7ba2cf]/35 text-primary dark:text-on-surface font-semibold px-0.5 rounded">audit</mark>
-                    logs from unauthorized internal actor modification or accidental purge.
-                  </p>
-                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2 border-t border-outline-variant/30 text-xs">
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-secondary font-bold">Dense Vector</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.610</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-secondary rounded-full" style="width: 61%;"></div>
-                      </div>
-                    </div>
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-on-tertiary-container font-bold">BM25 Sparse</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.590</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-tertiary-container rounded-full" style="width: 59%;"></div>
-                      </div>
-                    </div>
-                    <div class="p-1.5 rounded bg-surface-container-low">
-                      <div class="flex justify-between items-center mb-1">
-                        <span class="font-label-md text-[11px] text-primary font-bold">Fused RRF</span>
-                        <span class="font-label-md text-[11px] text-primary font-bold tabular-nums">0.600</span>
-                      </div>
-                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
-                        <div class="h-full bg-primary rounded-full" style="width: 60%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Architecture Note -->
-              <div
-                class="mt-space-md p-space-sm bg-surface-container rounded-lg border-l-4 border-primary text-xs text-on-surface-variant leading-relaxed">
-                <div
-                  class="font-label-md text-[11px] text-primary font-bold uppercase tracking-wider mb-1 flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[14px]">psychology</span>
-                  <span>Why Hybrid Retrieval Outperforms Pure Vector Search in Production</span>
-                </div>
-                <p class="font-body-sm text-[13px] text-on-surface">
-                  Pure embedding search frequently hallucinates or fails on exact technical strings, such as error codes
-                  (<code class="font-mono">504 Gateway Timeout</code>), function identifiers, and regulatory
-                  abbreviations (<code class="font-mono">PII</code>, <code class="font-mono">SSN</code>). Combining BM25
-                  keyword inverted indices with dense vector embeddings via convex alpha-weighting or Reciprocal Rank
-                  Fusion (RRF) preserves lexical recall without sacrificing semantic synonym discovery.
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- ====================================================================
-         PLAYGROUND PANEL 3: YOLOV8-SEG DEFECT SEGMENTATION INSPECTOR
-         ==================================================================== -->
-          <div id="panel-yolo-seg" role="tabpanel" aria-labelledby="tab-yolo-seg" data-playground-panel="yolo-seg"
-            class="hidden space-y-space-md">
-
-            <!-- Main Interactive Workbench Card -->
-            <div class="p-space-md lg:p-space-lg bg-surface-container-lowest rounded-2xl">
-
-              <!-- Controls Bar -->
-              <div
-                class="grid grid-cols-1 lg:grid-cols-12 gap-space-md pb-space-md border-b-2 border-primary-container/20">
-
-                <!-- Defect Presets -->
-                <div class="lg:col-span-5 flex flex-col justify-between">
-                  <span class="font-label-md text-xs font-bold text-primary block mb-2 flex items-center gap-1.5">
-                    <span class="material-symbols-outlined text-[16px] text-secondary">category</span>
-                    <span>INSPECTION PRESET TARGETS</span>
-                  </span>
-                  <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2" role="group"
-                    aria-label="Select Defect Inspection Preset">
-                    <button type="button" data-yolo-preset="fastener"
-                      class="yolo-preset-btn min-h-[44px] px-3 py-2 rounded-lg font-label-md text-xs font-bold bg-primary text-on-primary border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] transition-all cursor-pointer text-left flex items-center justify-between">
-                      <span>Fastener Missing</span>
-                      <span class="text-[10px] opacity-80 font-mono">PCB / M3</span>
-                    </button>
-                    <button type="button" data-yolo-preset="scratch"
-                      class="yolo-preset-btn min-h-[44px] px-3 py-2 rounded-lg font-label-md text-xs font-bold bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-high transition-all cursor-pointer text-left flex items-center justify-between">
-                      <span>Surface Paint Scratch</span>
-                      <span class="text-[10px] opacity-80 font-mono">COATING</span>
-                    </button>
-                    <button type="button" data-yolo-preset="dent"
-                      class="yolo-preset-btn min-h-[44px] px-3 py-2 rounded-lg font-label-md text-xs font-bold bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-high transition-all cursor-pointer text-left flex items-center justify-between">
-                      <span>Panel Dent</span>
-                      <span class="text-[10px] opacity-80 font-mono">CHASSIS</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Threshold Sliders -->
-                <div class="lg:col-span-7 flex flex-col justify-between gap-4">
-
-                  <!-- Confidence Threshold -->
-                  <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                      <label for="yolo-conf-slider"
-                        class="font-label-md text-xs font-bold text-primary flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
-                        <span>CONFIDENCE THRESHOLD</span>
-                      </label>
-                      <span id="yolo-conf-val"
-                        class="font-headline-md text-lg text-primary font-bold tabular-nums">50%</span>
-                    </div>
-                    <input type="range" id="yolo-conf-slider" min="0.20" max="0.95" step="0.05" value="0.50"
-                      aria-label="Confidence Threshold Slider"
-                      class="w-full h-3 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary focus-visible:outline-2 focus-visible:outline-secondary" />
-                    <div class="flex justify-between text-[11px] font-label-md text-on-surface-variant mt-1 font-mono">
-                      <span>0.20 (High Recall)</span>
-                      <span>Filters secondary low-confidence masks</span>
-                      <span>0.95 (High Precision)</span>
-                    </div>
-                  </div>
-
-                  <!-- IoU NMS Threshold -->
-                  <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                      <label for="yolo-iou-slider"
-                        class="font-label-md text-xs font-bold text-primary flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
-                        <span>IOU NMS THRESHOLD</span>
-                      </label>
-                      <span id="yolo-iou-val"
-                        class="font-headline-md text-lg text-primary font-bold tabular-nums">0.45</span>
-                    </div>
-                    <input type="range" id="yolo-iou-slider" min="0.30" max="0.80" step="0.05" value="0.45"
-                      aria-label="IoU NMS Threshold Slider"
-                      class="w-full h-3 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary focus-visible:outline-2 focus-visible:outline-secondary" />
-                    <div class="flex justify-between text-[11px] font-label-md text-on-surface-variant mt-1 font-mono">
-                      <span>0.30</span>
-                      <span>Non-Maximum Suppression Overlap Suppression</span>
-                      <span>0.80</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <!-- Interactive Visual Canvas / SVG Mockup -->
-              <div
-                class="relative w-full my-space-md rounded-xl overflow-hidden border-2 border-primary-container bg-[#15191e] shadow-[3px_3px_0px_0px_var(--shadow-color,#1e2022)]">
-
-                <!-- Top Substrate Status Banner -->
-                <div
-                  class="absolute top-2 left-2 z-10 flex items-center gap-2 px-2.5 py-1 bg-[#1e2022]/90 border border-outline/50 rounded text-[11px] font-label-md text-white backdrop-blur-sm">
-                  <span id="yolo-substrate-badge"
-                    class="px-1.5 py-0.5 rounded bg-secondary text-white font-bold">STAMPED CHASSIS M3</span>
-                  <span id="yolo-substrate-desc" class="hidden sm:inline opacity-80">Industrial Stamped Aluminum
-                    Mounting Panel</span>
-                </div>
-
-                <!-- Dynamic Inspection Tooltip / HUD -->
-                <div id="yolo-inspection-tooltip"
-                  class="hidden absolute bottom-3 right-3 z-10 p-2.5 bg-[#1e2022]/95 border-2 border-secondary rounded-lg shadow-xl text-white max-w-xs backdrop-blur-md">
-                  <!-- Populated on hover by js/playground.js -->
-                </div>
-
-                <!-- SVG Visual Inspection Viewport -->
-                <svg id="yolo-canvas-svg" class="w-full h-64 sm:h-80 lg:h-96" viewBox="0 0 640 340"
-                  preserveAspectRatio="xMidYMid meet" aria-label="Visual Quality Inspection Viewport">
-
-                  <!-- Defs for circuit board textures and grid -->
-                  <defs>
-                    <pattern id="grid-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
-                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#252c36" stroke-width="0.8" />
-                    </pattern>
-                    <linearGradient id="chassis-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#1e242c" />
-                      <stop offset="50%" stop-color="#28303a" />
-                      <stop offset="100%" stop-color="#1a1f26" />
-                    </linearGradient>
-                  </defs>
-
-                  <!-- Metal Plate / PCB Substrate Background -->
-                  <rect width="640" height="340" fill="url(#chassis-grad)" />
-                  <rect width="640" height="340" fill="url(#grid-pattern)" />
-
-                  <!-- Decorative Board Elements & Stamped Geometry -->
-                  <!-- Mounting holes in 4 corners -->
-                  <circle cx="40" cy="40" r="14" fill="#0d1014" stroke="#485363" stroke-width="2" />
-                  <circle cx="40" cy="40" r="8" fill="#15191e" />
-                  <circle cx="600" cy="40" r="14" fill="#0d1014" stroke="#485363" stroke-width="2" />
-                  <circle cx="600" cy="40" r="8" fill="#15191e" />
-                  <circle cx="40" cy="300" r="14" fill="#0d1014" stroke="#485363" stroke-width="2" />
-                  <circle cx="40" cy="300" r="8" fill="#15191e" />
-                  <circle cx="600" cy="300" r="14" fill="#0d1014" stroke="#485363" stroke-width="2" />
-                  <circle cx="600" cy="300" r="8" fill="#15191e" />
-
-                  <!-- Central IC Package Mockup -->
-                  <g transform="translate(260, 210)">
-                    <rect x="0" y="0" width="120" height="80" rx="4" fill="#12161b" stroke="#3d4756" stroke-width="2" />
-                    <text x="60" y="44" font-family="Courier Prime" font-size="10" font-weight="bold" fill="#758296"
-                      text-anchor="middle">ARM-CORTEX-M4</text>
-                    <!-- IC Pins -->
-                    <line x1="15" y1="-8" x2="15" y2="0" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="35" y1="-8" x2="35" y2="0" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="55" y1="-8" x2="55" y2="0" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="75" y1="-8" x2="75" y2="0" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="95" y1="-8" x2="95" y2="0" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="15" y1="80" x2="15" y2="88" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="35" y1="80" x2="35" y2="88" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="55" y1="80" x2="55" y2="88" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="75" y1="80" x2="75" y2="88" stroke="#7ba2cf" stroke-width="2" />
-                    <line x1="95" y1="80" x2="95" y2="88" stroke="#7ba2cf" stroke-width="2" />
-                  </g>
-
-                  <!-- Copper Traces -->
-                  <path d="M 60,40 L 150,40 L 180,70 L 180,180 L 260,230" fill="none" stroke="#334050"
-                    stroke-width="2.5" />
-                  <path d="M 600,40 L 520,40 L 480,80 L 480,160 L 380,230" fill="none" stroke="#334050"
-                    stroke-width="2.5" />
-                  <path d="M 120,300 L 200,300 L 240,260 L 260,260" fill="none" stroke="#334050" stroke-width="2" />
-
-                  <!-- Dynamic Detection Overlays Group (Populated by js/playground.js) -->
-                  <g id="yolo-svg-detections">
-                    <!-- Default Initial Defect Mask -->
-                    <g class="yolo-defect-group cursor-pointer transition-opacity duration-150"
-                      data-defect-id="defect-1">
-                      <rect x="195" y="75" width="90" height="90" fill="none" stroke="#cd6e2e" stroke-width="2"
-                        stroke-dasharray="6, 3" rx="3" opacity="0.9"></rect>
-                      <path d="M195,87 L195,75 L207,75" stroke="#cd6e2e" stroke-width="2.5" fill="none"></path>
-                      <path d="M273,75 L285,75 L285,87" stroke="#cd6e2e" stroke-width="2.5" fill="none"></path>
-                      <path d="M195,153 L195,165 L207,165" stroke="#cd6e2e" stroke-width="2.5" fill="none"></path>
-                      <path d="M273,165 L285,165 L285,153" stroke="#cd6e2e" stroke-width="2.5" fill="none"></path>
-                      <polygon points="225,80 260,88 275,115 265,150 230,160 205,145 200,110 215,85" fill="#cd6e2e"
-                        fill-opacity="0.32" stroke="#cd6e2e" stroke-width="2"></polygon>
-                      <g transform="translate(195, 51)">
-                        <rect x="0" y="0" width="195" height="20" rx="3" fill="#1e2022" stroke="#cd6e2e"
-                          stroke-width="1.5"></rect>
-                        <text x="6" y="14" font-family="Courier Prime" font-size="10.5" font-weight="bold"
-                          fill="#ffffff">FASTENER_MISSING: <tspan fill="#cd6e2e">94.2%</tspan></text>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-
-              <!-- Live Performance Telemetry Panel Grid -->
-              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-sm pt-space-xs">
-
-                <!-- Inference Latency -->
-                <div class="p-space-sm bg-surface-container rounded-lg">
-                  <span
-                    class="font-label-md text-[11px] text-on-surface-variant font-bold block uppercase tracking-wider">Inference
-                    Latency</span>
-                  <div class="flex items-center gap-1.5 mt-1">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 "></span>
-                    <span id="yolo-latency-metric"
-                      class="font-headline-sm text-lg lg:text-xl text-primary font-bold tabular-nums">13.8 ms</span>
-                  </div>
-                  <span id="yolo-fps-metric" class="font-label-md text-[11px] text-secondary font-mono block mt-1">72
-                    FPS</span>
-                </div>
-
-                <!-- Precision -->
-                <div class="p-space-sm bg-surface-container rounded-lg">
-                  <span
-                    class="font-label-md text-[11px] text-on-surface-variant font-bold block uppercase tracking-wider">Precision
-                    (mAP50)</span>
-                  <div id="yolo-precision-metric"
-                    class="font-headline-sm text-lg lg:text-xl text-primary font-bold tabular-nums mt-1">98.6%</div>
-                  <span class="font-label-md text-[11px] text-outline font-mono block mt-1">Defect Masks</span>
-                </div>
-
-                <!-- Recall -->
-                <div class="p-space-sm bg-surface-container rounded-lg">
-                  <span
-                    class="font-label-md text-[11px] text-on-surface-variant font-bold block uppercase tracking-wider">Recall
-                    (mAP50-95)</span>
-                  <div id="yolo-recall-metric"
-                    class="font-headline-sm text-lg lg:text-xl text-primary font-bold tabular-nums mt-1">97.2%</div>
-                  <span class="font-label-md text-[11px] text-outline font-mono block mt-1">Zero False Escapes</span>
-                </div>
-
-                <!-- Footprint -->
-                <div class="p-space-sm bg-surface-container rounded-lg">
-                  <span
-                    class="font-label-md text-[11px] text-on-surface-variant font-bold block uppercase tracking-wider">Model
-                    Footprint</span>
-                  <div id="yolo-footprint-metric"
-                    class="font-headline-sm text-sm lg:text-base text-primary font-bold tabular-nums mt-1">22.4 MB ONNX
-                  </div>
-                  <span class="font-label-md text-[11px] text-secondary font-mono block mt-1">FP16 Quantized</span>
-                </div>
-
-                <!-- Architecture Specs -->
-                <div class="p-space-sm bg-surface-container rounded-lg col-span-2 sm:col-span-1">
-                  <span
-                    class="font-label-md text-[11px] text-on-surface-variant font-bold block uppercase tracking-wider">Segmentation
-                    Head</span>
-                  <div class="font-headline-sm text-sm text-primary font-bold mt-1">ProtoNet 32</div>
-                  <span class="font-label-md text-[11px] text-on-surface-variant font-mono block mt-1">CSPDarknet +
-                    C2f</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- ====================================================================
-         TECH STACK TAXONOMY DRAWER (Understated & Scannable)
-         Retains comprehensive technical coverage WITHOUT cartoon cars or billboards.
-         ==================================================================== -->
-          <div class="mt-space-lg pt-space-lg border-t-2 border-primary-container/20">
-
-            <!-- Drawer Header -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-space-md">
-              <div>
-                <span class="font-label-md text-xs font-bold text-secondary uppercase tracking-wider block">
-                  04 / ENGINEERING BENCH • PRODUCTION TAXONOMY
-                </span>
-                <h3 class="font-headline-sm text-lg sm:text-xl text-primary font-bold tracking-tight">
-                  Comprehensive Technical Stack &amp; Tooling
-                </h3>
-              </div>
-              <span class="text-xs font-label-md text-on-surface-variant">
-                Battle-tested libraries &amp; distributed platforms
-              </span>
-            </div>
-
-            <!-- Taxonomy Cards Grid (5 Modular Columns) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-sm">
-
-              <!-- 01: Languages -->
-              <div
-                class="p-space-sm bg-surface-container-lowest rounded-xl border border-primary-container shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] hover:-translate-y-1 transition-transform">
-                <div class="font-label-md text-xs text-secondary font-bold mb-1">[01] LANGUAGES</div>
-                <div class="font-headline-sm text-sm text-primary font-bold leading-snug">
-                  Python 3.11, TypeScript, JavaScript (ES2024), SQL, HTML5 / CSS3
-                </div>
-                <span class="text-on-surface-variant text-[11px] block mt-2 font-mono">Core Logic, Concurrency &amp;
-                  Vector Queries</span>
-              </div>
-
-              <!-- 02: AI, ML & Vision -->
-              <div
-                class="p-space-sm bg-surface-container-lowest rounded-xl border border-primary-container shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] hover:-translate-y-1 transition-transform">
-                <div class="font-label-md text-xs text-on-tertiary-container font-bold mb-1">[02] AI, ML &amp; VISION
-                </div>
-                <div class="font-headline-sm text-sm text-primary font-bold leading-snug">
-                  PyTorch, YOLOv8-Seg, OpenCV, EfficientNet-B0, Scikit-learn, ONNX
-                </div>
-                <span class="text-on-surface-variant text-[11px] block mt-2 font-mono">Training, Instance Masks &amp;
-                  Edge Quantization</span>
-              </div>
-
-              <!-- 03: LLMs, RAG & Agents -->
-              <div
-                class="p-space-sm bg-surface-container-lowest rounded-xl border border-primary-container shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] hover:-translate-y-1 transition-transform">
-                <div class="font-label-md text-xs text-secondary font-bold mb-1">[03] LLMS, RAG &amp; AGENTS</div>
-                <div class="font-headline-sm text-sm text-primary font-bold leading-snug">
-                  Claude 3.7 Sonnet, Anthropic Batch API, LangChain, Hybrid RAG, BM25
-                </div>
-                <span class="text-on-surface-variant text-[11px] block mt-2 font-mono">Presidio PII Redaction &amp;
-                  Document Parsing</span>
-              </div>
-
-              <!-- 04: Cloud, Edge & Infra -->
-              <div
-                class="p-space-sm bg-surface-container-lowest rounded-xl border border-primary-container shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] hover:-translate-y-1 transition-transform">
-                <div class="font-label-md text-xs text-tertiary-container font-bold mb-1">[04] CLOUD &amp; INFRA</div>
-                <div class="font-headline-sm text-sm text-primary font-bold leading-snug">
-                  Azure AI Foundry, AWS (Bedrock, S3, EC2), Docker, Linux, Git, Vercel
-                </div>
-                <span class="text-on-surface-variant text-[11px] block mt-2 font-mono">Cloud Microservices &amp; Edge
-                  CDN Delivery</span>
-              </div>
-
-              <!-- 05: Backends & Databases -->
-              <div
-                class="p-space-sm bg-surface-container-lowest rounded-xl border border-primary-container shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] hover:-translate-y-1 transition-transform">
-                <div class="font-label-md text-xs text-primary font-bold mb-1">[05] BACKENDS &amp; DATA</div>
-                <div class="font-headline-sm text-sm text-primary font-bold leading-snug">
-                  FastAPI (Async), PostgreSQL, Qdrant / Chroma / FAISS, Redis, Tailwind
-                </div>
-                <span class="text-on-surface-variant text-[11px] block mt-2 font-mono">High-Throughput APIs &amp; Vector
-                  Databases</span>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
-      <!-- Wavy Hand-Drawn Section Separator -->
-      <div class="wavy-separator-wrapper">
-        <svg class="wavy-separator" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path
-            d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12">
-          </path>
-          <path class="sketch-accent"
-            d="M2,13 Q32,5 62,13 T122,13 T182,13 T242,13 T302,13 T362,13 T422,13 T482,13 T542,13 T602,13 T662,13 T722,13 T782,13 T842,13 T902,13 T962,13 T1022,13 T1082,13 T1142,13 T1198,13">
-          </path>
-        </svg>
-      </div>
-
-      <!-- SECTION 4: DEDICATED SDE & AI-ML INTERNSHIP LOG / EXPERIENCE SECTION (OPEN NOTEBOOK LEDGER) -->
+      <!-- SECTION 3: DEDICATED SDE & AI-ML INTERNSHIP LOG / EXPERIENCE SECTION (OPEN NOTEBOOK LEDGER) -->
       <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="internship-log"
         aria-label="Experience Ledger">
         <div class="max-w-5xl mx-auto">
@@ -2219,7 +1657,7 @@
               <span
                 class="font-label-md text-label-md text-on-tertiary-container font-bold uppercase tracking-wider">[SEND
                 DISPATCH • LET'S CONNECT]</span>
-              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Drop a Note in the Inkwell</h2>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Direct Engineering Dispatch</h2>
               <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
                 Open to <strong>AI/ML &amp; Full-Stack Engineering roles</strong>, research collaborations, and
                 open-source systems projects.
@@ -2269,7 +1707,7 @@
                   <label
                     class="block font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1"
                     for="contact-email">
-                    Return Paper Airplane (Email):
+                    Your Email Address:
                   </label>
                   <input id="contact-email"
                     class="w-full bg-surface-container-lowest px-space-sm py-2.5 rounded text-primary font-body-md text-body-md shadow-[2px_2px_0px_0px_#1e2022] focus:outline-none focus:bg-surface-bright border border-primary-container"
@@ -2287,7 +1725,7 @@
                   <label
                     class="block font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1"
                     for="contact-message">
-                    The Inked Message:
+                    Project / Engineering Brief:
                   </label>
                   <textarea id="contact-message"
                     class="w-full bg-surface-container-lowest p-space-sm rounded text-primary font-body-md text-body-md shadow-[2px_2px_0px_0px_#1e2022] focus:outline-none focus:bg-surface-bright resize-none border border-primary-container"
@@ -2308,7 +1746,7 @@
                       class="flex items-center justify-center gap-2.5 transition-opacity duration-150">
                       <span class="material-symbols-outlined text-tertiary-fixed text-[20px] shrink-0"
                         aria-hidden="true">send</span>
-                      <span class="whitespace-nowrap">Send Paper Airplane</span>
+                      <span class="whitespace-nowrap">Dispatch Message</span>
                     </span>
                     <!-- Centered Absolute Spinner for stable layout -->
                     <span id="submit-spinner" class="hidden absolute inset-0 items-center justify-center gap-2">
@@ -2318,8 +1756,7 @@
                         </circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                       </svg>
-                      <span class="font-label-md text-label-md font-bold whitespace-nowrap">Inking &amp;
-                        Dispatching...</span>
+                      <span class="font-label-md text-label-md font-bold whitespace-nowrap">Dispatching Message...</span>
                     </span>
                   </button>
                 </div>
@@ -2380,9 +1817,9 @@
             <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block"
               href="#internship-log">→ Quantyc AI &amp; Experience</a>
             <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block"
-              href="#stack-billboard">→ Tech Stack Billboard &amp; Commute</a>
+              href="#field-notes">→ Field Notes &amp; Dispatches</a>
             <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block"
-              href="#contact-inkwell">→ Drop a Note in the Inkwell</a>
+              href="#contact-inkwell">→ Direct Engineering Dispatch</a>
           </div>
         </div>
         <div class="md:col-span-3 flex flex-col gap-space-xs">

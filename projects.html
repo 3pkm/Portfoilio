@@ -75,7 +75,7 @@
 
   <!-- HEADER -->
   <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md wobbly-border shadow-[0_2px_0px_0px_#1e2022]">
-    <div class="h-20 w-full px-6 lg:px-12 flex items-center justify-between">
+    <div class="relative h-20 w-full px-6 lg:px-12 flex items-center justify-between">
       <div class="flex items-center gap-4">
         <a class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold flex items-center gap-1.5" href="index.html">
           <span class="material-symbols-outlined text-tertiary-container">draw</span>
@@ -84,6 +84,22 @@
         <span class="text-outline-variant font-label-md">/</span>
         <span class="font-label-md text-label-md text-secondary font-bold">Projects Catalog</span>
       </div>
+
+      <!-- Center: Nav links with sliding underline (#d97736) -->
+      <nav id="desktop-nav" class="hidden md:flex items-center gap-1 lg:gap-2 absolute left-1/2 -translate-x-1/2"
+        aria-label="Main Navigation">
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="index.html#sketch-desk"><span>Projects</span></a>
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="index.html#internship-log"><span>Experience</span></a>
+        <a class="nav-link-slide active flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-primary font-bold transition-colors duration-150 rounded"
+          href="projects.html"><span>All Builds</span></a>
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="index.html#field-notes"><span>Field Notes</span></a>
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="index.html#contact-inkwell"><span>Contact</span></a>
+        <span id="nav-sliding-indicator" aria-hidden="true" class="nav-sliding-indicator"></span>
+      </nav>
 
       <div class="flex items-center gap-3">
         <a href="index.html" class="interactive-btn px-4 py-2 bg-surface-container border border-primary-container font-label-lg text-label-lg rounded shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high transition-colors flex items-center gap-1.5 text-primary font-bold">
@@ -119,7 +135,7 @@
         <div class="mt-8 flex flex-wrap gap-2 font-label-md text-label-md">
           <button onclick="filterCategory('all')" id="filter-all"
             class="filter-btn px-4 py-2 rounded-lg border border-primary-container bg-primary text-on-primary font-bold shadow-[2px_2px_0px_0px_#1e2022] cursor-pointer transition-all">
-            [★] All Builds (6)
+            [★] All Builds (9)
           </button>
           <button onclick="filterCategory('vision')" id="filter-vision"
             class="filter-btn px-4 py-2 rounded-lg border border-primary-container bg-surface-container text-primary font-bold shadow-[2px_2px_0px_0px_#1e2022] hover:bg-surface-container-high cursor-pointer transition-all">
@@ -330,6 +346,104 @@
               <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
             </a>
             <span class="text-on-surface-variant text-xs">Cloud Ingest</span>
+          </div>
+        </div>
+
+        <!-- 07: Tidewatch — Multispectral Ocean Debris & Metocean Drift Engine (Vision, Systems) -->
+        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="vision fullstack">
+          <div class="absolute -top-3 left-12 w-28 h-6 bg-secondary-fixed/90 diary-tape"></div>
+          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
+            <span>PROJECT #07 • SATELLITE REMOTE SENSING</span>
+            <span class="px-2 py-0.5 bg-primary text-on-primary font-bold rounded">MARIDA BENCHMARK</span>
+          </div>
+          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
+            Tidewatch: Ocean Debris &amp; Metocean Drift Engine
+          </h2>
+          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
+            Autonomous satellite remote sensing pipeline tackling marine plastic slicks under dense oceanic cloud cover (&ldquo;The Clouds Rolled In&rdquo;). Employs a 14-channel deep neural segmentation UNet on Sentinel-2 MSI multispectral imagery, a 500-particle Runge-Kutta 4 (RK4) stochastic metocean drift ensemble with KDE probability contours, and cloud-aware spatio-temporal tracking across orbital revisits.
+          </p>
+          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
+            <strong>Key Architecture:</strong> 14-channel ONNX UNet segmentation, 500-particle RK4 Lagrangian metocean current simulation, cloud status integral ($V$), PostGIS spatial queries, and MapLibre GL geofencing.
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
+            <span class="px-2.5 py-1 bg-surface-container rounded">PyTorch</span>
+            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">ONNX Runtime</span>
+            <span class="px-2.5 py-1 bg-surface-container rounded">Sentinel-2</span>
+            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">PostGIS</span>
+            <span class="px-2.5 py-1 bg-surface-container rounded">RK4 Drift</span>
+            <span class="px-2.5 py-1 bg-surface-container rounded">React 18</span>
+          </div>
+          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
+            <a href="https://github.com/3pkm/Ocean_Debrie" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
+              <span>Explore GitHub Repository</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+            </a>
+            <span class="text-on-surface-variant text-xs">Hackathon Build</span>
+          </div>
+        </div>
+
+        <!-- 08: GML Industrial Root-Cause Mapping System (Full-Stack, Vision/Systems) -->
+        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="fullstack vision">
+          <div class="absolute -top-3 right-10 w-28 h-6 bg-tertiary-fixed/90 diary-tape"></div>
+          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
+            <span>PROJECT #08 • GRAPH MACHINE LEARNING</span>
+            <span class="px-2 py-0.5 bg-surface-container font-bold rounded">NEO4J + PYG</span>
+          </div>
+          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
+            GML Root-Cause Mapping &amp; Failure Propagation Engine
+          </h2>
+          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
+            Industrial Graph Machine Learning (GML) platform for manufacturing assembly root-cause failure diagnosis. Implements heterogeneous graph neural networks with bidirectional SAGEConv message passing across multi-tier part-to-assembly hierarchies to trace structural defects, predict failure cascades, and guide precision remediation.
+          </p>
+          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
+            <strong>Key Architecture:</strong> PyTorch Geometric HeteroConv + SAGEConv GNN message passing, vectorized link prediction, Neo4j persistent graph database, FastAPI inference microservice, and interactive Vite graph workbench.
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
+            <span class="px-2.5 py-1 bg-surface-container rounded">PyTorch Geometric</span>
+            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Neo4j</span>
+            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">HeteroConv</span>
+            <span class="px-2.5 py-1 bg-surface-container rounded">FastAPI</span>
+            <span class="px-2.5 py-1 bg-surface-container rounded">TypeScript</span>
+            <span class="px-2.5 py-1 bg-surface-container rounded">Vite</span>
+          </div>
+          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
+            <a href="https://github.com/3pkm/Root_Cause_Mapping_System" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
+              <span>View Graph GNN Repo</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+            </a>
+            <span class="text-on-surface-variant text-xs">Industrial AI</span>
+          </div>
+        </div>
+
+        <!-- 09: Blackwood '94: The Crimson Protocol (Full-Stack & Systems) -->
+        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="fullstack">
+          <div class="absolute -top-3 left-8 w-26 h-6 bg-secondary-fixed-dim/90 diary-tape"></div>
+          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
+            <span>PROJECT #09 • INTERACTIVE WEB &amp; AUDIO</span>
+            <span class="px-2 py-0.5 bg-secondary text-on-secondary font-bold rounded">2HR VIBE BUILD</span>
+          </div>
+          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
+            Blackwood &apos;94: The Crimson Protocol (Escape Room)
+          </h2>
+          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
+            90s-styled point-and-click noir horror escape room game built in a 2-hour vibe coding hackathon with Antigravity &amp; Gemini. Features 16 interactive solvable puzzle rooms across two campaigns, procedural Web Audio API sound synthesis (sub-bass heartbeats, geiger clicks, mechanical shutters with zero external MP3s), dynamic cursor flashlight shaders, and darkroom chemical development.
+          </p>
+          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
+            <strong>Key Architecture:</strong> Zero-dependency procedural Web Audio synthesizer (55Hz/42Hz heartbeats, geiger clicks), real-time cursor flashlight vignette, SVG procedural room generators, and deterministic state engine.
+          </div>
+          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
+            <span class="px-2.5 py-1 bg-surface-container rounded">Web Audio API</span>
+            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Canvas 2D</span>
+            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">Procedural Audio</span>
+            <span class="px-2.5 py-1 bg-surface-container rounded">JavaScript</span>
+            <span class="px-2.5 py-1 bg-surface-container rounded">CSS3 Shaders</span>
+          </div>
+          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
+            <a href="https://github.com/3pkm/Pixathon" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
+              <span>Play &amp; View GitHub Source</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+            </a>
+            <span class="text-on-surface-variant text-xs">Vibe Hackathon</span>
           </div>
         </div>
 
