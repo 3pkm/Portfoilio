@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Prakhar Jaiswal | Full Stack &amp; AI-ML Engineer</title>
+  <meta name="description"
+    content="Personal portfolio of Prakhar Jaiswal — Full Stack and AI-ML Engineer specializing in Computer Vision, LLMs, Multimodal RAG pipelines, and intelligent web systems." />
+  <meta name="author" content="Prakhar Jaiswal" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="theme-color" content="#fcf9f0" />
+
+  <!-- Dark Mode FOUC Prevention Script -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('portfolio-theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', '#121518');
+        } else {
+          document.documentElement.classList.remove('dark');
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', '#fcf9f0');
+        }
+      } catch (e) { }
+    })();
+  </script>
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Prakhar Jaiswal | Full Stack &amp; AI-ML Engineer" />
+  <meta property="og:description"
+    content="Building intelligent web systems and scalable AI/ML pipelines. Passionate about distributed systems, interactive visualizers, and delightful full-stack craft." />
+  <meta property="og:image" content="og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Prakhar Jaiswal — Full Stack &amp; AI-ML Engineer Portfolio Card" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prakhar Jaiswal | Full Stack &amp; AI-ML Engineer" />
+  <meta name="twitter:description"
+    content="Building intelligent web systems and scalable AI/ML pipelines. Ex AI-ML Intern at Quantyc AI." />
+  <meta name="twitter:image" content="og-preview.png" />
+
+  <!-- Critical Fonts Preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Karla:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <!-- Granular Modular Stylesheets -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <!-- Tailwind CSS Engine & External Configuration -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="js/tailwind-config.js"></script>
+
+  <!-- Granular Interactive Scripts (Deferred for instant FCP) -->
+  <script src="js/utils.js" defer></script>
+  <script src="js/cursor.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/toast.js" defer></script>
+  <script src="js/command-palette.js" defer></script>
+  <script src="js/contact.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+  <!-- Unblocking Top Progress Indicator -->
+  <div id="nprogress-bar"></div>
+
+  <!-- Offline Status Toast Notification -->
+  <div id="offline-banner"
+    class="hidden fixed top-0 inset-x-0 z-[100] bg-error text-on-error py-1.5 px-4 text-center font-label-md text-label-md shadow-md"
+    role="status" aria-live="polite">
+    <span>⚠️ You are currently offline. Changes will sync once your connection is restored.</span>
+  </div>
+
+  <!-- Command Palette Modal (Cmd + K / Ctrl + K) -->
+  <div id="cmd-palette-backdrop"
+    class="hidden fixed inset-0 z-[99] bg-primary/40 backdrop-blur-sm flex items-start justify-center pt-24 px-4"
+    role="dialog" aria-modal="true" aria-label="Command Navigation Palette" onclick="toggleCommandPalette(false)">
+    <div
+      class="w-full max-w-lg bg-surface-container-lowest rounded-xl border-2 border-primary-container shadow-hard-xl overflow-hidden"
+      onclick="event.stopPropagation()">
+      <div class="flex items-center px-4 py-3 border-b border-surface-container">
+        <span class="material-symbols-outlined text-primary mr-2" aria-hidden="true">search</span>
+        <input id="cmd-input" type="text" placeholder="Jump to section, projects, resume... (Type to filter)"
+          aria-label="Search sections, projects, or resume"
+          class="w-full bg-transparent border-none text-primary font-body-md focus:ring-0 focus:outline-none"
+          oninput="filterCommandPalette(this.value)" />
+        <span
+          class="px-1.5 py-0.5 bg-surface-container rounded text-[11px] font-label-md text-on-surface-variant">ESC</span>
+      </div>
+      <div id="cmd-options-list" class="max-h-64 overflow-y-auto p-2 flex flex-col gap-1 font-label-md text-label-md"
+        role="listbox">
+        <a href="#sketch-desk" onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">folder_open</span>
+            Flagship Projects &amp; Visualizers</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="projects.html" onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">grid_view</span>
+            Browse All Projects Catalog (9 Builds)</span>
+          <span class="text-on-surface-variant text-[11px]">Page</span>
+        </a>
+
+        <a href="https://github.com/3pkm/Ocean_Debrie" target="_blank" rel="noopener noreferrer"
+          onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">satellite_alt</span>
+
+            Tidewatch: Ocean Debris &amp; Metocean Drift</span>
+
+          <span class="text-on-surface-variant text-[11px]">GitHub</span>
+
+        </a>
+
+        <a href="https://github.com/3pkm/Root_Cause_Mapping_System" target="_blank" rel="noopener noreferrer"
+          onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">schema</span>
+
+            GML Root-Cause Mapping &amp; Failure Propagation</span>
+
+          <span class="text-on-surface-variant text-[11px]">GitHub</span>
+
+        </a>
+
+        <a href="https://github.com/3pkm/Pixathon" target="_blank" rel="noopener noreferrer"
+          onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">sports_esports</span>
+
+            Blackwood &apos;94: The Crimson Protocol (Pixathon)</span>
+
+          <span class="text-on-surface-variant text-[11px]">GitHub</span>
+
+        </a>
+        <a href="#internship-log" onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">work</span>
+            Experience Ledger (Quantyc AI &amp; Research)</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="#field-notes" onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">edit_note</span>
+            Field Notes &amp; Engineering Dispatches</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="#contact-inkwell" onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded hover:bg-surface-container hover:text-primary transition-colors">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">mail</span> Contact
+            &amp; Inkwell</span>
+          <span class="text-on-surface-variant text-[11px]">Section</span>
+        </a>
+        <a href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf" target="_blank"
+          rel="noopener noreferrer" onclick="toggleCommandPalette(false)"
+          class="cmd-item flex items-center justify-between p-2 rounded bg-secondary-fixed text-on-secondary-fixed hover:bg-secondary-fixed-dim transition-colors font-bold">
+          <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]"
+              aria-hidden="true">download</span>
+            Download Resume (PDF)</span>
+          <span class="text-[11px]">Document</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Swipeable Toast Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-[95] flex flex-col gap-2 pointer-events-none" role="region"
+    aria-live="polite" aria-label="Notifications"></div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md wobbly-border shadow-[0_2px_0px_0px_#1e2022]">
+    <div class="relative h-20 w-full px-margin-mobile lg:px-margin flex items-center justify-between">
+      <!-- Left: Logo Branding -->
+      <div class="flex items-center">
+        <a class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold flex items-center gap-space-xs"
+          href="#">
+          <span class="material-symbols-outlined text-tertiary-container" aria-hidden="true">draw</span>
+          <span>Prakhar.dev</span>
+        </a>
+      </div>
+
+      <!-- Center: Nav links cleanly centered relative to the header bar -->
+
+      <nav id="desktop-nav" class="hidden md:flex items-center gap-1 lg:gap-2 absolute left-1/2 -translate-x-1/2"
+        aria-label="Main Navigation">
+
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="#sketch-desk"><span>Projects</span></a>
+
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="#internship-log"><span>Experience</span></a>
+
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="projects.html"><span>All Builds</span></a>
+
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="#field-notes"><span>Field Notes</span></a>
+
+        <a class="nav-link-slide flex items-center justify-center px-2.5 lg:px-3 py-1.5 lg:py-2 font-label-lg text-label-md lg:text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-150 rounded"
+          href="#contact-inkwell"><span>Contact</span></a>
+
+        <span id="nav-sliding-indicator" aria-hidden="true" class="nav-sliding-indicator"></span>
+
+      </nav>
+
+      <!-- Right: Action items and mobile toggle -->
+      <div class="flex items-center gap-2 lg:gap-space-md">
+        <!-- Command palette shortcut button -->
+        <button onclick="toggleCommandPalette(true)" aria-label="Open Command Palette (Cmd + K)"
+          class="hidden xl:flex items-center gap-1.5 px-3 py-2 min-h-[44px] bg-surface-container border border-primary-container font-label-md text-label-md text-on-surface-variant rounded shadow-[1px_1px_0px_0px_var(--shadow-color,#1e2022)] hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-[16px]" aria-hidden="true">terminal</span>
+          <span>Cmd K</span>
+        </button>
+
+        <!-- Quick Resume Download in Header -->
+        <a href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf" target="_blank"
+          rel="noopener noreferrer"
+          class="hidden xl:inline-flex px-3 py-2 min-h-[44px] bg-secondary-fixed text-on-secondary-fixed border border-primary-container font-label-md text-label-md rounded shadow-[1px_1px_0px_0px_var(--shadow-color,#1e2022)] hover:bg-secondary-fixed-dim transition-colors items-center gap-1 font-bold active:scale-[0.98]">
+          <span class="material-symbols-outlined text-[16px]" aria-hidden="true">download</span>
+          <span>Resume</span>
+        </a>
+
+        <!-- Hire Me button -->
+        <a class="hidden sm:inline-flex px-4 py-2 min-h-[44px] bg-surface-container border border-primary-container font-label-lg text-label-lg rounded shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] hover:bg-surface-container-high transition-colors items-center justify-center gap-1.5 text-primary font-bold active:scale-[0.98]"
+          href="#contact-inkwell">
+          <span class="material-symbols-outlined text-[18px] text-tertiary-container" aria-hidden="true">mail</span>
+          <span>Hire Me</span>
+        </a>
+
+        <!-- Mobile Hamburger Menu Button (< md) with accessible 44x44px touch target -->
+        <button id="mobile-menu-toggle-btn" onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu"
+          aria-expanded="false" aria-controls="mobile-nav-drawer"
+          class="md:hidden flex items-center justify-center min-w-[44px] min-h-[44px] p-2 bg-surface-container border-2 border-primary-container text-primary rounded shadow-[2px_2px_0px_0px_var(--shadow-color,#1e2022)] hover:bg-surface-container-high active:scale-95 transition-all">
+          <span id="mobile-menu-icon" class="material-symbols-outlined text-[24px]" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer / Slide-down Menu (< md) -->
+    <div id="mobile-nav-drawer"
+      class="md:hidden hidden bg-surface/98 backdrop-blur-md border-b-2 border-primary-container shadow-[0_6px_0px_0px_#1e2022] px-margin-mobile py-space-md transition-all duration-200"
+      aria-label="Mobile Navigation Drawer">
+      <div
+        class="relative bg-surface-container-lowest p-4 rounded-xl border-2 border-primary-container shadow-[4px_4px_0px_0px_#1e2022] flex flex-col gap-2">
+        <!-- Masking tape decoration for notebook feel -->
+        <div
+          class="absolute -top-3 left-8 w-20 h-5 bg-tertiary-fixed/90 diary-tape border border-primary/20 pointer-events-none">
+        </div>
+
+        <div
+          class="flex items-center justify-between pb-2 mb-1 border-b border-surface-container font-label-md text-label-md text-on-surface-variant font-bold">
+          <span>// NAVIGATION DIRECTORY</span>
+          <span class="px-1.5 py-0.5 bg-secondary-fixed text-on-secondary-fixed rounded text-[10px]">MOBILE INDEX</span>
+        </div>
+
+        <nav class="flex flex-col gap-1.5">
+          <a href="#sketch-desk" onclick="closeMobileMenu()"
+            class="flex items-center justify-between min-h-[44px] px-3.5 py-2 bg-primary-container text-on-primary font-bold rounded shadow-[2px_2px_0px_0px_#1e2022] font-label-lg text-label-lg active:scale-[0.98] transition-all">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-tertiary-fixed"
+                aria-hidden="true">folder_special</span>
+              <span>[★] Projects</span>
+            </span>
+            <span class="text-xs text-on-primary/70">Flagships</span>
+          </a>
+          <a href="#internship-log" onclick="closeMobileMenu()"
+            class="flex items-center justify-between min-h-[44px] px-3.5 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg active:scale-[0.98] transition-all">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">work</span>
+              <span>Experience</span>
+            </span>
+            <span class="text-xs text-outline">Quantyc AI</span>
+          </a>
+          <a href="projects.html" onclick="closeMobileMenu()"
+            class="flex items-center justify-between min-h-[44px] px-3.5 py-2 bg-surface-container text-primary font-bold rounded border border-primary-container shadow-[1px_1px_0px_0px_#1e2022] font-label-lg text-label-lg hover:bg-surface-container-high active:scale-[0.98] transition-all">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">grid_view</span>
+              <span>All Projects</span>
+            </span>
+            <span class="text-xs text-on-surface-variant">Catalog 6+</span>
+          </a>
+          <a href="#field-notes" onclick="closeMobileMenu()"
+            class="flex items-center justify-between min-h-[44px] px-3.5 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg active:scale-[0.98] transition-all">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">edit_note</span>
+              <span>Field Notes</span>
+            </span>
+            <span class="text-xs text-outline">Engineering</span>
+          </a>
+          <a href="#contact-inkwell" onclick="closeMobileMenu()"
+            class="flex items-center justify-between min-h-[44px] px-3.5 py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-lg text-label-lg active:scale-[0.98] transition-all">
+            <span class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">mail</span>
+              <span>Contact</span>
+            </span>
+            <span class="text-xs text-outline">Inkwell</span>
+          </a>
+        </nav>
+
+        <div class="pt-3 mt-1 border-t border-surface-container grid grid-cols-2 gap-2">
+          <a href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf" target="_blank"
+            rel="noopener noreferrer" onclick="closeMobileMenu()"
+            class="flex items-center justify-center gap-1.5 px-3 py-2 min-h-[44px] bg-secondary-fixed text-on-secondary-fixed rounded border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] font-label-md text-label-md font-bold active:scale-[0.98] transition-all">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">download</span>
+            <span>Resume (PDF)</span>
+          </a>
+          <a href="#contact-inkwell" onclick="closeMobileMenu()"
+            class="flex items-center justify-center gap-1.5 px-3 py-2 min-h-[44px] bg-tertiary-fixed text-on-tertiary-fixed rounded border border-primary-container shadow-[2px_2px_0px_0px_#1e2022] font-label-md text-label-md font-bold active:scale-[0.98] transition-all">
+            <span class="material-symbols-outlined text-[18px] text-tertiary-container" aria-hidden="true">mail</span>
+            <span>Hire Me</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-surface min-h-[calc(100vh-20rem)]">
+    <div class="flex flex-col w-full">
+
+      <!-- HERO SECTION: The Active Drawing Desk -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl overflow-hidden">
+        <!-- Ambient floating pencil sketch marks (SVG Background elements) -->
+        <div class="absolute -top-12 -left-8 w-64 h-64 pointer-events-none opacity-20">
+          <svg class="w-full h-full text-primary" fill="none" stroke="currentColor" stroke-width="1.8"
+            viewBox="0 0 200 200">
+            <path d="M10,80 Q50,10 90,80 T170,80 T250,80" stroke-dasharray="4,6"></path>
+            <circle cx="90" cy="80" r="45" stroke-dasharray="6,4"></circle>
+            <path d="M30,140 C70,110 130,170 170,130"></path>
+          </svg>
+        </div>
+        <div class="absolute top-1/3 -right-12 w-80 h-80 pointer-events-none opacity-25">
+          <svg class="w-full h-full text-secondary" fill="none" stroke="currentColor" stroke-width="1.5"
+            viewBox="0 0 240 240">
+            <path d="M20,40 C60,10 140,70 200,30"></path>
+            <ellipse cx="120" cy="120" rx="70" ry="40" stroke-dasharray="5,4" transform="rotate(-15 120 120)"></ellipse>
+            <path d="M40,180 Q100,220 180,170"></path>
+          </svg>
+        </div>
+
+        <div class="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
+          <!-- Animated Student / Engineer Badge -->
+          <div class="relative group cursor-pointer mb-2">
+            <div
+              class="inline-flex items-center gap-space-xs px-space-md py-1 bg-secondary-fixed text-on-secondary-fixed rounded-full font-label-md text-label-md font-bold shadow-[2px_2px_0px_0px_#1e2022] rotate-[-1deg] border border-primary-container">
+              <span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+              <span>B.Tech CSE (AI &amp; Data Science) • MIT-WPU Pune (CGPA 8.87) • AI-ML Intern Alum</span>
+            </div>
+          </div>
+
+          <!-- Expressive Organic Headline with highlighter effects -->
+          <div class="relative max-w-4xl mt-space-sm mb-space-md">
+            <h1 class="font-display text-display text-primary tracking-tight leading-tight">
+              Building intelligent web systems and scalable
+              <span class="relative inline-block mx-1">
+                <span class="relative z-10 px-2">AI/ML pipelines.</span>
+                <!-- Mint highlighter stroke overlay -->
+                <span
+                  class="absolute inset-x-0 bottom-1.5 h-6 bg-secondary-fixed-dim/45 -rotate-1 rounded-sm -z-0"></span>
+              </span>
+              <span class="relative inline-block text-tertiary-container">
+                Delightful craft.
+                <!-- Hand-drawn wavy underline SVG -->
+                <svg class="absolute -bottom-3 left-0 w-full h-4 text-tertiary-container overflow-visible" fill="none"
+                  stroke="currentColor" stroke-linecap="round" stroke-width="3" viewBox="0 0 160 14">
+                  <path d="M3,8 Q20,1 40,8 T80,8 T120,8 T157,7"></path>
+                </svg>
+              </span>
+            </h1>
+          </div>
+
+          <!-- Hero Subtitle & Field Marginalia -->
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-space-xs mb-space-lg">
+            Hi, I'm <strong class="text-primary font-bold">Prakhar Jaiswal</strong>. Passionate about distributed
+            systems, computer vision, multimodal RAG pipelines, and interactive visualizers. Formerly at <strong
+              class="text-secondary font-bold">Quantyc AI</strong>.
+          </p>
+
+          <!-- Interactive Call to Action cluster: Streamlined Two-Tier Hierarchy -->
+          <div class="flex flex-col items-center justify-center gap-3 relative">
+            <div class="flex flex-wrap items-center justify-center gap-space-md">
+              <!-- Primary Action: Resume / CV Download -->
+              <a class="interactive-btn relative group inline-flex items-center gap-2 px-space-lg py-3.5 bg-primary text-on-primary font-headline-sm text-base sm:text-headline-sm rounded-lg shadow-[4px_4px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_#1e2022] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 font-bold"
+                href="Prakhar_Jaiswal_Resume.pdf" download="Prakhar_Jaiswal_Resume.pdf" target="_blank"
+                rel="noopener noreferrer" onclick="showToast('Resume download started! 📄')">
+                <span class="material-symbols-outlined text-[22px] text-tertiary-fixed"
+                  aria-hidden="true">download</span>
+                <span>Download Resume • PDF</span>
+              </a>
+
+              <!-- Secondary Action: Explore Flagship Projects -->
+              <a class="interactive-btn inline-flex items-center gap-2 px-space-md py-3.5 bg-primary-container text-on-primary font-headline-sm text-base sm:text-headline-sm rounded-lg shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 transition-all font-bold"
+                href="#sketch-desk">
+                <span class="material-symbols-outlined text-[20px] text-tertiary-fixed"
+                  aria-hidden="true">folder_open</span>
+                <span>Explore Flagship Projects (9 Builds)</span>
+              </a>
+            </div>
+
+            <!-- Understated Sub-Actions & Profile Anchors -->
+            <div
+              class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs font-label-md text-on-surface-variant font-mono mt-1">
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">code</span>
+                <span>GitHub (@3pkm) ↗</span>
+              </a>
+              <span class="text-outline/40 hidden sm:inline">•</span>
+              <a href="https://www.linkedin.com/in/prakhar-jaiswal/" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">badge</span>
+                <span>LinkedIn (prakhar-jaiswal) ↗</span>
+              </a>
+              <span class="text-outline/40 hidden sm:inline">•</span>
+              <a href="#sketch-desk"
+                class="inline-flex items-center gap-1 hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">folder_open</span>
+                <span>Flagships (4) ↓</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Floating Polaroid / Sticky Note Desk Preview (Profile Data) -->
+          <div class="mt-space-xl w-full grid grid-cols-1 md:grid-cols-3 gap-space-lg items-end text-left pt-space-md">
+            <!-- Post-It Memo 1: Academic Profile -->
+            <div
+              class="relative p-space-md bg-surface-container-lowest rounded shadow-[4px_4px_0px_0px_#1e2022] -rotate-2 hover:rotate-0 hover:-translate-y-2 transition-all duration-200">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-tertiary-fixed/80 diary-tape"></div>
+              <div class="flex items-center justify-between mb-space-xs">
+                <span class="font-label-md text-label-md text-on-tertiary-container font-bold">[NOTE 01 •
+                  ACADEMICS]</span>
+                <span class="font-label-md text-label-md text-outline tabular-nums">CGPA: 8.87 / 10</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface">"B.Tech CSE (AI &amp; Data Science) @ MIT-WPU, Pune •
+                Expected 2028 • Diploma in CSE (AI &amp; DS) 2022–2025."</p>
+              <div class="mt-space-sm flex items-center gap-1 text-on-surface-variant font-annotation text-annotation">
+                <span class="material-symbols-outlined text-[16px]">school</span>
+                <span>Computer Vision, NLP, Multimodal RAG, Distributed Systems</span>
+              </div>
+            </div>
+
+            <!-- Center Stamp Memo 2: Internship Shipped -->
+            <div
+              class="relative p-space-md bg-secondary-fixed text-on-secondary-fixed rounded shadow-[4px_4px_0px_0px_#1e2022] rotate-1 hover:rotate-0 hover:-translate-y-2 transition-all duration-200">
+              <div class="absolute -top-3 right-6 w-16 h-5 bg-surface-variant/80 diary-tape"></div>
+              <div class="flex items-center gap-2 mb-space-xs">
+                <span class="material-symbols-outlined text-[20px]">verified</span>
+                <span class="font-headline-sm text-headline-sm">Quantyc AI Intern</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-on-secondary-fixed-variant">Shipped enterprise document
+                extraction &amp; Claude 3.7 Sonnet pipelines on AWS/Azure, cutting LLM token costs by <strong
+                  class="tabular-nums">50%</strong> via Anthropic Batch API.</p>
+            </div>
+
+            <!-- Post-It Memo 3: Core Stats -->
+            <div
+              class="relative p-space-md bg-surface-container-low rounded shadow-[4px_4px_0px_0px_#1e2022] rotate-2 hover:rotate-0 hover:-translate-y-2 transition-all duration-200">
+              <div class="absolute -top-3 left-6 w-16 h-5 bg-tertiary-fixed-dim/70 diary-tape"></div>
+              <div
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-space-xs font-bold">
+                [NOTE 03 • METRICS]
+              </div>
+              <div class="grid grid-cols-3 gap-space-xs font-label-lg text-label-lg text-primary">
+                <div>
+                  <span class="font-headline-md text-headline-md block tabular-nums">1</span>
+                  <span class="font-label-md text-label-md text-on-surface-variant">AI-ML Intern</span>
+                </div>
+                <div>
+                  <span class="font-headline-md text-headline-md block tabular-nums">8+</span>
+                  <span class="font-label-md text-label-md text-on-surface-variant">AI &amp; Web Builds</span>
+                </div>
+                <div>
+                  <span class="font-headline-md text-headline-md block tabular-nums">50%</span>
+                  <span class="font-label-md text-label-md text-on-surface-variant">Cost Cut</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wavy Hand-Drawn Section Separator -->
+      <div class="wavy-separator-wrapper">
+        <svg class="wavy-separator" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12">
+          </path>
+          <path class="sketch-accent"
+            d="M2,13 Q32,5 62,13 T122,13 T182,13 T242,13 T302,13 T362,13 T422,13 T482,13 T542,13 T602,13 T662,13 T722,13 T782,13 T842,13 T902,13 T962,13 T1022,13 T1082,13 T1142,13 T1198,13">
+          </path>
+        </svg>
+      </div>
+
+      <!-- SECTION 2: COMPREHENSIVE AI-ML & FULL STACK PROJECTS (THE CREATIVE WORKBENCH) -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="sketch-desk"
+        aria-label="Flagship Projects">
+        <div class="max-w-6xl mx-auto">
+          <!-- Section Header with hand-lettered stamp vibe -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+            <div>
+              <div
+                class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded shadow-[2px_2px_0px_0px_#1e2022] mb-space-xs">
+                <span class="material-symbols-outlined text-[14px]" aria-hidden="true">palette</span>
+                <span>ENGINEERING WORKBENCH • 2024 - 2025</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">The Flagship AI &amp; Software
+                Builds</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-space-xs">
+                State-of-the-art non-invasive medical diagnostic vision, satellite remote sensing, enterprise multimodal
+                RAG,
+
+                industrial graph neural networks, and interactive systems.
+              </p>
+            </div>
+            <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary" aria-hidden="true"></span>
+              <span>Explore live demos, repos &amp; architectural writeups</span>
+            </div>
+          </div>
+
+          <!-- 4-Card 2x2 Grid of Tactile Physical CS Project Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-space-xl items-start">
+
+            <!-- Project 1: Anemia Detection using Eye Conjunctiva, Palms and Nail Beds -->
+            <div
+              class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] -rotate-1 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-secondary-fixed/90 diary-tape"
+                aria-hidden="true"></div>
+
+              <!-- Direct graphic viewport without nested card container -->
+              <div
+                class="relative w-full h-56 rounded-md bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-4 text-center">
+                <div class="flex items-center gap-2 mb-2">
+                  <span
+                    class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded font-label-md text-label-md font-bold">Conjunctiva</span>
+                  <span
+                    class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded font-label-md text-label-md font-bold">Palms</span>
+                  <span
+                    class="px-2.5 py-1 bg-surface-container-highest text-primary rounded font-label-md text-label-md font-bold">Nail
+                    Beds</span>
+                </div>
+                <span class="font-headline-sm text-headline-sm text-primary font-bold">Quad Independent Pipeline</span>
+                <span class="font-label-md text-label-md text-on-tertiary-container mt-1 font-bold">ResNet50 +
+                  EfficientNet-B0 Ensembles</span>
+
+                <div
+                  class="absolute top-2 right-2 px-space-xs py-0.5 bg-primary text-on-primary font-label-md text-label-md rounded">
+                  ACTIVE RESEARCH
+                </div>
+                <div
+                  class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+                  FastAPI • PyTorch • ResNet50 • EfficientNet-B0
+                </div>
+              </div>
+
+              <div
+                class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+                <span>PROJECT 01 / COMPUTER VISION &amp; HEALTHCARE</span>
+                <span class="text-tertiary-container font-bold">NON-INVASIVE DIAGNOSTICS</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                Anemia Detection via Conjunctiva, Palms &amp; Nail Beds
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+                Iron deficiency is a critical global health concern requiring invasive, costly blood draws. Developed a
+                state-of-the-art quad independent processing pipeline architecture that detects anemia non-invasively
+                from photos and delivers dietary &amp; nutritional recommendations.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">PyTorch</span>
+                <span
+                  class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">FastAPI</span>
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">EfficientNet-B0</span>
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">ResNet50</span>
+              </div>
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+                <a href="projects.html"
+                  class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>View in Projects Catalog</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+                </a>
+                <div
+                  class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">biotech</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: Enterprise Multimodal RAG Pipeline -->
+            <div
+              class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] rotate-1 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+              <div class="absolute -top-3 right-8 w-24 h-6 bg-tertiary-fixed/90 diary-tape" aria-hidden="true"></div>
+
+              <!-- Direct graphic viewport without nested card container -->
+              <div
+                class="relative w-full h-56 rounded-md bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-4 text-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-2">
+                  <span class="material-symbols-outlined text-[24px]" aria-hidden="true">hub</span>
+                </div>
+                <span class="font-headline-sm text-headline-sm text-primary font-bold">Multimodal Ingestion
+                  Engine</span>
+                <span class="font-label-md text-label-md text-secondary mt-1 font-bold">Hybrid Search • Semantic
+                  Chunking</span>
+
+                <div
+                  class="absolute top-2 left-2 px-space-xs py-0.5 bg-tertiary-container text-on-tertiary-container font-label-md text-label-md rounded font-bold">
+                  IN ACTIVE DEVELOPMENT
+                </div>
+                <div
+                  class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+                  LangChain • Vector DBs • Hybrid Search
+                </div>
+              </div>
+
+              <div
+                class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+                <span>PROJECT 02 / LLMS &amp; RETRIEVAL</span>
+                <span>OPEN ARCHITECTURE</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                Enterprise Multimodal RAG Pipeline
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+                Architected a real-time ingestion engine featuring structural parsing, semantic chunking, and multimodal
+                embedding indexing. Implemented hybrid search combining dense vector similarity with sparse metadata
+                filtering, assembly-mapping multi-turn context to open-source LLMs.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">LangChain</span>
+                <span
+                  class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded">Vector
+                  DBs</span>
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">FastAPI</span>
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Python</span>
+              </div>
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+                <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer"
+                  class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>View GitHub Repository</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+                </a>
+                <div
+                  class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">terminal</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: Visual Quality-Inspection Agent for Defect Detection -->
+            <div
+              class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] -rotate-0.8 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+              <div class="absolute -top-3 left-8 w-24 h-6 bg-secondary-fixed-dim/90 diary-tape" aria-hidden="true">
+              </div>
+
+              <!-- Direct graphic viewport without nested card container -->
+              <div
+                class="relative w-full h-56 rounded-md bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-4 text-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center mb-2">
+                  <span class="material-symbols-outlined text-[24px] text-tertiary-fixed"
+                    aria-hidden="true">center_focus_strong</span>
+                </div>
+                <span class="font-headline-sm text-headline-sm text-primary font-bold">YOLOv8-Seg Instance
+                  Inspection</span>
+                <span class="font-label-md text-label-md text-on-surface-variant mt-1 font-bold">Defect Detection •
+                  Real-Time FPS</span>
+
+                <div
+                  class="absolute top-2 right-2 px-space-xs py-0.5 bg-primary text-on-primary font-label-md text-label-md rounded">
+                  COMPUTER VISION
+                </div>
+                <div
+                  class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+                  YOLOv8-Seg • OpenCV • Synthetic Data
+                </div>
+              </div>
+
+              <div
+                class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+                <span>PROJECT 03 / INDUSTRIAL AUTOMATION</span>
+                <span>SEGMENTATION</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                Visual Quality-Inspection Agent for Defect Detection
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+                Developed an end-to-end computer vision pipeline using YOLOv8-Seg to inspect assembly line video frames
+                for surface paint defects, dents, and missing fasteners. Engineered synthetic data pipelines to augment
+                training images with simulated lighting variations and occlusions.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">YOLOv8-Seg</span>
+                <span
+                  class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">OpenCV</span>
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Synthetic
+                  Data</span>
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Python</span>
+              </div>
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+                <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer"
+                  class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Explore Vision Pipeline</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+                </a>
+                <div
+                  class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">visibility</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4: Financial Document Extraction & PII Redactor -->
+            <div
+              class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] rotate-1.5 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+              <div class="absolute -top-3 right-10 w-26 h-6 bg-tertiary-fixed-dim/90 diary-tape" aria-hidden="true">
+              </div>
+
+              <!-- Direct graphic viewport without nested card container -->
+              <div
+                class="relative w-full h-56 rounded-md bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-4 text-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center mb-2">
+                  <span class="material-symbols-outlined text-[24px] text-tertiary-fixed"
+                    aria-hidden="true">document_scanner</span>
+                </div>
+                <span class="font-headline-sm text-headline-sm text-primary font-bold">Document AI &amp;
+                  Redaction</span>
+                <span class="font-label-md text-label-md text-on-tertiary-container mt-1 font-bold">Presidio • spaCy •
+                  Claude 3.7</span>
+
+                <div
+                  class="absolute top-2 left-2 px-space-xs py-0.5 bg-secondary text-on-secondary font-label-md text-label-md rounded font-bold">
+                  QUANTYC AI SHIPMENT
+                </div>
+                <div
+                  class="absolute bottom-2 right-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+                  Azure AI • Claude 3.7 • Presidio
+                </div>
+              </div>
+
+              <div
+                class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+                <span>PROJECT 04 / DOCUMENT AI &amp; PRIVACY</span>
+                <span class="text-secondary font-bold">PRODUCTION SHIPMENT</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                Financial Document Intelligence &amp; PII Redactor
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+                Engineered high-accuracy extraction pipelines for complex financial records using Azure Document
+                Intelligence and Claude 3.7 Sonnet on Amazon Bedrock. Integrated automated PII redaction with Microsoft
+                Presidio and spaCy NLP to blur/encrypt sensitive fields across documents.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-space-sm">
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Claude
+                  3.7</span>
+                <span
+                  class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">Azure
+                  AI</span>
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Presidio</span>
+                <span
+                  class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">spaCy</span>
+              </div>
+              <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+                <a href="#internship-log"
+                  class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Read Quantyc Experience Log</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+                </a>
+                <div
+                  class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">article</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <!-- Project 5: Tidewatch — Multispectral Ocean Debris & Metocean Drift Engine -->
+
+          <div
+            class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] -rotate-1 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+
+            <div class="absolute -top-3 left-10 w-28 h-6 bg-secondary-fixed/90 diary-tape" aria-hidden="true">
+
+            </div>
+
+
+
+            <div
+              class="relative w-full h-56 rounded-md bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-4 text-center">
+
+              <div class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-2">
+
+                <span class="material-symbols-outlined text-[24px]" aria-hidden="true">satellite_alt</span>
+
+              </div>
+
+              <span class="font-headline-sm text-headline-sm text-primary font-bold">Tidewatch Satellite Engine</span>
+
+              <span class="font-label-md text-label-md text-secondary mt-1 font-bold">14-Channel UNet • 500-Particle RK4
+                Drift</span>
+
+
+
+              <div
+                class="absolute top-2 right-2 px-space-xs py-0.5 bg-primary text-on-primary font-label-md text-label-md rounded">
+
+                MARIDA BENCHMARK
+
+              </div>
+
+              <div
+                class="absolute bottom-2 left-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+
+                PyTorch • ONNX Runtime • PostGIS • MapLibre
+
+              </div>
+
+            </div>
+
+
+
+            <div
+              class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+
+              <span>PROJECT 05 / REMOTE SENSING &amp; METOCEAN</span>
+
+              <span class="text-tertiary-container font-bold">ORBITAL TRACKING</span>
+
+            </div>
+
+            <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+
+              Tidewatch: Ocean Debris &amp; Metocean Drift Engine
+
+            </h3>
+
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+
+              Autonomous satellite remote sensing pipeline tackling marine plastic pollution under dense cloud cover
+              (&ldquo;The Clouds Rolled In&rdquo;). Combines a 14-channel deep neural UNet on Sentinel-2 MSI
+              multispectral imagery, a 500-particle Runge-Kutta 4 (RK4) stochastic metocean drift ensemble with KDE
+              probability contours, and cloud-aware spatio-temporal tracking across orbital revisits.
+
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 mb-space-sm">
+
+              <span
+                class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">PyTorch</span>
+
+              <span
+                class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">ONNX
+                Runtime</span>
+
+              <span
+                class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded">PostGIS</span>
+
+              <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">RK4
+                Drift</span>
+
+            </div>
+
+            <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+
+              <a href="https://github.com/3pkm/Ocean_Debrie" target="_blank" rel="noopener noreferrer"
+                class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+
+                <span>Explore Satellite Pipeline</span>
+
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+
+              </a>
+
+              <div
+                class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">waves</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- Project 6: GML Industrial Root-Cause Mapping System -->
+
+          <div
+            class="group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] rotate-1 hover:rotate-0 hover:-translate-y-3 transition-all duration-300">
+
+            <div class="absolute -top-3 right-10 w-28 h-6 bg-tertiary-fixed/90 diary-tape" aria-hidden="true">
+
+            </div>
+
+
+
+            <div
+              class="relative w-full h-56 rounded-md bg-surface-container overflow-hidden mb-space-md flex flex-col justify-center items-center p-4 text-center">
+
+              <div
+                class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center mb-2">
+
+                <span class="material-symbols-outlined text-[24px] text-tertiary-fixed" aria-hidden="true">schema</span>
+
+              </div>
+
+              <span class="font-headline-sm text-headline-sm text-primary font-bold">HeteroConv Assembly GNN</span>
+
+              <span class="font-label-md text-label-md text-on-surface-variant mt-1 font-bold">Failure Cascades •
+                SAGEConv</span>
+
+
+
+              <div
+                class="absolute top-2 left-2 px-space-xs py-0.5 bg-secondary text-on-secondary font-label-md text-label-md rounded font-bold">
+
+                INDUSTRIAL AI
+
+              </div>
+
+              <div
+                class="absolute bottom-2 right-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+
+                PyG • Neo4j • FastAPI • Vite
+
+              </div>
+
+            </div>
+
+
+
+            <div
+              class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+
+              <span>PROJECT 06 / GRAPH MACHINE LEARNING</span>
+
+              <span class="text-secondary font-bold">FAILURE PROPAGATION</span>
+
+            </div>
+
+            <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+
+              GML Root-Cause Mapping &amp; Failure Propagation Engine
+
+            </h3>
+
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+
+              Industrial Graph Machine Learning (GML) platform for manufacturing assembly root-cause failure diagnosis.
+              Implements heterogeneous graph neural networks with bidirectional SAGEConv message passing across
+              multi-tier part-to-assembly hierarchies to trace structural defects, predict failure cascades, and guide
+              precision remediation.
+
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 mb-space-sm">
+
+              <span class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">PyTorch
+                Geometric</span>
+
+              <span
+                class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">Neo4j</span>
+
+              <span
+                class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded">HeteroConv</span>
+
+              <span
+                class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">FastAPI</span>
+
+            </div>
+
+            <div class="pt-space-xs flex items-center justify-between border-t border-surface-container">
+
+              <a href="https://github.com/3pkm/Root_Cause_Mapping_System" target="_blank" rel="noopener noreferrer"
+                class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+
+                <span>View Graph GNN Repo</span>
+
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+
+              </a>
+
+              <div
+                class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">account_tree</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- Project 7: Blackwood '94: The Crimson Protocol (ESCAPE_PROTOCOL / Pixathon) -->
+
+          <div
+            class="md:col-span-2 group relative bg-surface-container-lowest rounded-lg p-space-md shadow-[4px_4px_0px_0px_#1e2022] hover:-translate-y-2 transition-all duration-300">
+
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-secondary-fixed-dim/90 diary-tape"
+              aria-hidden="true">
+
+            </div>
+
+
+
+            <div class="flex flex-col lg:flex-row gap-6 items-stretch">
+
+              <div
+                class="w-full lg:w-2/5 h-64 lg:h-auto min-h-[220px] rounded-md bg-surface-container overflow-hidden flex flex-col justify-center items-center p-6 text-center relative">
+
+                <div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center mb-2">
+
+                  <span class="material-symbols-outlined text-[24px] text-tertiary-fixed"
+                    aria-hidden="true">videogame_asset</span>
+
+                </div>
+
+                <span class="font-headline-sm text-headline-sm text-primary font-bold">Blackwood &apos;94: Escape
+                  Protocol</span>
+
+                <span class="font-label-md text-label-md text-secondary mt-1 font-bold">16 Puzzle Rooms • Procedural Web
+                  Audio</span>
+
+
+
+                <div
+                  class="absolute top-2 left-2 px-space-xs py-0.5 bg-primary text-on-primary font-label-md text-label-md rounded font-bold">
+
+                  2HR VIBE HACKATHON
+
+                </div>
+
+                <div
+                  class="absolute bottom-2 right-2 px-space-xs py-0.5 bg-surface-bright/95 text-on-surface font-label-md text-label-md rounded">
+
+                  Web Audio API • Canvas 2D • SVG
+
+                </div>
+
+              </div>
+
+
+
+              <div class="w-full lg:w-3/5 flex flex-col justify-between">
+
+                <div>
+
+                  <div
+                    class="flex items-center justify-between mb-space-xs font-label-md text-label-md text-on-surface-variant">
+
+                    <span>PROJECT 07 / INTERACTIVE WEB &amp; AUDIO</span>
+
+                    <span class="text-secondary font-bold">NOIR HORROR GAME ENGINE</span>
+
+                  </div>
+
+                  <h3
+                    class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+
+                    Blackwood &apos;94: The Crimson Protocol (Escape Room)
+
+                  </h3>
+
+                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
+
+                    90s-styled point-and-click noir horror escape room game built in a 2-hour vibe coding hackathon with
+                    Antigravity &amp; Gemini. Features 16 interactive solvable puzzle rooms across two campaigns,
+                    procedural Web Audio API sound synthesis (sub-bass heartbeats, geiger clicks, mechanical shutters
+                    with zero external MP3s), dynamic cursor flashlight shaders, and darkroom chemical development.
+
+                  </p>
+
+                  <div class="flex flex-wrap gap-1.5 mb-space-sm">
+
+                    <span
+                      class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">Web
+                      Audio API</span>
+
+                    <span
+                      class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md rounded">Canvas
+                      2D</span>
+
+                    <span
+                      class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md rounded">Procedural
+                      Sound</span>
+
+                    <span
+                      class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">JavaScript</span>
+
+                    <span
+                      class="px-2 py-0.5 bg-surface-container text-on-surface font-label-md text-label-md rounded">CSS3
+                      Shaders</span>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="pt-space-xs flex items-center justify-between border-t border-surface-container mt-2">
+
+                  <a href="https://github.com/3pkm/Pixathon" target="_blank" rel="noopener noreferrer"
+                    class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+
+                    <span>Play &amp; View GitHub Source</span>
+
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_outward</span>
+
+                  </a>
+
+                  <div
+                    class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">sports_esports</span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- View More Projects CTA Button (Links to separate project page) -->
+          <div class="mt-space-xl flex flex-col items-center justify-center text-center">
+            <div
+              class="p-1 rounded-xl bg-surface-container shadow-[4px_4px_0px_0px_#1e2022] hover:shadow-[2px_2px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 transition-all">
+              <a href="projects.html"
+                class="interactive-btn inline-flex items-center gap-3 px-8 py-4 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-lg active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-tertiary-fixed text-[24px]"
+                  aria-hidden="true">grid_view</span>
+                <span>View Complete Projects Catalog (All 9 Builds)</span>
+                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_forward</span>
+              </a>
+            </div>
+            <span class="mt-2 text-on-surface-variant font-annotation text-annotation">
+              Explore satellite remote sensing (Tidewatch), GML root-cause mapping, procedural horror engines, and deep
+              learning setups on the dedicated
+
+              project board →
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Wavy Hand-Drawn Section Separator -->
+      <div class="wavy-separator-wrapper">
+        <svg class="wavy-separator" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12">
+          </path>
+          <path class="sketch-accent"
+            d="M2,13 Q32,5 62,13 T122,13 T182,13 T242,13 T302,13 T362,13 T422,13 T482,13 T542,13 T602,13 T662,13 T722,13 T782,13 T842,13 T902,13 T962,13 T1022,13 T1082,13 T1142,13 T1198,13">
+          </path>
+        </svg>
+      </div>
+
+      <!-- SECTION 3: DEDICATED SDE & AI-ML INTERNSHIP LOG / EXPERIENCE SECTION (OPEN NOTEBOOK LEDGER) -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="internship-log"
+        aria-label="Experience Ledger">
+        <div class="max-w-5xl mx-auto">
+          <!-- Physical Open Notebook Sheet -->
+          <div
+            class="relative bg-surface-container-low rounded-xl p-6 sm:p-8 md:p-10 shadow-[6px_6px_0px_0px_#1e2022] border-2 border-primary-container">
+            <!-- Notebook ring punches -->
+            <div class="flex items-center justify-around -mt-12 sm:-mt-14 mb-8 px-space-md" aria-hidden="true">
+              <div
+                class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+              <div
+                class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+              <div
+                class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+              <div
+                class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+              <div
+                class="w-4 h-9 bg-primary-container rounded-full shadow-inner flex flex-col items-center justify-between py-1">
+                <div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+              </div>
+            </div>
+
+            <!-- Ledger Header -->
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-md border-b-2 border-primary-container/20 mb-space-lg">
+              <div>
+                <span class="font-label-md text-label-md text-on-tertiary-container uppercase tracking-wider font-bold">
+                  [EXPERIENCE LEDGER • VERIFIED RECORD]
+                </span>
+                <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Experience &amp; Leadership
+                  Milestones</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-1">
+                  Chronological track record across production systems engineering, department leadership, and applied
+                  research.
+                </p>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <span
+                  class="p-space-xs bg-surface-container rounded font-label-md text-label-md text-on-surface-variant font-mono">
+                  Jan 2025 – Present
+                </span>
+              </div>
+            </div>
+
+            <!-- Open Timeline Flow (No nested cards, clean scannable dividers) -->
+            <div class="space-y-space-lg">
+
+              <!-- MILESTONE 01: Quantyc AI -->
+              <article class="flex flex-col gap-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <div>
+                    <div class="font-label-md text-[11px] font-bold text-secondary uppercase tracking-widest mb-0.5">
+                      MILESTONE 01 • QUANTYC AI (ENTERPRISE AI)
+                    </div>
+                    <h3 class="font-headline-md text-xl sm:text-2xl text-primary font-bold">AI / Machine Learning
+                      Engineering Intern</h3>
+                    <div class="font-label-lg text-label-lg text-on-surface-variant">Document AI, LLM Evaluations &amp;
+                      Automated PII Redaction</div>
+                  </div>
+                  <div class="sm:text-right font-label-md text-xs text-on-surface-variant font-mono">
+                    <span
+                      class="inline-block px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed rounded font-bold">Jan
+                      2025 – June 2025</span>
+                    <div class="mt-0.5">Remote, Indonesia</div>
+                  </div>
+                </div>
+
+                <ul class="flex flex-col gap-2.5 text-body-md text-on-surface pl-1 mt-1">
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-secondary font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>Intelligent Document Processing:</strong> Built production extraction pipelines for
+                      financial documents using Azure Document Intelligence; leveraged prebuilt layouts, custom Neural
+                      &amp; Template models, and polygon-based bounding boxes to optimize OCR accuracy.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-secondary font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>LLM Engineering &amp; Benchmarking:</strong> Evaluated multi-format OCR pipelines
+                      leveraging GPT-4o via Azure AI Foundry and Claude 3.5/3.7 Sonnet via Amazon Bedrock, establishing
+                      Claude 3.7 as the production benchmark for unstructured data extraction.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-secondary font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>50% Operational Cost Cut:</strong> Architected an asynchronous batch extraction
+                      workflow utilizing Anthropic Batch API, cutting LLM token overhead by <strong
+                        class="tabular-nums">50%</strong> while maintaining zero degradation in extraction
+                      fidelity.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-secondary font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>Automated PII Redaction Engine:</strong> Engineered a privacy engine using Microsoft
+                      Presidio and spaCy NLP; developed scripts to detect, encrypt, or visually blur PII across
+                      structured/unstructured PDFs and scanned records.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap items-center gap-1.5 pt-2">
+                  <span class="font-label-md text-xs text-on-surface-variant font-bold mr-1">Stack:</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary font-mono">Python
+                    3.11</span>
+                  <span
+                    class="px-2 py-0.5 bg-secondary-fixed rounded font-label-md text-xs text-on-secondary-fixed font-mono font-bold">Claude
+                    3.7 Sonnet</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary font-mono">Azure
+                    AI Foundry</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary font-mono">Amazon
+                    Bedrock</span>
+                  <span
+                    class="px-2 py-0.5 bg-tertiary-fixed rounded font-label-md text-xs text-on-tertiary-fixed font-mono font-bold">Presidio</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary font-mono">spaCy</span>
+                </div>
+              </article>
+
+              <div class="border-t-2 border-primary-container/20 my-space-md" aria-hidden="true"></div>
+
+              <!-- MILESTONE 02: MIT-WPU Placement Representative -->
+              <article class="flex flex-col gap-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <div>
+                    <div
+                      class="font-label-md text-[11px] font-bold text-on-tertiary-container uppercase tracking-widest mb-0.5">
+                      MILESTONE 02 • MIT WORLD PEACE UNIVERSITY
+                    </div>
+                    <h3 class="font-headline-md text-xl sm:text-2xl text-primary font-bold">Student Placement
+                      Representative</h3>
+                    <div class="font-label-lg text-label-lg text-on-surface-variant">Corporate Outreach, Drive Logistics
+                      &amp; Candidate Mentorship</div>
+                  </div>
+                  <div class="sm:text-right font-label-md text-xs text-on-surface-variant font-mono">
+                    <span
+                      class="inline-block px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed rounded font-bold">Sep
+                      2024 – Present</span>
+                    <div class="mt-0.5">Pune, Maharashtra</div>
+                  </div>
+                </div>
+
+                <ul class="flex flex-col gap-2.5 text-body-md text-on-surface pl-1 mt-1">
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-on-tertiary-container font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>Corporate Recruitment Coordination:</strong> Serving as official department liaison
+                      between tech recruiters and student candidates for full-time and internship placement
+                      drives.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-on-tertiary-container font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>Drive Operations &amp; Scheduling:</strong> Managing campus placement drive logistics,
+                      test lab environments, technical interview scheduling, and candidate verification.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-on-tertiary-container font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>Peer Mentorship &amp; Mock Sessions:</strong> Mentoring junior cohorts in algorithmic
+                      problem-solving, data structures, AI/ML fundamentals, and technical resume structuring.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap items-center gap-1.5 pt-2">
+                  <span class="font-label-md text-xs text-on-surface-variant font-bold mr-1">Skills:</span>
+                  <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary">Department
+                    Leadership</span>
+                  <span
+                    class="px-2 py-0.5 bg-tertiary-fixed rounded font-label-md text-xs text-on-tertiary-fixed font-bold">Campus
+                    Recruitment</span>
+                  <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary">Technical
+                    Mentorship</span>
+                  <span class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary">Drive
+                    Operations</span>
+                </div>
+              </article>
+
+              <div class="border-t-2 border-primary-container/20 my-space-md" aria-hidden="true"></div>
+
+              <!-- MILESTONE 03: Applied Research & Systems -->
+              <article class="flex flex-col gap-3">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <div>
+                    <div class="font-label-md text-[11px] font-bold text-secondary uppercase tracking-widest mb-0.5">
+                      MILESTONE 03 • APPLIED RESEARCH &amp; DIAGNOSTICS
+                    </div>
+                    <h3 class="font-headline-md text-xl sm:text-2xl text-primary font-bold">Non-Invasive Diagnostics
+                      &amp; Vision Systems</h3>
+                    <div class="font-label-lg text-label-lg text-on-surface-variant">Multi-Regional Processing &amp;
+                      Industrial Inspection</div>
+                  </div>
+                  <div class="sm:text-right font-label-md text-xs text-on-surface-variant font-mono">
+                    <span class="inline-block px-2 py-0.5 bg-surface-container rounded font-bold text-primary">2024 –
+                      2025</span>
+                    <div class="mt-0.5">Academic &amp; Independent</div>
+                  </div>
+                </div>
+
+                <ul class="flex flex-col gap-2.5 text-body-md text-on-surface pl-1 mt-1">
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-secondary font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>Quad Processing Pipeline:</strong> Designed multi-input anatomical diagnostic
+                      architecture aggregating palmar pallor, nail bed capillary refill, and conjunctival
+                      vascularity.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-secondary font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>Deep Learning Feature Extraction:</strong> Fine-tuned ResNet50 and EfficientNet-B0
+                      backbones for multi-class classification and confidence calibration.</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-secondary font-bold text-[18px] leading-tight select-none"
+                      aria-hidden="true">✦</span>
+                    <span><strong>Industrial Defect Detection:</strong> Built YOLOv8-Seg models capable of
+                      high-throughput defect localization with synthetic augmentation pipelines.</span>
+                  </li>
+                </ul>
+
+                <div class="flex flex-wrap items-center gap-1.5 pt-2">
+                  <span class="font-label-md text-xs text-on-surface-variant font-bold mr-1">Stack:</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary font-mono">PyTorch</span>
+                  <span
+                    class="px-2 py-0.5 bg-secondary-fixed rounded font-label-md text-xs text-on-secondary-fixed font-mono font-bold">OpenCV</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary font-mono">YOLOv8-Seg</span>
+                  <span
+                    class="px-2 py-0.5 bg-surface-container rounded font-label-md text-xs text-primary font-mono">FastAPI</span>
+                </div>
+              </article>
+
+            </div>
+
+            <!-- Ledger Footer Note -->
+            <div
+              class="mt-space-lg pt-space-sm border-t-2 border-primary-container/20 flex flex-col sm:flex-row items-center justify-between gap-2 text-on-surface-variant font-annotation text-annotation">
+              <span>Official University CGPA: 8.87 / 10 • Department of Computer Science (AI &amp; Data Science)</span>
+              <span class="font-mono text-xs">All milestones verified against production pull requests</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wavy Hand-Drawn Section Separator -->
+      <div class="wavy-separator-wrapper">
+        <svg class="wavy-separator" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12">
+          </path>
+          <path class="sketch-accent"
+            d="M2,13 Q32,5 62,13 T122,13 T182,13 T242,13 T302,13 T362,13 T422,13 T482,13 T542,13 T602,13 T662,13 T722,13 T782,13 T842,13 T902,13 T962,13 T1022,13 T1082,13 T1142,13 T1198,13">
+          </path>
+        </svg>
+      </div>
+
+      <!-- SECTION 5: FIELD NOTES / TECHNICAL ESSAYS -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl" id="field-notes"
+        aria-label="Field Notes and Engineering Essays">
+        <div class="max-w-5xl mx-auto">
+          <div class="mb-space-lg flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <span
+                class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest font-bold">DISPATCHES
+                FROM THE AI LAB</span>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Field Notes &amp; Engineering
+                Scribbles</h2>
+            </div>
+            <a class="font-label-lg text-label-lg text-primary hover:text-secondary flex items-center gap-1 transition-colors font-bold"
+              href="projects.html">
+              <span>Browse All Project Catalog</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Loose Leaf Lined Journal Container -->
+          <div
+            class="relative bg-surface-container-lowest rounded-lg shadow-[5px_5px_0px_0px_#1e2022] overflow-hidden p-space-lg border border-primary-container">
+            <div class="absolute top-0 bottom-0 left-12 w-0.5 bg-error/20 pointer-events-none hidden sm:block"
+              aria-hidden="true"></div>
+            <div class="sm:pl-10 flex flex-col gap-space-lg">
+
+              <!-- Article Entry 01 -->
+              <article class="group relative flex flex-col gap-space-sm pb-space-md border-b border-surface-container">
+                <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant mb-0.5">
+                  <span>ENTRY #001</span>
+                  <span>•</span>
+                  <span>FEBRUARY 2025</span>
+                  <span>•</span>
+                  <span class="text-on-tertiary-container font-bold">6 MIN READ</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                  Cutting Production LLM Costs by 50% Using Anthropic Batch API &amp; Async Workers
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  How decoupling non-realtime financial document OCR from synchronous HTTP requests reduced token
+                  overhead by half while maintaining high extraction fidelity.
+                </p>
+
+                <!-- Expandable Technical Briefing Drawer -->
+                <details class="group/drawer mt-1">
+                  <summary
+                    class="cursor-pointer inline-flex items-center gap-1.5 font-label-md text-xs font-bold text-secondary hover:text-primary transition-colors py-1 focus-visible:outline-2 focus-visible:outline-secondary">
+                    <span class="group-open/drawer:hidden">Read Architectural Takeaways ↓</span>
+                    <span class="hidden group-open/drawer:inline">Close Takeaways ↑</span>
+                  </summary>
+                  <div
+                    class="mt-2.5 p-4 rounded bg-surface-container text-body-sm text-on-surface space-y-2 border-l-2 border-secondary font-body-sm">
+                    <p><strong>1. Asynchronous Ingestion SLA:</strong> Financial records (e.g. tax schedules, audit
+                      statements) do not require &lt;2 second synchronous latency. By placing incoming documents into an
+                      S3 staging queue, a Celery worker dispatches batch JSON payloads once per hour to Anthropic's
+                      Batch API endpoints.</p>
+                    <p><strong>2. 50% Flat Discount Economics:</strong> Anthropic guarantees a 24-hour completion
+                      turnaround window (median execution observed under 45 minutes) at exactly 50% of standard token
+                      pricing ($1.50/M input vs $3.00/M on Sonnet).</p>
+                    <p><strong>3. Resilience &amp; Rate Limits:</strong> Synchronous API limits (RPM/TPM) frequently
+                      throttle bursty enterprise bulk uploads. Batch queues bypass concurrency thresholds entirely,
+                      eliminating expensive exponential backoff retries.</p>
+                  </div>
+                </details>
+              </article>
+
+              <!-- Article Entry 02 -->
+              <article class="group relative flex flex-col gap-space-sm pb-space-md border-b border-surface-container">
+                <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant mb-0.5">
+                  <span>ENTRY #002</span>
+                  <span>•</span>
+                  <span>JANUARY 2025</span>
+                  <span>•</span>
+                  <span class="text-on-secondary-container font-bold">8 MIN READ</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                  Architecting a Quad-Independent Processing Pipeline for Non-Invasive Anemia Diagnostics
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  A deep dive into multi-region feature extraction combining conjunctival pallor, palm creases, and nail
+                  bed pigmentation with ResNet50 and EfficientNet.
+                </p>
+
+                <!-- Expandable Technical Briefing Drawer -->
+                <details class="group/drawer mt-1">
+                  <summary
+                    class="cursor-pointer inline-flex items-center gap-1.5 font-label-md text-xs font-bold text-secondary hover:text-primary transition-colors py-1 focus-visible:outline-2 focus-visible:outline-secondary">
+                    <span class="group-open/drawer:hidden">Read Architectural Takeaways ↓</span>
+                    <span class="hidden group-open/drawer:inline">Close Takeaways ↑</span>
+                  </summary>
+                  <div
+                    class="mt-2.5 p-4 rounded bg-surface-container text-body-sm text-on-surface space-y-2 border-l-2 border-secondary font-body-sm">
+                    <p><strong>1. Multi-Anatomical Redundancy:</strong> Palmar erythema is influenced by skin tone and
+                      ambient temperature, while conjunctival erythema can be confounded by dust or fatigue. Calibrating
+                      across 3 distinct body regions dramatically dampens single-site false positives.</p>
+                    <p><strong>2. Colorimetry &amp; Lighting Normalization:</strong> Raw RGB values drift drastically
+                      across phone cameras. We implemented a reference gray-card color balance algorithm with CIELAB
+                      color space transformation to isolate genuine hemoglobin absorption signatures.</p>
+                    <p><strong>3. Ensembling Strategy:</strong> Independent CNN backbones (ResNet50 for
+                      texture/vascularity, EfficientNet-B0 for color distribution) feed into a meta-classifier producing
+                      calibrated probabilistic hemoglobin estimates alongside dietary risk scores.</p>
+                  </div>
+                </details>
+              </article>
+
+              <!-- Article Entry 03 -->
+              <article class="group relative flex flex-col gap-space-sm">
+                <div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant mb-0.5">
+                  <span>ENTRY #003</span>
+                  <span>•</span>
+                  <span>DECEMBER 2024</span>
+                  <span>•</span>
+                  <span class="text-on-tertiary-container font-bold">5 MIN READ</span>
+                </div>
+                <h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
+                  Building Privacy-First Document AI: Automated PII Masking with Presidio &amp; spaCy
+                </h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  Zero-leakage regulatory compliance: implementing bounding-box image redaction and regex/entity
+                  encryption prior to sending files to external LLM providers.
+                </p>
+
+                <!-- Expandable Technical Briefing Drawer -->
+                <details class="group/drawer mt-1">
+                  <summary
+                    class="cursor-pointer inline-flex items-center gap-1.5 font-label-md text-xs font-bold text-secondary hover:text-primary transition-colors py-1 focus-visible:outline-2 focus-visible:outline-secondary">
+                    <span class="group-open/drawer:hidden">Read Architectural Takeaways ↓</span>
+                    <span class="hidden group-open/drawer:inline">Close Takeaways ↑</span>
+                  </summary>
+                  <div
+                    class="mt-2.5 p-4 rounded bg-surface-container text-body-sm text-on-surface space-y-2 border-l-2 border-secondary font-body-sm">
+                    <p><strong>1. Pre-Ingestion Interception:</strong> PII is stripped strictly on-premise or within
+                      isolated VPC boundaries before any payload reaches LLM endpoints. Neither cloud weights nor
+                      training logs ever witness plain-text customer identifiers.</p>
+                    <p><strong>2. Hybrid Pattern &amp; Context Detection:</strong> Regex handles deterministic
+                      identifiers (PAN, Aadhaar, IBAN, SSN), while spaCy NLP and Microsoft Presidio evaluate surrounding
+                      syntactic context to flag names, addresses, and signatory titles.</p>
+                    <p><strong>3. Reversible Token Vault:</strong> Sensitive entities are mapped to cryptographic
+                      surrogates (e.g. <code>&lt;PERSON_01&gt;</code>) stored in an ephemeral Redis token vault.
+                      Extracted structured answers are reconstituted post-inference with zero data leakage.</p>
+                  </div>
+                </details>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wavy Hand-Drawn Section Separator -->
+      <div class="wavy-separator-wrapper">
+        <svg class="wavy-separator" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12">
+          </path>
+          <path class="sketch-accent"
+            d="M2,13 Q32,5 62,13 T122,13 T182,13 T242,13 T302,13 T362,13 T422,13 T482,13 T542,13 T602,13 T662,13 T722,13 T782,13 T842,13 T902,13 T962,13 T1022,13 T1082,13 T1142,13 T1198,13">
+          </path>
+        </svg>
+      </div>
+
+      <!-- SECTION 6: CONTACT INKWELL -->
+      <section class="relative w-full px-margin-mobile lg:px-margin py-space-xl mb-space-lg" id="contact-inkwell"
+        aria-label="Contact Prakhar Jaiswal">
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="relative bg-surface-container-high rounded-xl p-space-lg sm:p-space-xl shadow-[6px_6px_0px_0px_#1e2022] overflow-hidden border-2 border-primary-container">
+
+            <!-- Header -->
+            <div class="mb-space-lg max-w-md">
+              <span
+                class="font-label-md text-label-md text-on-tertiary-container font-bold uppercase tracking-wider">[SEND
+                DISPATCH • LET'S CONNECT]</span>
+              <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Direct Engineering Dispatch</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+                Open to <strong>AI/ML &amp; Full-Stack Engineering roles</strong>, research collaborations, and
+                open-source systems projects.
+              </p>
+            </div>
+
+            <!-- Direct quick contact pills (Un-nested badge styling without nested cards) -->
+            <div class="flex flex-wrap gap-space-xs mb-space-lg font-label-md text-label-md">
+              <a class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container hover:bg-surface-container-highest text-primary rounded transition-colors"
+                href="https://github.com/3pkm" rel="noopener noreferrer" target="_blank">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">code</span>
+                <span>github.com/3pkm</span>
+              </a>
+              <a class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container hover:bg-surface-container-highest text-primary rounded transition-colors"
+                href="https://www.linkedin.com/in/prakhar-jaiswal/" rel="noopener noreferrer" target="_blank">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">badge</span>
+                <span>linkedin.com/in/prakhar-jaiswal</span>
+              </a>
+              <button onclick="copyEmail()"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-surface-container hover:bg-surface-container-highest text-primary rounded transition-colors cursor-pointer">
+                <span class="material-symbols-outlined text-[16px] text-tertiary-container"
+                  aria-hidden="true">content_copy</span>
+                <span>jas.prakhar@gmail.com</span>
+              </button>
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-secondary-fixed text-on-secondary-fixed rounded font-bold">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">location_on</span>
+                <span>Pune, Maharashtra, India</span>
+              </span>
+            </div>
+
+            <!-- Interactive Form with Layout-Preserving Button Spinner -->
+            <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-space-lg relative z-10"
+              onsubmit="handleContactSubmit(event)">
+              <div class="flex flex-col justify-between gap-space-md">
+                <div>
+                  <label
+                    class="block font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1"
+                    for="contact-name">
+                    Your Name / Organization:
+                  </label>
+                  <input id="contact-name"
+                    class="w-full bg-surface-container-lowest px-space-sm py-2.5 rounded text-primary font-body-md text-body-md shadow-[2px_2px_0px_0px_#1e2022] focus:outline-none focus:bg-surface-bright border border-primary-container"
+                    placeholder="e.g. Maya Sharma • Founder / Recruiter" required type="text" />
+                </div>
+                <div>
+                  <label
+                    class="block font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1"
+                    for="contact-email">
+                    Your Email Address:
+                  </label>
+                  <input id="contact-email"
+                    class="w-full bg-surface-container-lowest px-space-sm py-2.5 rounded text-primary font-body-md text-body-md shadow-[2px_2px_0px_0px_#1e2022] focus:outline-none focus:bg-surface-bright border border-primary-container"
+                    placeholder="maya@company.com" required type="email" />
+                </div>
+                <div class="hidden md:flex items-center gap-2 font-annotation text-annotation text-on-surface-variant">
+                  <span class="material-symbols-outlined text-secondary text-[20px]"
+                    aria-hidden="true">mark_email_read</span>
+                  <span>Direct message forward to jas.prakhar@gmail.com</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col justify-between gap-space-md">
+                <div>
+                  <label
+                    class="block font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider mb-1"
+                    for="contact-message">
+                    Project / Engineering Brief:
+                  </label>
+                  <textarea id="contact-message"
+                    class="w-full bg-surface-container-lowest p-space-sm rounded text-primary font-body-md text-body-md shadow-[2px_2px_0px_0px_#1e2022] focus:outline-none focus:bg-surface-bright resize-none border border-primary-container"
+                    placeholder="Tell me about the engineering challenges, AI systems, or roles you are working on..."
+                    required rows="5"></textarea>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-space-xs">
+                  <span class="font-annotation text-annotation text-on-surface-variant flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">verified</span>
+                    <span>Quick response in &lt; 24h</span>
+                  </span>
+
+                  <!-- Layout-Preserving Submit Button -->
+                  <button id="stamp-submit-btn" type="submit"
+                    class="interactive-btn relative inline-flex items-center justify-center px-6 py-3.5 bg-primary text-on-primary font-headline-sm text-[17px] font-semibold rounded-lg shadow-[4px_4px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0px_0px_#1e2022] active:scale-[0.98] transition-all duration-150 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed">
+                    <span id="submit-btn-content"
+                      class="flex items-center justify-center gap-2.5 transition-opacity duration-150">
+                      <span class="material-symbols-outlined text-tertiary-fixed text-[20px] shrink-0"
+                        aria-hidden="true">send</span>
+                      <span class="whitespace-nowrap">Dispatch Message</span>
+                    </span>
+                    <!-- Centered Absolute Spinner for stable layout -->
+                    <span id="submit-spinner" class="hidden absolute inset-0 items-center justify-center gap-2">
+                      <svg class="animate-spin h-5 w-5 text-on-primary shrink-0" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                      </svg>
+                      <span class="font-label-md text-label-md font-bold whitespace-nowrap">Dispatching
+                        Message...</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wavy Hand-Drawn Section Separator -->
+      <div class="wavy-separator-wrapper">
+        <svg class="wavy-separator" viewBox="0 0 1200 24" fill="none" preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path
+            d="M0,12 Q30,4 60,12 T120,12 T180,12 T240,12 T300,12 T360,12 T420,12 T480,12 T540,12 T600,12 T660,12 T720,12 T780,12 T840,12 T900,12 T960,12 T1020,12 T1080,12 T1140,12 T1200,12">
+          </path>
+          <path class="sketch-accent"
+            d="M2,13 Q32,5 62,13 T122,13 T182,13 T242,13 T302,13 T362,13 T422,13 T482,13 T542,13 T602,13 T662,13 T722,13 T782,13 T842,13 T902,13 T962,13 T1022,13 T1082,13 T1142,13 T1198,13">
+          </path>
+        </svg>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer
+    class="relative w-full bg-surface-container-low border-t-2 border-primary-container py-space-xl overflow-hidden">
+    <div class="absolute -top-3 left-12 w-24 h-6 bg-tertiary-fixed opacity-75 diary-tape border border-primary/20">
+    </div>
+    <div class="absolute -top-3 right-24 w-28 h-6 bg-secondary-fixed opacity-75 diary-tape border border-primary/20">
+    </div>
+    <div
+      class="absolute -bottom-8 -right-8 w-44 h-44 rounded-full border-4 border-tertiary-fixed-dim/40 pointer-events-none rotate-12">
+    </div>
+    <div
+      class="absolute -bottom-10 -right-6 w-36 h-36 rounded-full border-2 border-tertiary-fixed-dim/30 pointer-events-none -rotate-6">
+    </div>
+
+    <div class="w-full px-margin-mobile lg:px-margin">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg mb-space-lg">
+        <div class="md:col-span-5 flex flex-col gap-space-xs">
+          <div class="font-headline-md text-headline-md text-primary">Prakhar Jaiswal • Full Stack &amp; AI-ML Portfolio
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+            Crafted with mechanical keystrokes, PyTorch tensors, and late-night campus compile runs. All flagship
+            projects documented with clean architecture writeups.
+          </p>
+        </div>
+        <div class="md:col-span-4 flex flex-col gap-space-xs">
+          <span class="font-label-md text-label-md uppercase text-on-surface-variant font-bold tracking-widest">Quick
+            Navigation</span>
+          <div class="flex flex-col gap-space-xs font-label-lg text-label-lg">
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block"
+              href="#sketch-desk">→ Flagship Projects</a>
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block font-bold text-secondary"
+              href="projects.html">→ All Projects Catalog (6+)</a>
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block"
+              href="#internship-log">→ Quantyc AI &amp; Experience</a>
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block"
+              href="#field-notes">→ Field Notes &amp; Dispatches</a>
+            <a class="text-on-surface-variant hover:text-on-surface transition-colors hover:translate-x-1 duration-150 inline-block"
+              href="#contact-inkwell">→ Direct Engineering Dispatch</a>
+          </div>
+        </div>
+        <div class="md:col-span-3 flex flex-col gap-space-xs">
+          <span class="font-label-md text-label-md uppercase text-on-surface-variant font-bold tracking-widest">Campus
+            Station</span>
+          <p class="font-label-md text-label-md text-on-surface-variant">
+            MIT World Peace University (MIT-WPU)<br />
+            Department of CSE (AI &amp; Data Science)<br />
+            Pune, Maharashtra • Class of 2028
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="pt-space-md border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+        <span class="font-label-md text-label-md text-on-surface-variant">
+          Handmade with care • Prakhar Jaiswal © 2025
+        </span>
+        <span
+          class="font-label-md text-label-md text-on-surface-variant bg-surface-container px-space-xs py-0.5 border border-primary-container rounded shadow-[1px_1px_0px_0px_#1e2022]">
+          Page 01 of ∞
+        </span>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

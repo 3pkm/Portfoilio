@@ -157,295 +157,935 @@
       </div>
 
       <!-- Projects Grid -->
-      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
 
         <!-- 01: Anemia Detection (Vision, Healthcare) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="vision healthcare">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-secondary-fixed/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #01 • HEALTHCARE AI</span>
-            <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed font-bold rounded">RESEARCH PIPELINE</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="vision healthcare">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-secondary-fixed/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/Anemia.png" alt="Anemia Detection Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/og-preview.png" alt="Anemia Detection Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse.jpeg" alt="Anemia Detection Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Subtle top & bottom edge vignettes ensuring badges remain legible over screenshot -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2025</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">AI-ML / VISION</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#01</span>
+            </div>
+
+            <!-- Middle clean area: Unobscured slideshow per reference video -->
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                94.2% ACCURACY • RESNET50 + EFFICIENTNET-B0
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">PALMS</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">CONJUNCTIVA</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">NAIL BEDS</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            Anemia Detection via Eye Conjunctiva, Palms &amp; Nail Beds
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            Non-invasive diagnostic system addressing global iron-deficiency anemia without painful blood tests. Employs a quad independent processing pipeline that extracts colorimetry, pallor indices, and vascular density across three anatomical sites to deliver severity grading and dietary nutrition recommendations.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Architecture:</strong> ResNet50 and EfficientNet-B0 backbone feature extractors fine-tuned on clinical photographic datasets, coupled with a FastAPI inference microservice.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  Anemia Detection via Eye Conjunctiva, Palms &amp; Nail Beds
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-xs font-bold tracking-wider rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022]">
+                  RESEARCH
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">PyTorch</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">FastAPI</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Computer Vision</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                Non-invasive diagnostic system addressing global iron-deficiency anemia without painful blood tests. Employs a quad independent processing pipeline that extracts colorimetry, pallor indices, and vascular density across three anatomical sites to deliver severity grading and dietary nutrition recommendations.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Architecture:</strong> ResNet50 and EfficientNet-B0 backbone feature extractors fine-tuned on clinical photographic datasets, coupled with a FastAPI inference microservice.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">ResNet50</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">EfficientNet-B0</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">OpenCV</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">PyTorch</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">FastAPI</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">EfficientNet-B0</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">ResNet50</span>
-            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">Computer Vision</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="index.html#sketch-desk" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <span class="text-tertiary-container font-bold flex items-center gap-1">
-              <span class="material-symbols-outlined text-[16px]">hourglass_empty</span>
-              <span>Code &amp; Demo: Coming Soon</span>
-            </span>
-            <span class="text-on-surface-variant text-xs">2024–2025</span>
-          </div>
-        </div>
+        </article>
 
         <!-- 02: Enterprise Multimodal RAG Pipeline (RAG, Full-Stack) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="rag fullstack">
-          <div class="absolute -top-3 right-8 w-24 h-6 bg-tertiary-fixed/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #02 • LLM SYSTEMS</span>
-            <span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-bold rounded">IN DEVELOPMENT</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="rag fullstack">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-tertiary-fixed/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/og-preview.png" alt="Multimodal RAG Pipeline Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Anemia.png" alt="Multimodal RAG Pipeline Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse.jpeg" alt="Multimodal RAG Pipeline Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Vignette -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2025</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">LLM / RETRIEVAL</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#02</span>
+            </div>
+
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                &lt;45MS RETRIEVAL • HYBRID BM25 + DENSE
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">LANGCHAIN</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">VECTOR DB</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">HYBRID</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            Enterprise Multimodal RAG Pipeline
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            Real-time ingestion engine featuring structural parsing, semantic chunking, and multimodal embedding indexing. Implements a hybrid search strategy combining dense vector similarity with sparse BM25 metadata filtering, assembly-mapping contextual conversation histories to open-source LLMs.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Architecture:</strong> Modular ingestion worker with FastAPI, vector database indexing, dynamic reranking, and low-latency chunk retrieval.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  Enterprise Multimodal RAG Pipeline
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label-md text-xs font-bold tracking-wider rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022]">
+                  PRODUCTION
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">LangChain</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Vector DBs</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Hybrid Search</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                Real-time ingestion engine featuring structural parsing, semantic chunking, and multimodal embedding indexing. Implements a hybrid search strategy combining dense vector similarity with sparse BM25 metadata filtering, assembly-mapping contextual conversation histories to open-source LLMs.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Architecture:</strong> Modular ingestion worker with FastAPI, vector database indexing, dynamic reranking, and low-latency chunk retrieval.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">FastAPI</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">Python</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">ChromaDB</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">LangChain</span>
-            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">Vector DBs</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Hybrid Search</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">FastAPI</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Python</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="index.html#sketch-desk" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
-              <span>Explore GitHub Repository</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-            </a>
-            <span class="text-on-surface-variant text-xs">Active Build</span>
-          </div>
-        </div>
+        </article>
 
         <!-- 03: Visual Quality-Inspection Agent (Vision, Systems) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="vision">
-          <div class="absolute -top-3 left-8 w-24 h-6 bg-secondary-fixed-dim/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #03 • COMPUTER VISION</span>
-            <span class="px-2 py-0.5 bg-surface-container font-bold rounded">OPEN SOURCE</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="vision">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-secondary-fixed-dim/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/Mouse.jpeg" alt="Defect Detection Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse_Clickanle_link.jpeg" alt="Defect Detection Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/og-preview.png" alt="Defect Detection Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Vignette -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2024</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">COMPUTER VISION</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#03</span>
+            </div>
+
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                60 FPS REAL-TIME • SYNTHETIC AUGMENTATION
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">YOLOV8-SEG</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">OPENCV</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">SYNTHETIC</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            Visual Quality-Inspection Agent for Defect Detection
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            End-to-end computer vision pipeline using YOLOv8-Seg to inspect high-speed assembly line video frames for surface paint defects, dents, and missing fasteners. Engineered synthetic data pipelines to augment training images with simulated lighting variations and occlusion angles.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Architecture:</strong> Real-time YOLOv8-Seg instance segmentation engine, automated polygon mask generation, and OpenCV pre/post-processing filters.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  Visual Quality-Inspection Agent for Defect Detection
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-surface-container border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-lg shadow-[2px_2px_0px_0px_#1e2022]">
+                  OPEN SOURCE
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">YOLOv8-Seg</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">OpenCV</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Instance Seg</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                End-to-end computer vision pipeline using YOLOv8-Seg to inspect high-speed assembly line video frames for surface paint defects, dents, and missing fasteners. Engineered synthetic data pipelines to augment training images with simulated lighting variations and occlusion angles.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Architecture:</strong> Real-time YOLOv8-Seg instance segmentation engine, automated polygon mask generation, and OpenCV pre/post-processing filters.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">Synthetic Data</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">Python</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">FastAPI</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">YOLOv8-Seg</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">OpenCV</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Synthetic Data</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Python</span>
-            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">Instance Seg</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="index.html#sketch-desk" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
-              <span>View Repo &amp; Benchmarks</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-            </a>
-            <span class="text-on-surface-variant text-xs">2024</span>
-          </div>
-        </div>
+        </article>
 
         <!-- 04: Document AI & PII Redactor (RAG, Vision, Full-Stack) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="rag vision fullstack">
-          <div class="absolute -top-3 right-10 w-26 h-6 bg-tertiary-fixed-dim/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #04 • DOCUMENT AI &amp; PRIVACY</span>
-            <span class="px-2 py-0.5 bg-secondary text-on-secondary font-bold rounded">QUANTYC AI</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="rag vision fullstack">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-tertiary-fixed-dim/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/og-preview.png" alt="Document AI Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Anemia.png" alt="Document AI Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse.jpeg" alt="Document AI Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Vignette -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2025</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">DOCUMENT AI</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#04</span>
+            </div>
+
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                50% COST REDUCTION • ZERO PII LEAKAGE
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">CLAUDE 3.7</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">PRESIDIO</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">BEDROCK</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            Financial Document Intelligence &amp; PII Redactor
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            Production extraction pipelines for complex multi-page financial documents using Azure Document Intelligence and Claude 3.7 Sonnet on Amazon Bedrock. Integrated an automated PII redaction engine with Microsoft Presidio and spaCy NLP to blur and encrypt sensitive identifiers.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Metrics:</strong> Cut operational LLM token costs by <strong class="tabular-nums">50%</strong> via Anthropic Batch API, with zero-leakage PII compliance on unstructured PDFs.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  Financial Document Intelligence &amp; PII Redactor
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-secondary text-on-secondary font-label-md text-xs font-bold tracking-wider rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022]">
+                  QUANTYC AI
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Claude 3.7</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Azure AI</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Microsoft Presidio</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                Production extraction pipelines for complex multi-page financial documents using Azure Document Intelligence and Claude 3.7 Sonnet on Amazon Bedrock. Integrated an automated PII redaction engine with Microsoft Presidio and spaCy NLP to blur and encrypt sensitive identifiers.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Metrics:</strong> Cut operational LLM token costs by <strong class="tabular-nums">50%</strong> via Anthropic Batch API, with zero-leakage PII compliance on unstructured PDFs.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">spaCy NLP</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">Batch API</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">Python</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">Claude 3.7</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Azure AI</span>
-            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">Microsoft Presidio</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">spaCy NLP</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Batch API</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="index.html#internship-log" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <a href="index.html#internship-log" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
-              <span>Read Quantyc Experience Log</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-            </a>
-            <span class="text-on-surface-variant text-xs">Jan–June 2025</span>
-          </div>
-        </div>
+        </article>
 
         <!-- 05: Pathfinding & Graph Theory Visualizer (Full-Stack & Systems) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="fullstack">
-          <div class="absolute -top-3 left-10 w-24 h-6 bg-tertiary-fixed/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #05 • VISUALIZERS &amp; WEB</span>
-            <span class="px-2 py-0.5 bg-surface-container font-bold rounded">OPEN SOURCE</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="fullstack">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-tertiary-fixed/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/Mouse_Clickanle_link.jpeg" alt="Pathfinding Visualizer Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse.jpeg" alt="Pathfinding Visualizer Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/og-preview.png" alt="Pathfinding Visualizer Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Vignette -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2024</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">VISUALIZERS &amp; WEB</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#05</span>
+            </div>
+
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                60 FPS CANVAS • WEB WORKERS MULTI-THREAD
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">DIJKSTRA</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">A-STAR</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">WORKERS</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            Algorithmic Pathfinding &amp; Graph Visualizer
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            Interactive 60 FPS visual sandbox for Dijkstra, A*, Bidirectional BFS, and random maze generation. Decoupled graph traversal calculations off the browser's UI thread via Web Workers to prevent frame drops during large grid recalibration.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Architecture:</strong> HTML5 Canvas 2D engine, asynchronous Web Worker messaging, TypeScript state management.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  Algorithmic Pathfinding &amp; Graph Visualizer
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-surface-container border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-lg shadow-[2px_2px_0px_0px_#1e2022]">
+                  OPEN SOURCE
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">React</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">TypeScript</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Web Workers</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                Interactive 60 FPS visual sandbox for Dijkstra, A*, Bidirectional BFS, and random maze generation. Decoupled graph traversal calculations off the browser's UI thread via Web Workers to prevent frame drops during large grid recalibration.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Architecture:</strong> HTML5 Canvas 2D engine, asynchronous Web Worker messaging, TypeScript state management.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">Canvas 2D</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">Algorithms</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">Vite</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">React</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">TypeScript</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Web Workers</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Canvas 2D</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
-              <span>View Source on GitHub</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-            </a>
-            <span class="text-on-surface-variant text-xs">Interactive Tool</span>
-          </div>
-        </div>
+        </article>
 
         <!-- 06: Telemetry Stream Pipeline (Full-Stack & Systems) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="fullstack">
-          <div class="absolute -top-3 right-12 w-24 h-6 bg-secondary-fixed/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #06 • BACKEND &amp; CLOUD</span>
-            <span class="px-2 py-0.5 bg-surface-container font-bold rounded">MICROSERVICES</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="fullstack">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-secondary-fixed/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/og-preview.png" alt="Telemetry Pipeline Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse.jpeg" alt="Telemetry Pipeline Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse_Clickanle_link.jpeg" alt="Telemetry Pipeline Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Vignette -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2024</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">BACKEND &amp; CLOUD</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#06</span>
+            </div>
+
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                10K+ EVENTS/SEC • REDIS SUB-MS CACHE
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">KAFKA</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">REDIS</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">POSTGRES</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            High-Throughput Telemetry Ingestion Pipeline
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            Engineered scalable stream processing workers handling simulated metric ingestion via Apache Kafka. Aggregated windowed telemetry in Python and FastAPI, caching hot dashboard queries in Redis to reduce database read latencies.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Architecture:</strong> Distributed Dockerized microservices, Kafka event streams, Redis key-value cache, PostgreSQL persistent store.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  High-Throughput Telemetry Ingestion Pipeline
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-surface-container border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-lg shadow-[2px_2px_0px_0px_#1e2022]">
+                  MICROSERVICES
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">FastAPI</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Apache Kafka</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Redis</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                Engineered scalable stream processing workers handling simulated metric ingestion via Apache Kafka. Aggregated windowed telemetry in Python and FastAPI, caching hot dashboard queries in Redis to reduce database read latencies.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Architecture:</strong> Distributed Dockerized microservices, Kafka event streams, Redis key-value cache, PostgreSQL persistent store.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">Docker</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">PostgreSQL</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">Python</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">FastAPI</span>
-            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">Kafka</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Redis</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Docker</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <a href="https://github.com/3pkm" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
-              <span>Inspect Microservices Architecture</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-            </a>
-            <span class="text-on-surface-variant text-xs">Cloud Ingest</span>
-          </div>
-        </div>
+        </article>
 
         <!-- 07: Tidewatch — Multispectral Ocean Debris & Metocean Drift Engine (Vision, Systems) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="vision fullstack">
-          <div class="absolute -top-3 left-12 w-28 h-6 bg-secondary-fixed/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #07 • SATELLITE REMOTE SENSING</span>
-            <span class="px-2 py-0.5 bg-primary text-on-primary font-bold rounded">MARIDA BENCHMARK</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="vision fullstack">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-secondary-fixed/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/og-preview.png" alt="Tidewatch Ocean Debris Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse.jpeg" alt="Tidewatch Ocean Debris Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Anemia.png" alt="Tidewatch Ocean Debris Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Vignette -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2025</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">SATELLITE REMOTE SENSING</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#07</span>
+            </div>
+
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                500-PARTICLE ENSEMBLE • POSTGIS + ONNX
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">14-CH UNET</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">SENTINEL-2</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">RK4 DRIFT</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            Tidewatch: Ocean Debris &amp; Metocean Drift Engine
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            Autonomous satellite remote sensing pipeline tackling marine plastic slicks under dense oceanic cloud cover (&ldquo;The Clouds Rolled In&rdquo;). Employs a 14-channel deep neural segmentation UNet on Sentinel-2 MSI multispectral imagery, a 500-particle Runge-Kutta 4 (RK4) stochastic metocean drift ensemble with KDE probability contours, and cloud-aware spatio-temporal tracking across orbital revisits.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Architecture:</strong> 14-channel ONNX UNet segmentation, 500-particle RK4 Lagrangian metocean current simulation, cloud status integral ($V$), PostGIS spatial queries, and MapLibre GL geofencing.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  Tidewatch: Ocean Debris &amp; Metocean Drift Engine
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022]">
+                  MARIDA
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">PyTorch</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">ONNX Runtime</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">PostGIS</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                Autonomous satellite remote sensing pipeline tackling marine plastic slicks under dense oceanic cloud cover (&ldquo;The Clouds Rolled In&rdquo;). Employs a 14-channel deep neural segmentation UNet on Sentinel-2 MSI multispectral imagery, a 500-particle Runge-Kutta 4 (RK4) stochastic metocean drift ensemble with KDE probability contours, and cloud-aware spatio-temporal tracking across orbital revisits.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Architecture:</strong> 14-channel ONNX UNet segmentation, 500-particle RK4 Lagrangian metocean current simulation, cloud status integral, PostGIS spatial queries, and MapLibre GL geofencing.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">Sentinel-2</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">RK4 Drift</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">React 18</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">PyTorch</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">ONNX Runtime</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Sentinel-2</span>
-            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">PostGIS</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">RK4 Drift</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">React 18</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://github.com/3pkm/Ocean_Debrie" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm/Ocean_Debrie" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <a href="https://github.com/3pkm/Ocean_Debrie" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
-              <span>Explore GitHub Repository</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-            </a>
-            <span class="text-on-surface-variant text-xs">Hackathon Build</span>
-          </div>
-        </div>
+        </article>
 
         <!-- 08: GML Industrial Root-Cause Mapping System (Full-Stack, Vision/Systems) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="fullstack vision">
-          <div class="absolute -top-3 right-10 w-28 h-6 bg-tertiary-fixed/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #08 • GRAPH MACHINE LEARNING</span>
-            <span class="px-2 py-0.5 bg-surface-container font-bold rounded">NEO4J + PYG</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="fullstack vision">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-tertiary-fixed/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/Mouse_Clickanle_link.jpeg" alt="GML Root-Cause Mapping Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/og-preview.png" alt="GML Root-Cause Mapping Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse.jpeg" alt="GML Root-Cause Mapping Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Vignette -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2025</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">GRAPH ML</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#08</span>
+            </div>
+
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                SAGECONV MESSAGE PASSING • BI-DIRECTIONAL
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">PYG</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">NEO4J</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">HETEROCONV</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            GML Root-Cause Mapping &amp; Failure Propagation Engine
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            Industrial Graph Machine Learning (GML) platform for manufacturing assembly root-cause failure diagnosis. Implements heterogeneous graph neural networks with bidirectional SAGEConv message passing across multi-tier part-to-assembly hierarchies to trace structural defects, predict failure cascades, and guide precision remediation.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Architecture:</strong> PyTorch Geometric HeteroConv + SAGEConv GNN message passing, vectorized link prediction, Neo4j persistent graph database, FastAPI inference microservice, and interactive Vite graph workbench.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  GML Root-Cause Mapping &amp; Failure Propagation Engine
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-surface-container border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-lg shadow-[2px_2px_0px_0px_#1e2022]">
+                  NEO4J + PYG
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">PyTorch Geometric</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Neo4j</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">HeteroConv</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                Industrial Graph Machine Learning (GML) platform for manufacturing assembly root-cause failure diagnosis. Implements heterogeneous graph neural networks with bidirectional SAGEConv message passing across multi-tier part-to-assembly hierarchies to trace structural defects, predict failure cascades, and guide precision remediation.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Architecture:</strong> PyTorch Geometric HeteroConv + SAGEConv GNN message passing, vectorized link prediction, Neo4j persistent graph database, FastAPI inference microservice, and interactive Vite graph workbench.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">FastAPI</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">TypeScript</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">Vite</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">PyTorch Geometric</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Neo4j</span>
-            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">HeteroConv</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">FastAPI</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">TypeScript</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">Vite</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://github.com/3pkm/Root_Cause_Mapping_System" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm/Root_Cause_Mapping_System" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <a href="https://github.com/3pkm/Root_Cause_Mapping_System" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
-              <span>View Graph GNN Repo</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-            </a>
-            <span class="text-on-surface-variant text-xs">Industrial AI</span>
-          </div>
-        </div>
+        </article>
 
         <!-- 09: Blackwood '94: The Crimson Protocol (Full-Stack & Systems) -->
-        <div class="project-card group relative bg-surface-container-lowest rounded-xl p-6 shadow-[5px_5px_0px_0px_#1e2022] border-2 border-primary-container transition-all" data-category="fullstack">
-          <div class="absolute -top-3 left-8 w-26 h-6 bg-secondary-fixed-dim/90 diary-tape"></div>
-          <div class="flex items-center justify-between mb-2 font-label-md text-label-md text-on-surface-variant">
-            <span>PROJECT #09 • INTERACTIVE WEB &amp; AUDIO</span>
-            <span class="px-2 py-0.5 bg-secondary text-on-secondary font-bold rounded">2HR VIBE BUILD</span>
+        <article class="project-card group relative flex flex-col justify-between bg-surface-container-lowest border-2 border-primary-container rounded-2xl p-5 sm:p-6 shadow-[5px_5px_0px_0px_#1e2022] hover:-translate-y-1.5 transition-all duration-200" data-category="fullstack">
+          <div class="absolute -top-3 left-10 w-24 h-5 diary-tape z-30 bg-secondary-fixed-dim/90" aria-hidden="true"></div>
+
+          <!-- TOP HERO PREVIEW BOX WITH 3-SECOND UNOBSCURED SLIDESHOW (5% LARGER IMAGES: scale-105) -->
+          <div class="relative w-full border-2 border-primary-container bg-surface-container-low rounded-xl p-4 sm:p-5 mb-5 overflow-hidden flex flex-col justify-between min-h-[220px] shadow-[2px_2px_0px_0px_#1e2022] catalog-slideshow" data-interval="3000">
+            <!-- Full-bleed Background 3-Second Crossfade Slideshow -->
+            <div class="slideshow-slides absolute inset-0 w-full h-full overflow-hidden select-none">
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                <img src="/Mouse.jpeg" alt="Blackwood 94 Preview - Slide 1" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/Mouse_Clickanle_link.jpeg" alt="Blackwood 94 Preview - Slide 2" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+              <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out opacity-0 -z-10">
+                <img src="/og-preview.png" alt="Blackwood 94 Preview - Slide 3" class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <!-- Vignette -->
+            <div class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-primary/30 via-transparent to-primary/40" aria-hidden="true"></div>
+
+            <!-- Top Corner Badge Row -->
+            <div class="flex items-center justify-between gap-2 z-10 relative">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-primary text-on-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">2024</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest/95 backdrop-blur-sm border border-primary-container text-primary font-label-md text-xs font-bold tracking-wider rounded-md shadow-sm">INTERACTIVE WEB &amp; AUDIO</span>
+              </div>
+              <span class="font-label-md text-xs text-primary font-bold tracking-widest font-mono bg-surface-container-lowest/90 backdrop-blur-sm px-2 py-0.5 rounded border border-primary-container/30 shadow-sm">#09</span>
+            </div>
+
+            <div class="flex-1 min-h-[80px]"></div>
+
+            <!-- Bottom Technical Meta Bar -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-1.5 text-[11px] font-label-md text-primary font-mono z-10 relative">
+              <span class="font-bold bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded border border-primary-container/30 shadow-xs">
+                100% PROCEDURAL AUDIO • 16 ROOMS
+              </span>
+              <div class="flex items-center gap-1">
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">WEB AUDIO</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">CANVAS 2D</span>
+                <span class="bg-surface-container-lowest/95 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-primary font-bold border border-primary-container/30 shadow-xs">SHADERS</span>
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="slideshow-dots absolute bottom-3 right-4 z-20 flex items-center gap-1.5 bg-primary/70 backdrop-blur-sm px-2 py-1 rounded-full border border-primary-container/40">
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-tertiary-fixed scale-125 shadow-sm" aria-label="Slide 1"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 2"></button>
+              <button class="dot w-2 h-2 rounded-full transition-all duration-300 bg-on-primary/40 hover:bg-on-primary/80" aria-label="Slide 3"></button>
+            </div>
           </div>
-          <h2 class="font-headline-md text-2xl font-bold text-primary group-hover:text-secondary transition-colors">
-            Blackwood &apos;94: The Crimson Protocol (Escape Room)
-          </h2>
-          <p class="font-body-md text-on-surface-variant mt-2 mb-4">
-            90s-styled point-and-click noir horror escape room game built in a 2-hour vibe coding hackathon with Antigravity &amp; Gemini. Features 16 interactive solvable puzzle rooms across two campaigns, procedural Web Audio API sound synthesis (sub-bass heartbeats, geiger clicks, mechanical shutters with zero external MP3s), dynamic cursor flashlight shaders, and darkroom chemical development.
-          </p>
-          <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface">
-            <strong>Key Architecture:</strong> Zero-dependency procedural Web Audio synthesizer (55Hz/42Hz heartbeats, geiger clicks), real-time cursor flashlight vignette, SVG procedural room generators, and deterministic state engine.
+
+          <!-- Middle Content Section -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h2 class="font-headline-sm text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase group-hover:text-secondary transition-colors">
+                  Blackwood &apos;94: The Crimson Protocol (Escape Room)
+                </h2>
+                <span class="shrink-0 px-3 py-1 bg-secondary text-on-secondary font-label-md text-xs font-bold tracking-wider rounded-lg border border-primary-container shadow-[2px_2px_0px_0px_#1e2022]">
+                  2HR VIBE BUILD
+                </span>
+              </div>
+
+              <div class="flex flex-wrap gap-2 mb-3">
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Web Audio API</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Canvas 2D</span>
+                <span class="px-2.5 py-1 bg-surface-container-lowest border border-primary-container font-label-md text-xs font-bold tracking-wider text-primary rounded-md">Procedural Audio</span>
+              </div>
+
+              <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mb-4">
+                90s-styled point-and-click noir horror escape room game built in a 2-hour vibe coding hackathon with Antigravity &amp; Gemini. Features 16 interactive solvable puzzle rooms across two campaigns, procedural Web Audio API sound synthesis (sub-bass heartbeats, geiger clicks, mechanical shutters with zero external MP3s), dynamic cursor flashlight shaders, and darkroom chemical development.
+              </p>
+
+              <div class="bg-surface-container p-3 rounded-lg mb-4 text-xs font-label-md text-on-surface border border-primary-container/20">
+                <strong>Key Architecture:</strong> Zero-dependency procedural Web Audio synthesizer (55Hz/42Hz heartbeats, geiger clicks), real-time cursor flashlight vignette, SVG procedural room generators, and deterministic state engine.
+              </div>
+            </div>
+
+            <!-- Solid Chips -->
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary text-on-secondary">JavaScript</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-secondary-fixed text-on-secondary-fixed">CSS3 Shaders</span>
+              <span class="px-2.5 py-1 font-label-md text-xs font-bold tracking-wider rounded-md border border-primary-container bg-primary text-on-primary">Vite</span>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-1.5 mb-4 font-label-md text-label-md">
-            <span class="px-2.5 py-1 bg-surface-container rounded">Web Audio API</span>
-            <span class="px-2.5 py-1 bg-secondary-fixed text-on-secondary-fixed rounded">Canvas 2D</span>
-            <span class="px-2.5 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded">Procedural Audio</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">JavaScript</span>
-            <span class="px-2.5 py-1 bg-surface-container rounded">CSS3 Shaders</span>
+
+          <!-- Bottom Divider & Action Buttons -->
+          <div class="pt-4 border-t-2 border-primary-container/20">
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://github.com/3pkm/Pixathon" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-[#d1e4ff] hover:bg-[#82a1c6] text-[#1e2022] font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-[#1e2022]" aria-hidden="true">visibility</span>
+                <span>LIVE</span>
+              </a>
+              <a href="https://github.com/3pkm/Pixathon" target="_blank" rel="noopener noreferrer" class="interactive-btn flex items-center justify-center gap-2 py-2.5 px-3 bg-surface-container text-primary font-label-md text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl border-2 border-primary-container shadow-[3px_3px_0px_0px_#1e2022] hover:bg-surface-container-high hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[1px_1px_0px_0px_#1e2022] active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[18px] text-secondary" aria-hidden="true">code</span>
+                <span>SOURCE</span>
+              </a>
+            </div>
           </div>
-          <div class="pt-3 border-t border-surface-container flex items-center justify-between font-label-md">
-            <a href="https://github.com/3pkm/Pixathon" target="_blank" rel="noopener noreferrer" class="font-bold text-primary hover:text-secondary flex items-center gap-1">
-              <span>Play &amp; View GitHub Source</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
-            </a>
-            <span class="text-on-surface-variant text-xs">Vibe Hackathon</span>
-          </div>
-        </div>
+        </article>
 
       </div>
 
